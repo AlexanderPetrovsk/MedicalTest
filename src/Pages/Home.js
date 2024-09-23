@@ -39,27 +39,43 @@ function Home() {
     const bestSellers = [
         {
             image: product1,
+            title: 'Lorem ipsum dolor sit amet.',
+            price: '$32.00'
         },
         {
             image: product2,
+            title: 'Lorem ipsum dolor sit amet.',
+            price: '$32.00'
         },
         {
             image: product1,
+            title: 'Lorem ipsum dolor sit amet.',
+            price: '$32.00'
         },
         {
             image: product3,
+            title: 'Lorem ipsum dolor sit amet.',
+            price: '$32.00'
         },
         {
             image: product2,
+            title: 'Lorem ipsum dolor sit amet.',
+            price: '$32.00'
         },
         {
             image: product1,
+            title: 'Lorem ipsum dolor sit amet.',
+            price: '$32.00'
         },
         {
             image: product3,
+            title: 'Lorem ipsum dolor sit amet.',
+            price: '$32.00'
         },
         {
             image: product2,
+            title: 'Lorem ipsum dolor sit amet.',
+            price: '$32.00'
         },
     ]
     return (
@@ -180,8 +196,8 @@ function Home() {
                                 <div className="ps-product-info">
                                     <img src="assets/images/rating.png" />
                                     <span>(2 Reviews)</span>
-                                    <h4>Aenean luctus non</h4>
-                                    <p>$32.00<del>$46.00</del></p>
+                                    <h4>{product.title}</h4>
+                                    <p>{product.price}<del>$46.00</del></p>
                                 </div>
                             </div>
                         </div>

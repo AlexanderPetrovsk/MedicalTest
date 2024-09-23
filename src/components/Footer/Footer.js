@@ -58,11 +58,15 @@ function Footer() {
                             </div>
                             <div className="ps-footer-addres">
                                 <span className="fas fa-location-dot"></span>						
-                                <p>104 Flanian Oaks Drive, ACOVILLE<br />West Virginia, California</p>
+                                <p>Londonska nm.10/3/4<br />Skopje, Macedonia</p>
                             </div>
                             <div className="ps-footer-addres">
-                                <span className="far fa-clock"></span>
-                                <p>Mondya - Friday: 8am - 4pm<br />Saturday: 9am - 5pm</p>
+                                <span className="far fa-envelope"></span>
+                                <p>info@meditek.com.mk</p>
+                            </div>
+                            <div className="ps-footer-addres">
+                                <span className="fa-solid fa-phone"></span>
+                                <p> +389 2 6133025</p>
                             </div>
                         </div>
                     </div>
