@@ -814,7 +814,7 @@ span.yellow-bubble{
 .ps-news-date-btn a {
     max-width: 140px;
     width: 100%;
-    background-color: #42d9ff;
+    background-color: var(--theme-color);
     display: block;
     padding: 12px 0;
     color: var(--white-color);
