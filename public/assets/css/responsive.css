@@ -144,6 +144,16 @@
     .dropdown:hover ul.ps-submenu{     
         transform: translate(0);
     }
+
+    .ps-overlay h5 {
+        font-size: 16px;
+
+    }
+
+    .ps-overlay h2{
+        font-size: 32px;
+        margin: 20px 0;
+    }
 }
 @media(max-width:991px){
     .ps-top-header-left {
@@ -199,6 +209,9 @@
     .ps-ad-responsive{
         margin-top: 50px;
     }
+    .ps-ad-resp-wrp > div {
+        margin-bottom: 30px;
+    }
 }
 @media(max-width:767px){    
     .ps-banner-swiper-main-wrapper .swiper-slide {
@@ -212,8 +225,8 @@
     }
     .ps-ad-box {
         text-align: center;
-        margin-bottom: 30px;
     }
+
     .ps-brand-logo{
         grid-template-columns: auto auto auto;
     }
