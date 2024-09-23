@@ -604,12 +604,14 @@ span.yellow-bubble{
 .ps-brand-logo{
     margin-top: 50px; 
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 20px;       
 }
 .ps-brand-logo img{
+    margin: 0 auto;
     margin-bottom: 20px;
     transition: all 0.3s;
+    width: 250px;
 }
 .ps-brand-logo img:hover{
     transform: translateX(-5px);
@@ -627,6 +629,12 @@ span.yellow-bubble{
     width: 100%;
     max-width: 500px;
 }
+
+.ps-deal-left-ad > a > img {
+    height: 100%;
+    object-fit: contain;
+}
+
 .ps-deal-parent {
     display: flex; 
 }
@@ -722,6 +730,7 @@ span.yellow-bubble{
 /* shop category section css start */
 .ps-shop-categry-main-wrapper{
     padding: 80px 0 44px 0;
+    background-color: #edf3f6;
 }
 .ps-shop-categry-left h4{
     font-size: 28px;
@@ -764,8 +773,8 @@ span.yellow-bubble{
 /* latest news section css start */
 .ps-news-main-wrapper{
     padding: 80px 0;
-    background-color: #edf3f6;
 }
+
 .ps-news-main-wrapper .ps-testml-slider-heading h4 {
     margin-bottom: 50px;
 }
