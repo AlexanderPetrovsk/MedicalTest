@@ -35,12 +35,12 @@ function Header() {
     return (
         <div className={`ps-navigation-wrapper ${ menuToggle ? 'menu_open' : ''}`}>
             <div className="row align-items-center">
-                <div className="col-lg-4 col-md-12 col-9">
+                <div className="col-xl-6 col-lg-7 col-md-12 col-9">
                     <div className="ps-main-logo">
                         <img src={logo} alt='' />
                     </div>
                 </div>
-                <div className="col-lg-4 col-md-12 ps-toggle-responsive">
+                <div className="col-xl-4 col-lg-4 col-md-12 ps-toggle-responsive">
                     <div className="ps-navbar">
                         <ul className="ps-toggle">
                             { headerLinks.map((link, index) => {
@@ -73,7 +73,7 @@ function Header() {
                         </ul>
                     </div>			
                 </div>
-                <div className="col-lg-4 col-md-12 col-12">
+                <div className="col-xl-2 col-lg-4 col-md-12 col-12">
                     <div className="ps-navigation-main-wrapper">					
                         <div className="ps-navigation-header-search">
                             <div className="ps-navigation-input">
