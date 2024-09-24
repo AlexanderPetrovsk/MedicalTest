@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Products from './Pages/Products/Products';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
       <Routes>
         <Route path='/' element={<Navigate to="/home" />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/products' element={<Products />} />
       </Routes>
       <Footer />
     </Router>

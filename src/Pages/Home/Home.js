@@ -1,15 +1,14 @@
 import React from "react";
-import product1 from '../assets/product1.png';
-import product2 from '../assets/product2.jpg';
-import product3 from '../assets/product3.jpg';
-import neofect from '../assets/neofect.svg';
-import meden from '../assets/meden.svg';
-import spes from '../assets/spes.svg';
-import contec from '../assets/contec.png';
-import lungs from '../assets/lungs.svg';
-import spa from '../assets/spa.svg';
-import brain from '../assets/brain.svg';
-import neuroImage from '../assets/neuroImage.webp';
+import product1 from '../../assets/product1.png';
+import product2 from '../../assets/product2.jpg';
+import product3 from '../../assets/product3.jpg';
+import neofect from '../../assets/neofect.svg';
+import meden from '../../assets/meden.svg';
+import spes from '../../assets/spes.svg';
+import contec from '../../assets/contec.png';
+import lungs from '../../assets/lungs.svg';
+import spa from '../../assets/spa.svg';
+import brain from '../../assets/brain.svg';
 
 function Home() {
     const slides = [
