@@ -69,9 +69,9 @@
     .ps-toggle-responsive {
         position: fixed;
         top: 0;
-        left: -300px;
+        left: -400px;
         bottom: 0;
-        width: 250px;
+        width: 350px;
         background: var(--white-color);
         box-shadow:1.5px 3.99px 27px 0px rgb(0 0 0 / 10%);
         z-index: 1;
@@ -131,7 +131,7 @@
         -webkit-transition: max-height 0.3s ease-in-out;
     }
     ul.ps-submenu.active {
-        max-height: 300px;
+        max-height: 500px;
         transition: max-height 0.3s ease-in-out;
         -moz-transition: max-height 0.3s ease-in-out;
         -ms-transition: max-height 0.3s ease-in-out;
@@ -141,8 +141,16 @@
     ul.ps-submenu li a:hover{
         color: var(--theme-color);
     }
-    .dropdown:hover ul.ps-submenu{     
+    .dropdown:hover ul.ps-submenu{    
+        right: 0; 
         transform: translate(0);
+    }
+    .dropdown2:hover ul.ps-submenu2,
+    .dropdown1:hover ul.ps-submenu1{
+        transform: translate(0);
+        position: absolute;
+        top: 30px;
+        right: -40px
     }
 
     .ps-overlay h2{

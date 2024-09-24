@@ -11,9 +11,9 @@ function Footer() {
     ];
 
     const productsSubmenu = [
-        'Placeholder 1',
-        'Placeholder 2',
-        'Placeholder 3',
+        'Rehabilitation',
+        'Neurology',
+        'Internal Medicine',
     ]
     return (
         <React.Fragment>

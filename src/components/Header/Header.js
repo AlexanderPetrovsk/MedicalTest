@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
-import logo from '../../assets/logo.svg';
 import React, { useState } from "react";
+import logo from '../../assets/logo.svg';
+import { NavLink } from "react-router-dom";
 
 function Header() {
     const headerLinks = [
@@ -11,9 +11,106 @@ function Header() {
         {
             title: 'Products',
             subMenus: [
-                'Placeholder 1',
-                'Placeholder 2',
-                'Placeholder 3'
+                {
+                    title: 'Rehabilitation',
+                    subMenus: [
+                        {
+                            title: 'Neurological',
+                            subMenus: [
+                                {
+                                    title: 'Neofect'
+                                },
+                                {
+                                    title: 'Thera Trainer'
+                                },
+                                {
+                                    title: 'Tyromotion'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Physical',
+                            subMenus: [
+                                {
+                                    title: 'Meden Inmed'
+                                },
+                                {
+                                    title: 'Winback'
+                                },
+                                {
+                                    title: 'ASA Laser'
+                                },
+                                {
+                                    title: 'Zimmer/Enraf Nonous'
+                                },
+                            ]
+                        }
+                    ]
+                },
+                {
+                    title: 'Neurology',
+                    subMenus: [
+                        {
+                            title: 'EEG/EMG',
+                            subMenus: [
+                                {
+                                    title: 'EB Neuro'
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Expendable',
+                            subMenus: [
+                                {
+                                    title: 'Spes Medica'
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Neuro/Bio feedback',
+                            subMenus: [
+                                {
+                                    title: 'Elmiko'
+                                },
+                                {
+                                    title: 'Thought Technology'
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    title: 'Internal medicine',
+                    subMenus: [
+                        {
+                            title: 'EKG',
+                            subMenus: [
+                                {
+                                    title: 'Contec',
+                                },
+                                {
+                                    title: 'Labtech'
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Spirometry',
+                            subMenus: [
+                                {
+                                    title: 'MIR'
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Sleep apnea',
+                            subMenus: [
+                                {
+                                    title: 'BMC'
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         },
         {
@@ -59,8 +156,24 @@ function Header() {
                                                 <ul className="ps-submenu">
                                                     { link.subMenus.map((subMenu, index) => {
                                                         return (
-                                                            <li key={index}>
-                                                                <span>{subMenu}</span>
+                                                            <li key={index} className="dropdown1">
+                                                                <span>{subMenu.title}</span>
+                                                                <ul className="ps-submenu1">
+                                                                    { subMenu.subMenus.map((menu, index) => {
+                                                                        return (
+                                                                                <li key={index} className="dropdown2">
+                                                                                    <span>{menu.title}</span>
+                                                                                    <ul className="ps-submenu2">
+                                                                                        { menu.subMenus.map((final, index) => {
+                                                                                            return (
+                                                                                                <li key={index}>{final.title}</li>
+                                                                                            )
+                                                                                        })}
+                                                                                    </ul>
+                                                                                </li>
+                                                                            )
+                                                                    })}
+                                                                </ul>
                                                             </li>
                                                         )
                                                     })}
