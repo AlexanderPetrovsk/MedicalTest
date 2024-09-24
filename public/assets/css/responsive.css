@@ -145,14 +145,8 @@
         transform: translate(0);
     }
 
-    .ps-overlay h5 {
-        font-size: 16px;
-
-    }
-
     .ps-overlay h2{
-        font-size: 32px;
-        margin: 20px 0;
+        margin-bottom: 20px;
     }
 }
 @media(max-width:991px){

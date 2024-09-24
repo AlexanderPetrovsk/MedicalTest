@@ -458,6 +458,10 @@ span.yellow-bubble{
 }
 
 .ps-overlay {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -475,18 +479,18 @@ span.yellow-bubble{
     font-weight: 400;
     color: var(--dark-color);
     background-color: var(--white-color);
-    max-width: 281px;
-    width: 100%;
+    max-width: 80%;
+    width: min(280px, 80%);
     margin: 0 auto;
     padding: 10px 20px;
     border-radius: 30px;
 }
 
 .ps-overlay h2{
-    font-size: 46px;
+    font-size: clamp(1.75rem, 3vw, 3rem);
     font-weight: 700;
     color: var(--white-color);
-    margin: 40px 0;
+    margin-bottom: 20px;
     line-height: 1.5;
 }
 /* ad section css end */
@@ -788,7 +792,12 @@ span.yellow-bubble{
     cursor: pointer;    
 }
 .ps-news-img{
+    height: 250px;
     position: relative;
+}
+.ps-news-img > img {
+    height: 100%;
+    object-fit: cover;
 }
 .ps-news-overlay{
     position: absolute;
