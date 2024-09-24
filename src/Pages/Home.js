@@ -245,30 +245,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className="ps-deal-main-wrapper">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-lg-12 col-md-12 col-12">
-                            <div className="ps-best-seller-heading">
-                                <h4>Deals of the Week</h4>
-                                <a href="/home">View All</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="ps-deal-parent">
-                        <div className="ps-deal-left-ad">
-                            <a href="/home">
-                                <img src={neuroImage} alt=""/>
-                            </a>
-                        </div>
-                        <div className="ps-deal-box-parent">
-                            <div className="row">
-                                { getProductsLayout(bestSellers) }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div className="ps-shop-categry-main-wrapper">
                 <div className="container">
                     <div className="row align-items-center">
