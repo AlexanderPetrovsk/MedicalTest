@@ -214,6 +214,10 @@
     .ps-ad-resp-wrp > div {
         margin-bottom: 30px;
     }
+    .shop-products {
+        max-width: 80%;
+        margin: 0 auto;
+    }
 }
 @media(max-width:767px){    
     .ps-banner-swiper-main-wrapper .swiper-slide {
