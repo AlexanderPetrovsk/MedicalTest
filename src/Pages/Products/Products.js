@@ -91,13 +91,14 @@ function Products() {
 
         if (category) {
             setChosenCategory(category);
-            searchParams.delete('category');
         }
 
         if (brand) {
             setChosenBrand(brand);
-            searchParams.delete('brand');
         }
+
+        searchParams.delete('category');
+        searchParams.delete('brand');
 
         setSearchParams(searchParams);
 
@@ -188,7 +189,7 @@ function Products() {
                     </div>
                     <div className='col-lg-1'>
                     </div>
-                    <div className='col-lg-4 col-8 mx-auto mt-5'>
+                    <div className='col-lg-4 col-8 mx-auto'>
                         <div className='shop-product-search'>
                             <h2 className='shop-sidebar-title mb-3'>Product Search</h2>
                             <form>

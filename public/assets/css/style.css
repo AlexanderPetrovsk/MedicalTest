@@ -187,9 +187,21 @@ p {
     position: relative;
 }
 
-.dropdown:hover ul.ps-submenu,
+.dropdown1, .dropdown2 {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e8eef6;
+}
+
+ul.ps-submenu2 > li {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e8eef6;
+}
+
+.dropdown:hover ul.ps-submenu ,
+.dropdown:active ul.ps-submenu,
 .dropdown1:hover ul.ps-submenu1,
-.dropdown2:hover ul.ps-submenu2
+.dropdown1:active ul.ps-submenu1,
+.dropdown2:hover ul.ps-submenu2, .dropdown2:active ul.ps-submenu2
 {
     opacity: 1;
     visibility: visible;
@@ -199,7 +211,7 @@ ul.ps-submenu,
 ul.ps-submenu2,
 ul.ps-submenu1 {
     position: absolute;
-    top: 73px;
+    top: 55px;
     right: -140px;
     background-color: var(--white-color);
     box-shadow: 0 10px 20px rgb(99 149 189 / 30%);
@@ -217,6 +229,7 @@ ul.ps-submenu {
     text-align: left; 
 }
 ul.ps-submenu li {
+    text-align: left;
     display: block !important;
 }
 
@@ -395,65 +408,6 @@ span.yellow-bubble{
     font-weight: 800;
 }
 /* banner css end */
-/* service section css start */
-.ps-service-rectangle {
-    background-color: var(--white-color);
-    border-radius: 10px;
-    filter: drop-shadow(0 0 25px rgba(99,149,189,0.1));    
-    padding: 47px 60px 30px 35px;
-    margin-top: -130px;
-}
-.ps-service-rectangle .ps-service-box{
-    text-align: center;
-    cursor: pointer;
-}
-.ps-service-box:hover .ps-service-icon{
-    transform: translateY(-10px);
-}
-.ps-service-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
-    background: #fff6e9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 30px auto;
-    transition: all 0.5s;
-}
-.ps-service-icon-shipping span svg{
-    fill: #ffac2f;
-}
-.ps-service-icon-days{
-    background: #e9f1ff;
-}
-.ps-service-icon-days span svg{
-    fill: #4a8cff;
-}
-.ps-service-icon-offer{
-    background: #e5f6ff;
-}
-.ps-service-icon-offer svg{
-    fill: #4ac3ff;
-}
-.ps-service-icon-secure{
-    background: #ffecee;
-}
-.ps-service-icon-secure svg{
-    fill: #ff4355;
-}
-.ps-service-info h4{
-    font-size: 18px;
-    color: var(--dark-color);
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-.ps-service-info p{
-    font-size: 15px;
-    color: var(--grey-color);
-    font-weight: 400;    
-}
-/* service section css end */
 /* ad section css start */
 .ps-ad-wapper{
     padding: 80px 85px;
@@ -1265,76 +1219,80 @@ span.yellow-bubble{
 
 
 /*Service css start*/
-    .service-container {
-        max-width: min(1600px, 80%);
-        margin: 0 auto;
-    }
+.service-main-wrapper {
+    background-color: #edf3f6;
+    display: flex;
+}
+.service-container {
+    max-width: min(1600px, 80%);
+    margin: 0 auto;
+}
 
-    .service-title {
-        color: var(--theme-color);
-        font-size: 3.5rem
-    }
+.service-title {
+    color: var(--theme-color);
+    font-size: 3.5rem
+}
 
-    .service-description {
-        color: var(--dark-color);
-        font-size: clamp(1rem, 3vw, 1.5rem);
-        max-width: 90%;
-    }
+.service-description {
+    color: var(--dark-color);
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    max-width: 90%;
+}
 
-    .service-form {
-        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.07);
-        background: #fff;
-        border-radius: 10px;
-        padding: 34px 40px 40px;
-        max-height: 600px;
-    }
+.service-form {
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.07);
+    background: #fff;
+    border-radius: 10px;
+    padding: 34px 40px 40px;
+    max-height: 600px;
+}
 
-    .service-form-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--theme-color);
-        margin-bottom: 24px;
-        text-transform: capitalize;
-    }
+.service-form-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--theme-color);
+    margin-bottom: 24px;
+    text-transform: capitalize;
+}
 
-    .service-form  input {
-        width: 100%;
-        height: 50px;
-        border: 1px solid var(--theme-color);
-        padding: 0 20px;
-        border-radius: 30px;
-        margin-bottom: 15px;
-        outline: none;
-    }
+.service-form  input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid var(--theme-color);
+    padding: 0 20px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    outline: none;
+}
 
-    .service-form textarea {
-        width: 100%;
-        height: 150px;
-        border: 1px solid var(--theme-color);
-        padding: 10px 20px;
-        border-radius: 10px;
-        resize: none;
-    }
+.service-form textarea {
+    width: 100%;
+    height: 150px;
+    border: 1px solid var(--theme-color);
+    padding: 10px 20px;
+    border-radius: 10px;
+    resize: none;
+}
 
-    .service-form button {
-        display: inline-block;
-        min-width: 160px;
-        height: 50px;
-        line-height: 50px;
-        background: var(--theme-color);
-        color: #fff;
-        text-transform: capitalize;
-        outline: none;
-        padding: 0 20px;
-        cursor: pointer;
-        font-size: 16px;
-        text-align: center;
-        vertical-align: middle;
-        border: none;
-        border-radius: 30px;
-        transition: 0.3s;
-        margin-top: 25px;
-    }
+.service-form button {
+    display: inline-block;
+    min-width: 160px;
+    height: 50px;
+    line-height: 50px;
+    background: var(--theme-color);
+    color: #fff;
+    text-transform: capitalize;
+    outline: none;
+    padding: 0 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-top: 25px;
+}
 /*Service css end*/
 
 /*contact css end*/
