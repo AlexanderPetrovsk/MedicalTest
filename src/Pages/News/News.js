@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import product1 from '../../assets/product1.png';
 import product2 from '../../assets/product2.jpg';
 import product3 from '../../assets/product3.jpg';
@@ -50,6 +50,41 @@ function News() {
             title: 'Contrary to popular beliefpsum is not simply random and text.',
             description: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.'
         },
+        {
+            image: product1,
+            title: 'Contrary to popular beliefpsum is not simply random and text.',
+            description: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.'
+        },
+        {
+            image: product1,
+            title: 'Contrary to popular beliefpsum is not simply random and text.',
+            description: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.'
+        },
+        {
+            image: product1,
+            title: 'Contrary to popular beliefpsum is not simply random and text.',
+            description: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.'
+        },
+        {
+            image: product1,
+            title: 'Contrary to popular beliefpsum is not simply random and text.',
+            description: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.'
+        },
+        {
+            image: product1,
+            title: 'Contrary to popular beliefpsum is not simply random and text.',
+            description: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.'
+        },
+        {
+            image: product1,
+            title: 'Contrary to popular beliefpsum is not simply random and text.',
+            description: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.'
+        },
+        {
+            image: product1,
+            title: 'Contrary to popular beliefpsum is not simply random and text.',
+            description: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.'
+        },
     ]
 
     const [searchText, setSearchText] = useState('');
@@ -68,11 +103,14 @@ function News() {
         setCurrentPage(currentPage);
     }
 
-    const perPage = 6;
+    const perPage = 12;
 
     const newsFrom = (currentPage - 1) * perPage;
     const newsTo = currentPage * perPage;
- 
+    
+    const listRef = useRef(null);
+    const executeScroll = () => listRef.current.scrollIntoView();
+
     return (
         <div className="ps-news-main-wrapper">
             <div className="container">
@@ -82,7 +120,7 @@ function News() {
                             <h2>Latest News</h2>
                         </div>
                     </div>
-                    <div className='col-lg-12 shop-product-search'>
+                    <div className='col-lg-12 shop-product-search' ref={listRef}>
                         <h2 className='shop-sidebar-title mb-3'>Search</h2>
                         <form>
                             <input type="text" placeholder="Search" onChange={(e) => { setSearchText(e.target.value); setCurrentPage(1) }}/>
@@ -113,7 +151,7 @@ function News() {
                         })}
                     </div>
                     <div className="news-pagination">
-                        <Pagination perPage={perPage} items={filteredNews} onChange={(currentPage) => { handleChange(currentPage); }} key={filteredNews}/>
+                        <Pagination perPage={perPage} items={filteredNews} onChange={(currentPage) => { handleChange(currentPage); executeScroll(); }} key={filteredNews}/>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import product1 from '../../assets/product1.png';
 import Pagination from "../../components/Pagination/Pagination";
 import { useSearchParams } from "react-router-dom";
@@ -65,6 +65,202 @@ function Products() {
         {
             title: 'Lorem Ipsum.',
             price: 230.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Internal Medicine'
+        },
+        {
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
             image: product1,
             brand: 'Contec',
             category: 'Internal Medicine'
@@ -152,6 +348,10 @@ function Products() {
     const productsFrom = (currentPage - 1) * perPage;
     const productsTo = currentPage * perPage;
 
+    const listRef = useRef(null)
+
+    const executeScroll = () => listRef.current.scrollIntoView()   
+
     return (
         <React.Fragment>
             <div className='container mt-5 mb-5'>
@@ -163,7 +363,7 @@ function Products() {
                     </div>
                     <div className='col-lg-7'>
                         <div className='shop-box mb-5'>
-                            <div className='shop-title'>
+                            <div className='shop-title' ref={listRef}>
                                 <h2 className='shop-sidebar-title'>Showing results</h2>
                                 <p><span>Total : </span>{ products.length }</p>
                             </div>
@@ -184,7 +384,7 @@ function Products() {
                             </div>
                         </div>
                         <div className="shop-pagination">
-                            <Pagination perPage={perPage} items={filteredData} onChange={(currentPage) => { handleChange(currentPage); }} key={filteredData.length}/>
+                            <Pagination perPage={perPage} items={filteredData} onChange={(currentPage) => { handleChange(currentPage); executeScroll(); }} key={filteredData.length}/>
                         </div>
                     </div>
                     <div className='col-lg-1'>
