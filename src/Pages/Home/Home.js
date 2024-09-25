@@ -1,4 +1,3 @@
-import React from "react";
 import product1 from '../../assets/product1.png';
 import product2 from '../../assets/product2.jpg';
 import product3 from '../../assets/product3.jpg';
@@ -9,6 +8,11 @@ import contec from '../../assets/contec.png';
 import lungs from '../../assets/lungs.svg';
 import spa from '../../assets/spa.svg';
 import brain from '../../assets/brain.svg';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import React from 'react';
+import 'swiper/css';
+import 'swiper/css/navigation'
+import { Navigation } from 'swiper/modules';
 
 function Home() {
     const slides = [
@@ -159,35 +163,32 @@ function Home() {
     return (
         <React.Fragment>
             <div className="ps-banner-swiper-main-wrapper">
-                <div className="swiper-container">
-                    <div className="swiper-wrapper">
-                        { slides.map((slide, index) => {
-                            return (
-                                <div className="swiper-slide" key={index}>
-                                    <div className="container-fluid">
-                                        <div className="row">
-                                            <div className="col-lg-7 col-md-12">
-                                                <div className="ps-banner-content">
-                                                    <h5>{ slide.title }</h5>
-                                                    <h2>{ slide.description }</h2>									
-                                                    <div className="ps-banner-btn">
-                                                        <a className="ps-btn" href='home'>
-                                                            <span>{ slide.buttonText }</span>
-                                                        </a>
+                    <Swiper
+                        modules={[Navigation]}
+                        slidesPerView={1}
+                        navigation
+                        loop
+                    >
+                            { slides.map((slide, index) => {
+                                return (
+                                    <SwiperSlide key={index}>
+                                                <div className="row">
+                                                    <div className="col-lg-7 col-md-12">
+                                                        <div className="ps-banner-content">
+                                                            <h5>{ slide.title }</h5>
+                                                            <h2>{ slide.description }</h2>									
+                                                            <div className="ps-banner-btn">
+                                                                <a className="ps-btn" href='home'>
+                                                                    <span>{ slide.buttonText }</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        }) }
-                    </div>
-                    <div className="ps-banner-slider-btn">
-                        <div className="swiper-button-next"></div>
-                        <div className="swiper-button-prev"></div>
-                    </div>
-                </div>
+                                    </SwiperSlide>
+                                )
+                            }) }
+                    </Swiper>
             </div>
             <div className="ps-ad-section-main-wrapper">
                 <div className="container-fluid">
@@ -273,27 +274,27 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div class="ps-news-main-wrapper">
-                <div class="container">
-                    <div class="row ps-news-row-parent">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="ps-testml-slider-heading">
+            <div className="ps-news-main-wrapper">
+                <div className="container">
+                    <div className="row ps-news-row-parent">
+                        <div className="col-lg-12 col-md-12">
+                            <div className="ps-testml-slider-heading">
                                 <h4>Latest News</h4>
                             </div>
                         </div>
                         { newProducts.map((news, index) => {
                             return (
-                                <div class="col-lg-4 col-md-6" key={index}>
-                                    <div class="ps-news-box">
-                                        <div class="ps-news-inner">
-                                            <div class="ps-news-img">
+                                <div className="col-lg-4 col-md-6" key={index}>
+                                    <div className="ps-news-box">
+                                        <div className="ps-news-inner">
+                                            <div className="ps-news-img">
                                                 <img src={news.image} alt=""/>
-                                                <div class="ps-news-overlay"></div>
-                                                <div class="ps-news-date-btn">
+                                                <div className="ps-news-overlay"></div>
+                                                <div className="ps-news-date-btn">
                                                     <a href="/home">JULY 29, 2021</a>
                                                 </div>
                                             </div>
-                                            <div class="ps-news-content">
+                                            <div className="ps-news-content">
                                                 <h4>Contrary to popular beliefpsum is not
                                                     simply random and text.</h4>
                                                 <p>consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna

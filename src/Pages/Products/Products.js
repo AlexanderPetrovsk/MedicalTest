@@ -1,64 +1,144 @@
 import React, { useState } from "react";
 import product1 from '../../assets/product1.png';
+import Pagination from "../../components/Pagination/Pagination";
 
 function Products() {
     const products = [
         {
-            title: 'Lorem Ipsum.',
-            price: '$230.00',
+            title: 'Lorem Ipsum dolor.',
+            price: 230.00,
             image: product1,
-            brand: 'Contec'
+            brand: 'Contec',
+            category: 'Rehabilitation'
+
+        },
+        {
+            title: 'Lorem Ipsum simet.',
+            price: 230.00,
+            image: product1,
+            brand: 'Contec',
+            category: 'Rehabilitation'
+        },
+        {
+            title: 'Lorem Ipsum consectetur.',
+            price: 1000.00,
+            image: product1,
+            brand: 'Meden Inmed',
+            category: 'Neurology'
         },
         {
             title: 'Lorem Ipsum.',
-            price: '$230.00',
+            price: 430.00,
             image: product1,
-            brand: 'Contec'
+            brand: 'Neofect',
+            category: 'Internal Medicine'
         },
         {
             title: 'Lorem Ipsum.',
-            price: '$230.00',
+            price: 230.00,
             image: product1,
-            brand: 'Meden Inmed'
+            brand: 'Meden Inmed',
+            category: 'Neurology'
         },
         {
             title: 'Lorem Ipsum.',
-            price: '$230.00',
+            price: 230.00,
             image: product1,
-            brand: 'Neofect'
+            brand: 'Neofect',
+            category: 'Neurology'
         },
         {
             title: 'Lorem Ipsum.',
-            price: '$230.00',
+            price: 230.00,
             image: product1,
-            brand: 'Meden Inmed'
+            brand: 'Meden Inmed',
+            category: 'Neurology'
         },
         {
             title: 'Lorem Ipsum.',
-            price: '$230.00',
+            price: 210.00,
             image: product1,
-            brand: 'Neofect'
+            brand: 'Thera Trainer',
+            category: 'Neurology'
         },
         {
             title: 'Lorem Ipsum.',
-            price: '$230.00',
+            price: 230.00,
             image: product1,
-            brand: 'Meden Inmed'
+            brand: 'Thera Trainer',
+            category: 'Neurology'
         },
         {
-            title: 'Lorem Ipsum.',
-            price: '$230.00',
+            title: 'Lorem Ipsum ss.',
+            price: 430.00,
             image: product1,
-            brand: 'Meden Inmed'
+            brand: 'Thera Trainer',
+            category: 'Neurology'
         },
     ];
 
-    const [priceRange, setPriceRange] = useState(500);
+    const [priceRange, setPriceRange] = useState(1000);
+    const [searchText, setSearchText] = useState("");
+    const [chosenBrand, setChosenBrand] = useState("");
+    const [chosenCategory, setChosenCategory] = useState("");
+
+    const filterByBrand = (product) => {
+        if (chosenBrand === "") {
+            return product;
+        }
+
+        return product.brand.toLowerCase() === chosenBrand.toLowerCase();
+    } 
+
+    const filterByCategory = (product) => {
+        if (chosenCategory === "") {
+            return product;
+        }
+
+        return product.category.toLowerCase() === chosenCategory.toLowerCase();
+    } 
+
+    const filterByPrice = (product) => {
+        return product.price <= priceRange;
+    }
+    
+    const filterBySearchText = (product) => {
+        if (searchText === '') {
+            return product;
+        }
+
+        return product.title.toLowerCase().includes(searchText.toLowerCase());
+    }
+
+    const filteredData = products.filter((el) => {
+        return (
+            filterByBrand(el)
+            && filterByPrice(el)
+            && filterBySearchText(el)
+            && filterByCategory(el)
+        ); 
+    });
+
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const handleChange = (currentPage) => {
+        setCurrentPage(currentPage);
+    }
+
+    const perPage = 8;
+
+    const productsFrom = (currentPage - 1) * perPage;
+    const productsTo = currentPage * perPage;
 
     return (
         <React.Fragment>
             <div className='container mt-5 mb-5'>
                 <div className='row'>
+                    <div className="col-lg-12">
+                        <div className="header-title">
+                            <h2>Shop Products</h2>
+                        </div>
+                    </div>
                     <div className='col-lg-7'>
                         <div className='shop-box mb-5'>
                             <div className='shop-title'>
@@ -66,7 +146,7 @@ function Products() {
                                 <p><span>Total : </span>{ products.length }</p>
                             </div>
                             <div className='shop-products'>
-                                { products.map((product, index) => {
+                                { filteredData.slice(productsFrom, productsTo).map((product, index) => {
                                     return (
                                         <div className='shop-product-box' key={index}>
                                             <div className='shop-product-image'>
@@ -74,7 +154,7 @@ function Products() {
                                             </div>
                                             <div className='shop-product-data'>
                                                 <h3>{product.title}</h3>
-                                                <h5>{product.price}</h5>
+                                                <h5>${product.price}</h5>
                                             </div>
                                         </div>
                                     )
@@ -88,7 +168,7 @@ function Products() {
                         <div className='shop-product-search'>
                             <h2 className='shop-sidebar-title mb-3'>Product Search</h2>
                             <form>
-                                <input type="text" placeholder="Product Search" />
+                                <input type="text" placeholder="Product Search" onChange={(e) => {setSearchText(e.target.value); setCurrentPage(1); }}/>
                                 <button>search</button>
                             </form>
                         </div>
@@ -98,12 +178,19 @@ function Products() {
                                 <ul className='shop-brands'>
                                     { [...new Set(products.map((product) => product.brand))].map((brand, index) => {
                                         return (
-                                            <li key={index} className='shop-brand'>
+                                            <li
+                                                className={`shop-brand ${chosenBrand === brand ? 'active-category' : ''}`}
+                                                key={index}
+                                                onClick={() => { setChosenBrand(brand); setCurrentPage(1); }}
+                                            >
                                                 {brand}
                                                 <span>{ products.filter((product) => product.brand === brand).length }</span>
                                             </li>
                                         )
                                     })}
+                                    <li className="shop-brand" onClick={() => { setChosenBrand(""); setCurrentPage(1); }}>
+                                        <span className="px-2">Clear</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -124,20 +211,30 @@ function Products() {
                                     const newVal = Number(((e.target.value - min) * 100) / (max - min));
                                   
                                     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
-
+                                    setCurrentPage(1);
                                 }}
                             />
                             <output id='price-bubble'>${priceRange}</output>
                         </div>
-                        <div class="shop-product-category-filter">
-                            <h2 class="shop-sidebar-title mb-3">Categories</h2>
+                        <div className="shop-product-category-filter">
+                            <h2 className="shop-sidebar-title mb-3">Categories</h2>
                             <ul>
-                                <li>Neurology</li>
-                                <li>Rehabilitation</li>
-                                <li>InternalMedicine</li>
+                                { [...new Set(products.map((product) => product.category))].map((category, index) => {
+                                    return <li
+                                            className={`${chosenCategory === category ? 'active-category' : ''}`}
+                                            key={index}
+                                            onClick={() => { setChosenCategory(category); setCurrentPage(1);}}
+                                        >
+                                            {category}
+                                        </li>
+                                })}
+                                <li className="shop-brand" onClick={() => { setChosenCategory(""); setCurrentPage(1);}}>
+                                    <span className="px-2">Clear</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
+                    <Pagination perPage={perPage} items={filteredData} onChange={(currentPage) => { handleChange(currentPage); }} key={filteredData.length}/>
                 </div>
             </div>
         </React.Fragment>

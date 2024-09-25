@@ -152,6 +152,9 @@
         top: 30px;
         right: -40px
     }
+    .dropdown2:hover ul.ps-submenu2 {
+        right: -80px
+    }
 
     .ps-overlay h2{
         margin-bottom: 20px;

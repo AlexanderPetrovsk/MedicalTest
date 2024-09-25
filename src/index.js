@@ -9,6 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import Products from './Pages/Products/Products';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Contact from './Pages/Contact/Contact';
+import News from './Pages/News/News';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
         <Route path='/products' element={<Products />} />
         <Route path='/service' element={<Service />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/news' element={<News />} />
       </Routes>
       <Footer />
     </Router>
