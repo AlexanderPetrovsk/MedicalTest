@@ -9,7 +9,7 @@ function Products() {
             title: 'Lorem Ipsum dolor.',
             price: 230.00,
             image: product1,
-            brand: 'Contec',
+            brand: 'Neofect',
             category: 'Rehabilitation'
 
         },
@@ -17,7 +17,7 @@ function Products() {
             title: 'Lorem Ipsum simet.',
             price: 230.00,
             image: product1,
-            brand: 'Contec',
+            brand: 'Neofect',
             category: 'Rehabilitation'
         },
         {
@@ -25,34 +25,34 @@ function Products() {
             price: 1000.00,
             image: product1,
             brand: 'Meden Inmed',
-            category: 'Neurology'
+            category: 'Rehabilitation'
         },
         {
             title: 'Lorem Ipsum.',
             price: 430.00,
             image: product1,
             brand: 'Neofect',
-            category: 'Internal Medicine'
+            category: 'Rehabilitation'
         },
         {
             title: 'Lorem Ipsum.',
             price: 230.00,
             image: product1,
-            brand: 'Meden Inmed',
+            brand: 'Spes medica',
             category: 'Neurology'
         },
         {
             title: 'Lorem Ipsum.',
             price: 230.00,
             image: product1,
-            brand: 'Neofect',
+            brand: 'Spes medica',
             category: 'Neurology'
         },
         {
             title: 'Lorem Ipsum.',
             price: 230.00,
             image: product1,
-            brand: 'Meden Inmed',
+            brand: 'Elmiko',
             category: 'Neurology'
         },
         {
@@ -60,21 +60,21 @@ function Products() {
             price: 210.00,
             image: product1,
             brand: 'Thera Trainer',
-            category: 'Neurology'
+            category: 'Rehabilitation'
         },
         {
             title: 'Lorem Ipsum.',
             price: 230.00,
             image: product1,
-            brand: 'Thera Trainer',
-            category: 'Neurology'
+            brand: 'Contec',
+            category: 'Internal Medicine'
         },
         {
             title: 'Lorem Ipsum ss.',
             price: 430.00,
             image: product1,
-            brand: 'Thera Trainer',
-            category: 'Neurology'
+            brand: 'Contec',
+            category: 'Internal Medicine'
         },
     ];
 
