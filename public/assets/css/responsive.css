@@ -221,6 +221,11 @@
         max-width: 80%;
         margin: 0 auto;
     }
+    .news-pagination,
+    .shop-pagination {
+        display: flex;
+        justify-content: center;
+    }
 }
 @media(max-width:767px){    
     .ps-banner-swiper-main-wrapper .swiper-slide {

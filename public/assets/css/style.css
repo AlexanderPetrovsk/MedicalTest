@@ -211,18 +211,27 @@ ul.ps-submenu1 {
     transition: all 0.5s;
 }
 
-ul.ps-submenu li {
+ul.ps-submenu {
     padding-bottom: 5px;
     display: block;
     text-align: left; 
 }
+ul.ps-submenu li {
+    display: block !important;
+}
+
 ul.ps-submenu li a {
+    padding: 0;
+}
+
+ul.ps-submenu a {
     padding-left: 0;
     color: var(--dark-color);
     font-weight: 500;
     font-size: 15px;
 }
-ul.ps-submenu li a:hover{
+
+ul.ps-submenu a:hover{
     color: var(--theme-color);
 }
 /* submenu css end */

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import product1 from '../../assets/product1.png';
 import Pagination from "../../components/Pagination/Pagination";
+import { useSearchParams } from "react-router-dom";
 
 function Products() {
     const products = [
@@ -82,6 +83,26 @@ function Products() {
     const [chosenBrand, setChosenBrand] = useState("");
     const [chosenCategory, setChosenCategory] = useState("");
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        const category = searchParams.get('category');
+        const brand = searchParams.get('brand');
+
+        if (category) {
+            setChosenCategory(category);
+            searchParams.delete('category');
+        }
+
+        if (brand) {
+            setChosenBrand(brand);
+            searchParams.delete('brand');
+        }
+
+        setSearchParams(searchParams);
+
+    }, [searchParams, setSearchParams]);
+
     const filterByBrand = (product) => {
         if (chosenBrand === "") {
             return product;
@@ -161,10 +182,13 @@ function Products() {
                                 })}
                             </div>
                         </div>
+                        <div className="shop-pagination">
+                            <Pagination perPage={perPage} items={filteredData} onChange={(currentPage) => { handleChange(currentPage); }} key={filteredData.length}/>
+                        </div>
                     </div>
                     <div className='col-lg-1'>
                     </div>
-                    <div className='col-lg-4'>
+                    <div className='col-lg-4 col-8 mx-auto mt-5'>
                         <div className='shop-product-search'>
                             <h2 className='shop-sidebar-title mb-3'>Product Search</h2>
                             <form>
@@ -234,7 +258,6 @@ function Products() {
                             </ul>
                         </div>
                     </div>
-                    <Pagination perPage={perPage} items={filteredData} onChange={(currentPage) => { handleChange(currentPage); }} key={filteredData.length}/>
                 </div>
             </div>
         </React.Fragment>

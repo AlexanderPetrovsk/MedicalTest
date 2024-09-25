@@ -169,25 +169,25 @@ function Home() {
                         navigation
                         loop
                     >
-                            { slides.map((slide, index) => {
-                                return (
-                                    <SwiperSlide key={index}>
-                                                <div className="row">
-                                                    <div className="col-lg-7 col-md-12">
-                                                        <div className="ps-banner-content">
-                                                            <h5>{ slide.title }</h5>
-                                                            <h2>{ slide.description }</h2>									
-                                                            <div className="ps-banner-btn">
-                                                                <a className="ps-btn" href='home'>
-                                                                    <span>{ slide.buttonText }</span>
-                                                                </a>
-                                                            </div>
+                        { slides.map((slide, index) => {
+                            return (
+                                <SwiperSlide key={index}>
+                                            <div className="row">
+                                                <div className="col-lg-7 col-md-12">
+                                                    <div className="ps-banner-content">
+                                                        <h5>{ slide.title }</h5>
+                                                        <h2>{ slide.description }</h2>									
+                                                        <div className="ps-banner-btn">
+                                                            <a className="ps-btn" href='home'>
+                                                                <span>{ slide.buttonText }</span>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                    </SwiperSlide>
-                                )
-                            }) }
+                                            </div>
+                                </SwiperSlide>
+                            )
+                        }) }
                     </Swiper>
             </div>
             <div className="ps-ad-section-main-wrapper">

@@ -155,9 +155,9 @@ function Header() {
                                             { link.subMenus.length ?
                                                 <ul className="ps-submenu">
                                                     { link.subMenus.map((subMenu, index) => {
-                                                        return (
+                                                        return (   
                                                             <li key={index} className="dropdown1">
-                                                                <span>{subMenu.title}</span>
+                                                                <NavLink to={`/products?category=${subMenu.title}`} key={index}>{subMenu.title}</NavLink>
                                                                 <ul className="ps-submenu1">
                                                                     { subMenu.subMenus.map((menu, index) => {
                                                                         return (
@@ -166,7 +166,9 @@ function Header() {
                                                                                     <ul className="ps-submenu2">
                                                                                         { menu.subMenus.map((final, index) => {
                                                                                             return (
-                                                                                                <li key={index}>{final.title}</li>
+                                                                                                <li key={index}>
+                                                                                                    <NavLink to={`/products?category=${subMenu.title}&brand=${final.title}`} key={index}>{final.title}</NavLink>
+                                                                                                </li>
                                                                                             )
                                                                                         })}
                                                                                     </ul>

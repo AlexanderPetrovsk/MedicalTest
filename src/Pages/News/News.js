@@ -112,7 +112,9 @@ function News() {
                             )
                         })}
                     </div>
-                    <Pagination perPage={perPage} items={filteredNews} onChange={(currentPage) => { handleChange(currentPage); }} key={filteredNews}/>
+                    <div className="news-pagination">
+                        <Pagination perPage={perPage} items={filteredNews} onChange={(currentPage) => { handleChange(currentPage); }} key={filteredNews}/>
+                    </div>
                 </div>
             </div>
         </div>
