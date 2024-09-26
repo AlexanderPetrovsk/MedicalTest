@@ -179,6 +179,10 @@
     .ps-overlay h2{
         margin-bottom: 20px;
     }
+
+    .news-details-content h4{
+        margin-inline: 5%;
+    }
 }
 @media(max-width:991px){
     .ps-top-header-left {

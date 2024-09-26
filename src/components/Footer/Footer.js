@@ -27,7 +27,7 @@ function Footer() {
                                     { footerLinks.map((link, index) => {
                                         return (
                                             <li key={index}>
-                                                <NavLink to={link.toLowerCase()}>
+                                                <NavLink to={`/${link.toLowerCase()}`}>
                                                     {link}
                                                 </NavLink>
                                             </li>
@@ -43,7 +43,7 @@ function Footer() {
                                     { productsSubmenu.map((link, index) => {
                                         return (
                                             <li key={index}>
-                                                <NavLink to={link.toLowerCase()}>
+                                                <NavLink to={`/products?category=${link}`}>
                                                     {link}
                                                 </NavLink>
                                             </li>

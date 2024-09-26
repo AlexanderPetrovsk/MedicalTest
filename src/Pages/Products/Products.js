@@ -1,279 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import product1 from '../../assets/product1.png';
 import Pagination from "../../components/Pagination/Pagination";
-import { useSearchParams } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 
-function Products() {
-    const products = [
-        {
-            title: 'Lorem Ipsum dolor.',
-            price: 230.00,
-            image: product1,
-            brand: 'Neofect',
-            category: 'Rehabilitation'
-
-        },
-        {
-            title: 'Lorem Ipsum simet.',
-            price: 230.00,
-            image: product1,
-            brand: 'Neofect',
-            category: 'Rehabilitation'
-        },
-        {
-            title: 'Lorem Ipsum consectetur.',
-            price: 1000.00,
-            image: product1,
-            brand: 'Meden Inmed',
-            category: 'Rehabilitation'
-        },
-        {
-            title: 'Lorem Ipsum.',
-            price: 430.00,
-            image: product1,
-            brand: 'Neofect',
-            category: 'Rehabilitation'
-        },
-        {
-            title: 'Lorem Ipsum.',
-            price: 230.00,
-            image: product1,
-            brand: 'Spes medica',
-            category: 'Neurology'
-        },
-        {
-            title: 'Lorem Ipsum.',
-            price: 230.00,
-            image: product1,
-            brand: 'Spes medica',
-            category: 'Neurology'
-        },
-        {
-            title: 'Lorem Ipsum.',
-            price: 230.00,
-            image: product1,
-            brand: 'Elmiko',
-            category: 'Neurology'
-        },
-        {
-            title: 'Lorem Ipsum.',
-            price: 210.00,
-            image: product1,
-            brand: 'Thera Trainer',
-            category: 'Rehabilitation'
-        },
-        {
-            title: 'Lorem Ipsum.',
-            price: 230.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-        {
-            title: 'Lorem Ipsum ss.',
-            price: 430.00,
-            image: product1,
-            brand: 'Contec',
-            category: 'Internal Medicine'
-        },
-    ];
-
+function Products(props) {
     const [priceRange, setPriceRange] = useState(1000);
     const [searchText, setSearchText] = useState("");
     const [chosenBrand, setChosenBrand] = useState("");
@@ -328,7 +57,7 @@ function Products() {
         return product.title.toLowerCase().includes(searchText.toLowerCase());
     }
 
-    const filteredData = products.filter((el) => {
+    const filteredData = props.data.filter((el) => {
         return (
             filterByBrand(el)
             && filterByPrice(el)
@@ -365,20 +94,22 @@ function Products() {
                         <div className='shop-box mb-5'>
                             <div className='shop-title' ref={listRef}>
                                 <h2 className='shop-sidebar-title'>Showing results</h2>
-                                <p><span>Total : </span>{ products.length }</p>
+                                <p><span>Total : </span>{ props.data.length }</p>
                             </div>
                             <div className='shop-products'>
                                 { filteredData.slice(productsFrom, productsTo).map((product, index) => {
                                     return (
-                                        <div className='shop-product-box' key={index}>
-                                            <div className='shop-product-image'>
-                                                <img src={product.image} alt=''/>
+                                        <NavLink to={`/products/${product.id}`} key={index}>
+                                            <div className='shop-product-box' >
+                                                <div className='shop-product-image'>
+                                                    <img src={product.image} alt=''/>
+                                                </div>
+                                                <div className='shop-product-data'>
+                                                    <h3>{product.title}</h3>
+                                                    <h5>${product.price}</h5>
+                                                </div>
                                             </div>
-                                            <div className='shop-product-data'>
-                                                <h3>{product.title}</h3>
-                                                <h5>${product.price}</h5>
-                                            </div>
-                                        </div>
+                                        </NavLink>
                                     )
                                 })}
                             </div>
@@ -401,7 +132,7 @@ function Products() {
                             <h2 className='shop-sidebar-title mb-3'>Brand Filter</h2>
                             <div className='shop-brand-filters'>
                                 <ul className='shop-brands'>
-                                    { [...new Set(products.map((product) => product.brand))].map((brand, index) => {
+                                    { [...new Set(props.data.map((product) => product.brand))].map((brand, index) => {
                                         return (
                                             <li
                                                 className={`shop-brand ${chosenBrand === brand ? 'active-category' : ''}`}
@@ -409,7 +140,7 @@ function Products() {
                                                 onClick={() => { setChosenBrand(brand); setCurrentPage(1); }}
                                             >
                                                 {brand}
-                                                <span>{ products.filter((product) => product.brand === brand).length }</span>
+                                                <span>{ props.data.filter((product) => product.brand === brand).length }</span>
                                             </li>
                                         )
                                     })}
@@ -444,7 +175,7 @@ function Products() {
                         <div className="shop-product-category-filter">
                             <h2 className="shop-sidebar-title mb-3">Categories</h2>
                             <ul>
-                                { [...new Set(products.map((product) => product.category))].map((category, index) => {
+                                { [...new Set(props.data.map((product) => product.category))].map((category, index) => {
                                     return <li
                                             className={`${chosenCategory === category ? 'active-category' : ''}`}
                                             key={index}

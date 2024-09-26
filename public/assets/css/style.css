@@ -789,7 +789,7 @@ span.yellow-bubble{
 .ps-news-content {
     padding: 0 10px;
 }
-.ps-news-date-btn a {
+.ps-news-date-btn div {
     max-width: 140px;
     width: 100%;
     background-color: var(--theme-color);
@@ -1394,3 +1394,116 @@ span.yellow-bubble{
 }
 
 /* pagination css*/
+
+
+/* news details css*/
+.news-detail-main-wrapper {
+    display: flex;
+    background-color: #e8eef6;
+}
+
+.news-detail-container {
+    background-color: var(--white-color);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.news-details-img > img {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.news-details-content h4{
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: var(--dark-color);
+    font-weight: 700;
+    margin-inline: 20%;
+    margin-block: 40px;
+    text-align: center;
+}
+
+.news-detail-container p {
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    color: var(--grey-color);
+    font-weight: 400;
+    text-align: left;
+    max-width: 80%;
+    width: 100%;
+    margin: auto
+}
+
+.news-detail-date { 
+    position: relative;
+}
+
+.news-detail-date > div {
+    max-width: 140px;
+    width: 100%;
+    background-color: var(--theme-color);
+    display: block;
+    padding: 15px;
+    color: var(--white-color);
+    border-radius: 40px;
+    box-shadow: 0px 0px 20px rgba(55, 199, 235, 70%);
+    position: absolute;
+    right: 20px;
+    bottom: -22px;
+}
+/* news details css*/
+
+.product-details-image {
+    background-color: #f6f7fa;
+    margin-top: 6rem;
+}
+
+.product-details-image > img {
+    width: 100%;
+    height: auto;
+}
+
+.product-detail-data h5 {
+    font-size: clamp(1rem, 2vw, 1.75rem);
+    color: var(--grey-color);
+    font-weight: 700;
+    margin-block: 40px;
+    text-align: right;
+    margin-inline-end: 10px;
+}
+
+
+.product-detail-data h4 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: var(--dark-color);
+    font-weight: 700;
+    margin-inline: auto;
+    margin-block: 40px;
+    max-width: 80%;
+}
+
+.product-detail-data p {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    color: var(--dark-color);
+    font-weight: 400;
+    max-width: 80%;
+    width: 100%;
+    margin: auto
+}
+
+.product-detail-data {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: var(--white-color);
+    padding-block: 3rem;
+}
+
+.product-details-container {
+    border-bottom: 2px solid #f6f7fa;
+    border-radius: 10px;
+    padding-inline: 12px;
+}
+
+/* product details css*/
+

@@ -13,6 +13,7 @@ import React from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules';
+import { NavLink } from 'react-router-dom';
 
 function Home() {
     const slides = [
@@ -219,7 +220,7 @@ function Home() {
                         <div className="col-lg-12 col-md-12 col-12">
                             <div className="ps-best-seller-heading">
                                 <h4>Best Seller</h4>
-                                <a href="/home">View All</a>
+                                <NavLink to='/products'>View All</NavLink>
                             </div>
                         </div>
                         { getProductsLayout(bestSellers) }
@@ -232,7 +233,6 @@ function Home() {
                         <div className="col-lg-12 col-md-12 col-12">
                             <div className="ps-best-seller-heading">
                                 <h4>Shop by brands</h4>
-                                <a href="/home">View All</a>
                             </div>
                             <div className="ps-brand-logo align-items-center">
                                 {brands.map((brand, index) => {
@@ -257,18 +257,24 @@ function Home() {
                         </div>
                         <div className="col-lg-7 col-md-12">
                             <div className="ps-shop-categry-right">
-                                <div className="ps-shop-categry-inner">
-                                    <img src={spa} alt=""/>
-                                    <p>Rehab</p>
-                                </div>
-                                <div className="ps-shop-categry-inner">
-                                    <img src={brain} alt=""/>
-                                    <p>Neurology</p>
-                                </div>
-                                <div className="ps-shop-categry-inner">
-                                    <img src={lungs} alt=""/>
-                                    <p>Internal Medicine</p>
-                                </div>
+                                <NavLink to='/products?category=Rehabilitation'>
+                                    <div className="ps-shop-categry-inner">
+                                        <img src={spa} alt=""/>
+                                        <p>Rehab</p>
+                                    </div>
+                                </NavLink>
+                                <NavLink to='/products?category=Neurology'>
+                                    <div className="ps-shop-categry-inner">
+                                        <img src={brain} alt=""/>
+                                        <p>Neurology</p>
+                                    </div>
+                                </NavLink>
+                                <NavLink to="/products?category=Internal Medicine">
+                                    <div className="ps-shop-categry-inner">
+                                        <img src={lungs} alt=""/>
+                                        <p>Internal Medicine</p>
+                                    </div>
+                                </NavLink>
                             </div>
                         </div>
                     </div>
@@ -291,7 +297,7 @@ function Home() {
                                                 <img src={news.image} alt=""/>
                                                 <div className="ps-news-overlay"></div>
                                                 <div className="ps-news-date-btn">
-                                                    <a href="/home">JULY 29, 2021</a>
+                                                    <div>JULY 29, 2021</div>
                                                 </div>
                                             </div>
                                             <div className="ps-news-content">
