@@ -182,7 +182,7 @@ root.render(
       <Header />
       <Routes>
         <Route path='/' element={<Navigate to="/home" />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/home' element={<Home latestProducts={products.slice(0, 8)} latestNews={newsItems.slice(0, 3)} />} />
         <Route path='/products' element={<Products data={products}/>} />
         <Route path='/service' element={<Service />} />
         <Route path='/contact' element={<Contact />} />

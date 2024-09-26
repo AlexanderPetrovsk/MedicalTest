@@ -490,6 +490,8 @@ span.yellow-bubble{
 .ps-product-box{
     margin-top: 50px;
     cursor: pointer;
+    border: 1px solid #f4f9fd;
+    border-radius: 10px;
 }
 .ps-product-img {
     background-color: #f4f9fd;
@@ -503,8 +505,8 @@ span.yellow-bubble{
     align-items: center;
 }
 .ps-product-info {
-    margin-top: 30px;
     cursor: pointer;
+    padding: 10px;
 }
 .ps-product-info span{
   font-size: 15px; 
@@ -614,9 +616,7 @@ span.yellow-bubble{
 .ps-deal-box-parent {
     width: 100%;
 }
-.ps-deal-box-parent .ps-product-info{
-    margin-top: 20px;
-}
+
 .ps-deal-box-parent .ps-product-info h4{
     padding: 11px 0;
 }
