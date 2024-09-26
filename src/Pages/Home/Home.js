@@ -184,7 +184,7 @@ function Home() {
                     <div className="row">
                         <div className="col-lg-12 col-md-12 col-12">
                             <div className="ps-best-seller-heading">
-                                <h4>Best Seller</h4>
+                                <h4>Latest Products</h4>
                                 <NavLink to='/products'>View All</NavLink>
                             </div>
                         </div>
