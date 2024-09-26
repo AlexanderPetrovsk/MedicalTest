@@ -135,7 +135,7 @@ function Products(props) {
                                     { [...new Set(props.data.map((product) => product.brand))].map((brand, index) => {
                                         return (
                                             <li
-                                                className={`shop-brand ${chosenBrand === brand ? 'active-category' : ''}`}
+                                                className={`shop-brand ${chosenBrand.toLowerCase() === brand.toLowerCase() ? 'active-category' : ''}`}
                                                 key={index}
                                                 onClick={() => { setChosenBrand(brand); setCurrentPage(1); }}
                                             >

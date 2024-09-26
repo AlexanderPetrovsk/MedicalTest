@@ -9,7 +9,7 @@ import lungs from '../../assets/lungs.svg';
 import spa from '../../assets/spa.svg';
 import brain from '../../assets/brain.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules';
@@ -37,23 +37,31 @@ function Home(props) {
 
     const slides = [
         {
-            title: 'UP TO 50% OFF TODAY ONLY!',
-            description: 'Flat 5% extra on medicines & Enjoy FREE Delivery!',
-            buttonText: 'Shop'
+            description: 'Lorem Ipsum Header Text Conesctetur Dolor Sit Amet Adipisicing elit Ut Labore Et Dolore Magna Aliqua',
         },
         {
-            title: 'UP TO 20% OFF TODAY ONLY!',
-            description: 'Flat 15% extra on medicines & Enjoy FREE Delivery!',
-            buttonText: 'Shop'
+            description: 'Sed Do Eius Tempor Incididunt Ut Labore Et Dolore Magna Aliqua, Lorem Ipsum Dolor Sit Amet',
         }
     ]
 
     const brands = [
-        neofect,
-        meden,
-        spes,
-        contec
-    ]
+        {
+            image: neofect,
+            title: 'Neofect'
+        },
+        {
+            image: meden,
+            title: 'Meden Inmed'
+        },
+        {
+            image: spes,
+            title: 'Spes Medica'
+        },
+        {
+            image: contec,
+            title: 'Contec'
+        },
+    ];
 
     const getProductsLayout = (products) => {
         return products.map((product, index) => {
@@ -95,19 +103,13 @@ function Home(props) {
                     { slides.map((slide, index) => {
                         return (
                             <SwiperSlide key={index}>
-                                        <div className="row">
-                                            <div className="col-lg-7 col-md-12">
-                                                <div className="ps-banner-content">
-                                                    <h5>{ slide.title }</h5>
-                                                    <h2>{ slide.description }</h2>									
-                                                    <div className="ps-banner-btn">
-                                                        <a className="ps-btn" href='home'>
-                                                            <span>{ slide.buttonText }</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div className="row">
+                                    <div className="col-lg-9 col-md-12">
+                                        <div className="ps-banner-content">
+                                            <h2>{ slide.description }</h2>									
                                         </div>
+                                    </div>
+                                </div>
                             </SwiperSlide>
                         )
                     }) }
@@ -159,7 +161,9 @@ function Home(props) {
                             <div className="ps-brand-logo align-items-center">
                                 {brands.map((brand, index) => {
                                     return (
-                                        <img src={brand} key={index} alt=""/>
+                                        <NavLink to={`/products?brand=${brand.title}`}>
+                                            <img src={brand.image} key={index} alt=""/>
+                                        </NavLink>
                                     )
                                 })}
                             </div>

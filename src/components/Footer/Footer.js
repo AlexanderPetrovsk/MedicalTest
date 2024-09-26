@@ -26,7 +26,7 @@ function Footer() {
                                 <ul>
                                     { footerLinks.map((link, index) => {
                                         return (
-                                            <li key={index}>
+                                            <li key={index} onClick={() => window.scrollTo(0, 0)}>
                                                 <NavLink to={`/${link.toLowerCase()}`}>
                                                     {link}
                                                 </NavLink>
@@ -43,7 +43,7 @@ function Footer() {
                                     { productsSubmenu.map((link, index) => {
                                         return (
                                             <li key={index}>
-                                                <NavLink to={`/products?category=${link}`}>
+                                                <NavLink to={`/products?category=${link}`} onClick={() => window.scrollTo(0, 0)}>
                                                     {link}
                                                 </NavLink>
                                             </li>
@@ -69,7 +69,12 @@ function Footer() {
                                 <p> +389 2 6133025</p>
                             </div>
                         </div>
+
                     </div>
+
+                </div>
+                <div class="ps-copyright-wrapper">
+                    <p>Copyright © All Rights Reserved - Meditek 2024 </p>
                 </div>
             </div>
         </React.Fragment>
