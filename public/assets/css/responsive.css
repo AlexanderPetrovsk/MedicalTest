@@ -65,7 +65,14 @@
     }
     .ps-navbar ul li i {
         float: right;
-    }    
+    }
+    .close-button {
+        display: flex;
+        justify-content: end;
+        padding-right: 1rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
     .ps-toggle-responsive {
         position: fixed;
         top: 0;
@@ -117,7 +124,6 @@
         transition: all 0.5s;
     } 
     ul.ps-submenu {
-        max-height: 0;
         position: relative;
         top: 12px;
         transition: none;
@@ -129,51 +135,42 @@
         -ms-transition: max-height 0.3s ease-in-out;
         -o-transition: max-height 0.3s ease-in-out;
         -webkit-transition: max-height 0.3s ease-in-out;
-    }
-    ul.ps-submenu.active {
-        max-height: 500px;
-        transition: max-height 0.3s ease-in-out;
-        -moz-transition: max-height 0.3s ease-in-out;
-        -ms-transition: max-height 0.3s ease-in-out;
-        -o-transition: max-height 0.3s ease-in-out;
-        -webkit-transition: max-height 0.3s ease-in-out;
+        display: block !important;
     }
 
+    .ps-navbar ul li {
+        border-bottom: none;
+    }
     .dropdown1, .dropdown2 {
         margin-bottom: 0;
     }
-    
-    ul.ps-submenu2 > li {
-        margin-bottom: 0;
+    ul.ps-submenu li.dropdown1 {
+        border-right: none;
     }
 
+    ul.ps-submenu2 > li {
+        margin-bottom: 0;
+        margin-left: 1rem;
+    }
+
+    ul.ps-submenu1 {
+        display: none;
+    }
     ul.ps-submenu li a:hover{
         color: var(--theme-color);
     }
-    .dropdown:hover ul.ps-submenu,
-    .dropdown:active ul.ps-submenu
-    {    
-        right: 0; 
-        transform: translate(0);
+
+    ul.ps-submenu {
+        display: none !important;
     }
 
-    .dropdown2:hover,
-    .dropdown1:hover,
-    .dropdown1:active,
-    .dropdown2:active {
-        border-bottom: none !important;
-        padding: 10px 0 0 0;
+    ul.ps-submenu.active {
+        display: block !important;
+        transform: translateY(0) !important;
     }
 
-    .dropdown2:hover  ul.ps-submenu2,
-    .dropdown1:hover ul.ps-submenu1,
-    .dropdown2:active  ul.ps-submenu2,
-    .dropdown1:active ul.ps-submenu1
-    {
-        background-color: #fff;
-        box-shadow: none;
-        transform: translate(0);
-        position: static;
+    ul.ps-submenu1.active {
+        display: block;
     }
 
     .ps-overlay h2{
@@ -181,7 +178,11 @@
     }
 
     .news-details-content h4{
-        margin-inline: 5%;
+        margin-inline: 0%;
+    }
+
+    .dropdown-icon {
+        display: block;
     }
 }
 @media(max-width:991px){

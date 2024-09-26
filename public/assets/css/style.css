@@ -146,8 +146,11 @@ p {
     font-weight: 500;
     transition: all 0.5s;
 }
-.ps-navbar ul li a:hover{
-    color: var(--theme-color);
+.ps-title.active > span {
+    border-bottom: 2px solid var(--theme-color);
+}
+.ps-navbar ul li a span:hover{
+    border-bottom: 2px solid var(--dark-color);
 }
 .ps-top-header-right ul li a:hover{
     color: var(--theme-color);
@@ -183,69 +186,107 @@ p {
 }
 /* navigaion bar css end */
 /* submenu css start */
+.close-button {
+    display: none;
+}
+
 .dropdown {
-    position: relative;
+    position: static !important;
 }
 
 .dropdown1, .dropdown2 {
     margin-bottom: 1.5rem;
-    border-bottom: 1px solid #e8eef6;
 }
 
+ul.ps-submenu li.dropdown1 {
+    border-right: 1px solid #e8eef6;
+}
+
+
+ul.ps-submenu > li > a:hover {
+    color: var(--theme-color);
+}
 ul.ps-submenu2 > li {
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid #e8eef6;
+    margin-bottom: 0.5rem;
+}
+
+ul.ps-submenu1 {
+    display: flex;
 }
 
 .dropdown:hover ul.ps-submenu ,
-.dropdown:active ul.ps-submenu,
-.dropdown1:hover ul.ps-submenu1,
-.dropdown1:active ul.ps-submenu1,
-.dropdown2:hover ul.ps-submenu2, .dropdown2:active ul.ps-submenu2
+.dropdown:active ul.ps-submenu
 {
-    opacity: 1;
-    visibility: visible;
+    display: flex;
     transform: translateY(-20px);
-}
-ul.ps-submenu,
-ul.ps-submenu2,
-ul.ps-submenu1 {
-    position: absolute;
-    top: 55px;
-    right: -140px;
-    background-color: var(--white-color);
-    box-shadow: 0 10px 20px rgb(99 149 189 / 30%);
-    width: 210px;
-    z-index: 9;
-    padding: 20px 0 15px 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s;
 }
 
 ul.ps-submenu {
+    justify-content: space-between;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    left: 0;
+    background-color: var(--white-color);
+    box-shadow: 0 10px 20px rgb(99 149 189 / 30%);
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 9;
+    padding: 20px 0 15px 20px;
+    display: none;
+    transition: all 0.5s;
+}
+
+ul.ps-submenu1 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+ul.ps-submenu1 > li {
+    margin-right: 2rem;
+}
+
+ul.ps-submenu1 > li > span {
+    font-size: 1rem;
+    font-weight: 700;
+}
+ul.ps-submenu {
     padding-bottom: 5px;
-    display: block;
     text-align: left; 
 }
+
 ul.ps-submenu li {
     text-align: left;
-    display: block !important;
+    display: block;
+}
+ul.ps-submenu > li > a {
+    color: var(--dark-color);
+    font-size: 1.2rem !important;
 }
 
 ul.ps-submenu li a {
-    padding: 0;
+    padding: 0 !important;
 }
 
-ul.ps-submenu a {
+.ps-title > span { 
+    font-size: 1.5rem;
+}
+
+ul.ps-submenu > li > a {
     padding-left: 0;
     color: var(--dark-color);
+    border-bottom: 2px solid var(--theme-color);
     font-weight: 500;
     font-size: 15px;
 }
 
 ul.ps-submenu a:hover{
     color: var(--theme-color);
+}
+
+.dropdown-icon {
+    display: none;
 }
 /* submenu css end */
 /* navigation search css start */
@@ -847,7 +888,7 @@ span.yellow-bubble{
 /* partner section end */
 /* footer section start */
 .ps-footer-main-wrapper{
-    padding: 30px 0 50px 0;
+    padding: 30px 0 0 0;
     background-color: #22282b;
 }
 .ps-footer-newsletter-retangle {
@@ -916,14 +957,14 @@ span.yellow-bubble{
     font-size: 22px;
     color: var(--white-color);
     font-weight: 400;
-    margin-bottom: 30px;    
+    margin-bottom: 1.2rem;    
 }
 .ps-footer-link ul{
     list-style: disc;
     margin-left: 20px;
 }
 .ps-footer-link ul li {
-    margin-bottom: 25px;
+    margin-bottom: 1rem;    
 }
 .ps-footer-link ul li::marker{
     font-size: 18px;

@@ -132,12 +132,15 @@ function Header() {
     return (
         <div className={`ps-navigation-wrapper ${ menuToggle ? 'menu_open' : ''}`}>
             <div className="row align-items-center">
-                <div className="col-xl-6 col-lg-7 col-md-12 col-9">
+                <div className="col-xl-7 col-lg-7 col-md-12 col-9">
                     <div className="ps-main-logo">
                         <img src={logo} alt='' />
                     </div>
                 </div>
-                <div className="col-xl-4 col-lg-4 col-md-12 ps-toggle-responsive">
+                <div className="col-xl-5 col-lg-4 col-md-12 ps-toggle-responsive">
+                    <div className="row">
+                        <span onClick={() => { setMenuToggle(false) } } className="close-button"> X </span>
+                    </div>
                     <div className="ps-navbar">
                         <ul className="ps-toggle">
                             { headerLinks.map((link, index) => {
@@ -145,35 +148,65 @@ function Header() {
                                     <React.Fragment key={index}>
                                         <li
                                             className='ps-menu-children dropdown'
-                                            onMouseEnter={() => { document.getElementsByClassName('ps-submenu')[0].classList.add('active') }}
-                                            onMouseLeave={() => { document.getElementsByClassName('ps-submenu')[0].classList.remove('active') }}
                                         >
                                             <NavLink to={link.title.toLowerCase()} className='ps-title'>
-                                                {link.title}
-                                                <i className={`${link.subMenus.length ? 'fa fa-caret-down' : '' }`}></i>
+                                                <span>
+                                                    {link.title}
+    
+                                                </span>
                                             </NavLink>
+                                            {
+                                                link.subMenus.length
+                                                    ? <i className='fa fa-caret-down' onClick={() => {
+                                                        const subMenuClasslist = document.querySelector('.ps-submenu').classList
+
+                                                        subMenuClasslist.contains('active') ? subMenuClasslist.remove('active') : subMenuClasslist.add('active');
+                                                    }}></i>
+                                                    : ''
+                                            } 
                                             { link.subMenus.length ?
                                                 <ul className="ps-submenu">
                                                     { link.subMenus.map((subMenu, index) => {
                                                         return (   
-                                                            <li key={index} className="dropdown1">
-                                                                <NavLink to={`/products?category=${subMenu.title}`} key={index}>{subMenu.title}</NavLink>
+                                                            <li
+                                                                key={index}
+                                                                className="dropdown1"
+                                                            >
+                                                                <NavLink
+                                                                    to={`/products?category=${subMenu.title}`}
+                                                                    key={index}>
+                                                                        {subMenu.title}
+                                                                </NavLink>
+                                                                <i className='fa fa-caret-down dropdown-icon' onClick={() => {
+                                                                    if (document.querySelectorAll('.ps-submenu1')[index].classList.contains('active')) {
+                                                                        document.querySelectorAll('.ps-submenu1')[index].classList.remove('active');
+                                                                        return;
+                                                                    }
+                                                                    document.querySelectorAll('.ps-submenu1').forEach(submenu => {
+                                                                        submenu.classList.remove('active');
+                                                                    });
+
+                                                                    document.querySelectorAll('.ps-submenu1')[index].classList.add('active')
+                                                                }}></i>
                                                                 <ul className="ps-submenu1">
                                                                     { subMenu.subMenus.map((menu, index) => {
                                                                         return (
-                                                                                <li key={index} className="dropdown2">
-                                                                                    <span>{menu.title}</span>
-                                                                                    <ul className="ps-submenu2">
-                                                                                        { menu.subMenus.map((final, index) => {
-                                                                                            return (
-                                                                                                <li key={index}>
-                                                                                                    <NavLink to={`/products?category=${subMenu.title}&brand=${final.title}`} key={index}>{final.title}</NavLink>
-                                                                                                </li>
-                                                                                            )
-                                                                                        })}
-                                                                                    </ul>
-                                                                                </li>
-                                                                            )
+                                                                            <li
+                                                                                key={index}
+                                                                                className="dropdown2"
+                                                                            >
+                                                                                <span>{menu.title}</span>
+                                                                                <ul className="ps-submenu2">
+                                                                                    { menu.subMenus.map((final, index) => {
+                                                                                        return (
+                                                                                            <li key={index}>
+                                                                                                <NavLink to={`/products?category=${subMenu.title}&brand=${final.title}`} key={index}>{final.title}</NavLink>
+                                                                                            </li>
+                                                                                        )
+                                                                                    })}
+                                                                                </ul>
+                                                                            </li>
+                                                                        )
                                                                     })}
                                                                 </ul>
                                                             </li>
@@ -190,12 +223,6 @@ function Header() {
                 </div>
                 <div className="col-xl-2 col-lg-4 col-md-12 col-12">
                     <div className="ps-navigation-main-wrapper">					
-                        <div className="ps-navigation-header-search">
-                            <div className="ps-navigation-input">
-                                <input text="" placeholder="Search Your Product Here" />
-                                <span className="fa fa-search"></span>
-                            </div>
-                        </div>
                         <div className="ps-toggle-btn" onClick={() => { setMenuToggle(!menuToggle) }}>
                             <span className="fa fa-bars"></span>
                         </div>
