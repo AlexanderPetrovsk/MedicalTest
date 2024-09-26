@@ -1482,6 +1482,7 @@ span.yellow-bubble{
 
 /* news details css*/
 .news-detail-main-wrapper {
+    padding-block: 10rem;
     display: flex;
     background-color: #e8eef6;
 }
