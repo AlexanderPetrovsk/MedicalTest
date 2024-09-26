@@ -83,7 +83,7 @@ function Products(props) {
 
     return (
         <React.Fragment>
-            <div className='container mt-5 mb-5'>
+            <div className='shop-products-main-wrapper container mt-5 mb-5'>
                 <div className='row'>
                     <div className="col-lg-12">
                         <div className="header-title">

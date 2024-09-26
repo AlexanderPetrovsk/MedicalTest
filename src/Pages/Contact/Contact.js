@@ -1,6 +1,6 @@
 function Contact() {
     return (
-        <div className="container-sm">
+        <div className="contact-detail-wrapper container-sm">
             <div className="row align-items-center mb-5 mt-5">
                 <div className="contact-detail col-12 mb-5">
                     <h2 className="contact-sidebar-title">Contact Info</h2>

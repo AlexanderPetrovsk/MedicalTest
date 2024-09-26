@@ -404,6 +404,7 @@ span.yellow-bubble{
 /* navigation search css end */
 /* banner css start */
 .ps-banner-swiper-main-wrapper {
+    padding-top: 6rem;
     position: relative;
     z-index: 0;
 }
@@ -804,7 +805,7 @@ span.yellow-bubble{
 /* shop category section css end */
 /* latest news section css start */
 .ps-news-main-wrapper{
-    padding: 80px 0;
+    padding: 10rem 0;
     background-color: #edf3f6;
 }
 
@@ -914,6 +915,9 @@ span.yellow-bubble{
 .ps-footer-main-wrapper{
     padding: 30px 0 0 0;
     background-color: #fff;
+    -webkit-box-shadow: 0px -4px 30px -28px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -4px 30px -28px rgba(0,0,0,0.75);
+    box-shadow: 0px -4px 30px -28px rgba(0,0,0,0.75);
 }
 .ps-footer-newsletter-retangle {
     max-width: 970px;
@@ -1102,6 +1106,9 @@ span.yellow-bubble{
 /* loader css start end */
 
 /* Shop css start*/
+.shop-products-main-wrapper {
+    padding-block: 10rem;
+}
 .header-title h2{
     text-align: center;
     font-size: 42px;
@@ -1291,6 +1298,7 @@ span.yellow-bubble{
 
 /*Service css start*/
 .service-main-wrapper {
+    padding-block: 11rem;
     background-color: #edf3f6;
     display: flex;
 }
@@ -1367,6 +1375,11 @@ span.yellow-bubble{
 /*Service css end*/
 
 /*contact css end*/
+
+.contact-detail-wrapper {
+    padding-block: 10rem;
+}
+
 .contact-detail {
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.07);
     background: #fff;
