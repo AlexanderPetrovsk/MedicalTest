@@ -12,12 +12,12 @@ function ProductDetail(props) {
         <div className="container-sm mb-5 mt-5">
             <div className="product-details-container">
                 <div className="row">
-                    <div className="col-lg-6 p-0">
+                    <div className="col-lg-7">
                         <div className='product-details-image'>
                             <img src={product.image} alt=''/>
                         </div>
                     </div>
-                    <div className='col-lg-6 p-0'>
+                    <div className='col-lg-5'>
                         <div className='product-detail-data'>
                             <h4>{product.title}</h4>
                             <p>{product.description}</p>
