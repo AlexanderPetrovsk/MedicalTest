@@ -9,7 +9,7 @@ import lungs from '../../assets/lungs.svg';
 import spa from '../../assets/spa.svg';
 import brain from '../../assets/brain.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import React, { useEffect } from 'react';
+import React from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules';
