@@ -214,43 +214,53 @@ ul.ps-submenu1 {
     display: flex;
 }
 
-.dropdown:hover ul.ps-submenu ,
-.dropdown:active ul.ps-submenu
+ul.ps-submenu.active
 {
     display: flex;
     transform: translateY(-20px);
+    flex-direction: column;
 }
 
 ul.ps-submenu {
     justify-content: space-between;
     position: absolute;
-    top: 100px;
-    right: 0;
-    left: 0;
+    top: 75px;
     background-color: var(--white-color);
     box-shadow: 0 10px 20px rgb(99 149 189 / 30%);
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 250px;
+    width: 100%;
     z-index: 9;
     padding: 20px 0 15px 20px;
     display: none;
     transition: all 0.5s;
 }
 
+ul.ps-submenu.active {
+    display: block !important;
+    transform: translateY(0) !important;
+}
+
 ul.ps-submenu1 {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
+    display: none;
+}
+
+ul.ps-submenu1.active {
+    display: block;
+}
+ul.ps-submenu2 > li {
+    margin-bottom: 0;
+    margin-left: 1rem;
 }
 
 ul.ps-submenu1 > li {
-    margin-right: 2rem;
+    margin-left: 1rem;
 }
 
 ul.ps-submenu1 > li > span {
     font-size: 1rem;
     font-weight: 700;
 }
+
 ul.ps-submenu {
     padding-bottom: 5px;
     text-align: left; 
@@ -260,6 +270,7 @@ ul.ps-submenu li {
     text-align: left;
     display: block;
 }
+
 ul.ps-submenu > li > a {
     color: var(--dark-color);
     font-size: 1.2rem !important;
@@ -286,7 +297,7 @@ ul.ps-submenu a:hover{
 }
 
 .dropdown-icon {
-    display: none;
+    display: inline-block;
 }
 /* submenu css end */
 /* navigation search css start */
@@ -481,7 +492,7 @@ span.yellow-bubble{
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #51515199;
+    background-color: #228b2270;
 }
 
 .ps-overlay h5 {
@@ -531,8 +542,9 @@ span.yellow-bubble{
 .ps-product-box{
     margin-top: 50px;
     cursor: pointer;
-    border: 1px solid #f4f9fd;
+    border: 1px solid #e8eef6;
     border-radius: 10px;
+    height: 90%;
 }
 .ps-product-img {
     background-color: #f4f9fd;
@@ -540,7 +552,7 @@ span.yellow-bubble{
     text-align: center;
     border-radius: 6px;
     position: relative;
-    min-height: 340px;
+    min-height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -556,14 +568,14 @@ span.yellow-bubble{
   padding-left: 10px;
 }
 .ps-product-info h4{
-    font-size: 18px;
+    font-size: 1.35rem;
     color: var(--dark-color);
     font-weight: 700;
     padding: 12px 0;
 }
 .ps-product-info p{
-    font-size: 16px;
-    color: var(--dark-color);
+    font-size: 1.2rem;
+    color: var(--theme-color);
     font-weight: 500;
 }
 .ps-product-info del{
@@ -580,6 +592,13 @@ span.yellow-bubble{
     opacity: 0;
     visibility: hidden;
 }
+.ps-product-box:hover {
+    -webkit-box-shadow: 10px 10px 29px -19px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 29px -19px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 29px -19px rgba(0,0,0,0.75);    
+    transition: all 1s;
+}
+
 .ps-product-box:hover .ps-product-icon {
     opacity: 1;
     visibility: visible;
@@ -887,9 +906,14 @@ span.yellow-bubble{
 }
 /* partner section end */
 /* footer section start */
+/* .ps-footer-main-wrapper > div{
+    max-width: 80%;
+    margin: 0 auto;
+} */
+
 .ps-footer-main-wrapper{
     padding: 30px 0 0 0;
-    background-color: #22282b;
+    background-color: #fff;
 }
 .ps-footer-newsletter-retangle {
     max-width: 970px;
@@ -955,8 +979,8 @@ span.yellow-bubble{
 }
 .ps-footer-link h4{
     font-size: 22px;
-    color: var(--white-color);
-    font-weight: 400;
+    color: var(--dark-color);
+    font-weight: 700;
     margin-bottom: 1.2rem;    
 }
 .ps-footer-link ul{
@@ -972,7 +996,7 @@ span.yellow-bubble{
 }
 .ps-footer-link ul li a{
     font-size: 15px;
-    color: #9ca9af;
+    color: #515151;
     font-weight: 400;
     padding-bottom: 30px;
     transition: all 0.5s;
@@ -991,10 +1015,16 @@ span.yellow-bubble{
 }
 .ps-footer-addres p{
     font-size: 15px;
-    color: #9ca9af;
+    color: #515151;
     font-weight: 400;
     display: inline-block;
     padding-left: 20px;
+}
+.ps-footer-logo {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 1rem;
+    min-width: 300px;
 }
 /* footer section end */
 /* copyright section css start */

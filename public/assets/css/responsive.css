@@ -28,7 +28,7 @@
         padding:0 15px;
     }
     .ps-navigation-wrapper{
-        padding:25px 15px;
+        padding:10px 15px;
     }
     .ps-banner-swiper-main-wrapper .swiper-slide{
         padding: 200px 135px 250px 135px;
@@ -216,7 +216,7 @@
         max-width: 1000px;
     }
     .ps-toggle-btn {
-        top: 50px;
+        top: 35px;
     }
     .ps-shop-categry-left {
         text-align: center;

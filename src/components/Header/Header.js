@@ -130,7 +130,7 @@ function Header() {
     const [menuToggle, setMenuToggle] = useState(false);
 
     return (
-        <div className={`ps-navigation-wrapper ${ menuToggle ? 'menu_open' : ''}`}>
+        <div className={`ps-navigation-wrapper bg-light fixed-top ${ menuToggle ? 'menu_open' : ''}`}>
             <div className="row align-items-center">
                 <div className="col-xl-7 col-lg-7 col-md-12 col-9">
                     <div className="ps-main-logo">

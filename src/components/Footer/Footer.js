@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import logo from '../../assets/logo.svg';
 
 function Footer() {
     const footerLinks = [
@@ -18,9 +19,14 @@ function Footer() {
     return (
         <React.Fragment>
             <div className="ps-footer-main-wrapper">
-                <div className="container mb-5">
-                    <div className="row justify-content-center mx-5">
-                        <div className="col-lg-3 col-12 mb-5">
+                <div className="mb-5">
+                    <div className="row mx-5 justify-content-center">
+                        <div className="col-xl-6 col-lg-5 col-md-12 col-3 mb-5 d-flex justify-content-center">
+                            <div className="ps-footer-logo">
+                                <img src={logo} alt='' />
+                            </div>
+                        </div>
+                        <div className="col-xl-2 col-lg-2 col-md-3 col-12 mb-5">
                             <div className="ps-footer-link">
                                 <h4>Links</h4>
                                 <ul>
@@ -36,7 +42,7 @@ function Footer() {
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-lg-3 col-12 mb-5">
+                        <div className="col-xl-2 col-lg-2 col-md-3 col-12 mb-5">
                             <div className="ps-footer-link">
                                 <h4>Products</h4>
                                 <ul>
@@ -52,7 +58,7 @@ function Footer() {
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-lg-3 col-12 mb-5">
+                        <div className="col-xl-2 col-lg-3 col-md-3 col-12 mb-5">
                             <div className="ps-footer-link">
                                 <h4>Store Location</h4>					
                             </div>
