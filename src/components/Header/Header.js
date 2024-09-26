@@ -157,9 +157,10 @@ function Header() {
                                             </NavLink>
                                             {
                                                 link.subMenus.length
-                                                    ? <i className='fa fa-caret-down' onClick={() => {
+                                                    ? <i className='fa fa-caret-down' onClick={(e) => {
                                                         const subMenuClasslist = document.querySelector('.ps-submenu').classList
 
+                                                        subMenuClasslist.contains('active') ? e.target.classList.remove('fa-caret-up') : e.target.classList.add('fa-caret-up');
                                                         subMenuClasslist.contains('active') ? subMenuClasslist.remove('active') : subMenuClasslist.add('active');
                                                     }}></i>
                                                     : ''
@@ -177,15 +178,21 @@ function Header() {
                                                                     key={index}>
                                                                         {subMenu.title}
                                                                 </NavLink>
-                                                                <i className='fa fa-caret-down dropdown-icon' onClick={() => {
+                                                                <i className='fa fa-caret-down dropdown-icon' onClick={(e) => {
                                                                     if (document.querySelectorAll('.ps-submenu1')[index].classList.contains('active')) {
                                                                         document.querySelectorAll('.ps-submenu1')[index].classList.remove('active');
+                                                                        e.target.classList.remove('fa-caret-up');
                                                                         return;
                                                                     }
+
                                                                     document.querySelectorAll('.ps-submenu1').forEach(submenu => {
                                                                         submenu.classList.remove('active');
                                                                     });
+                                                                    document.querySelectorAll('i.dropdown-icon').forEach(icon => {
+                                                                        icon.classList.remove('fa-caret-up');
+                                                                    })
 
+                                                                    e.target.classList.add('fa-caret-up');
                                                                     document.querySelectorAll('.ps-submenu1')[index].classList.add('active')
                                                                 }}></i>
                                                                 <ul className="ps-submenu1">

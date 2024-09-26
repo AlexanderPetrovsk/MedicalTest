@@ -73,7 +73,7 @@ function Footer() {
                     </div>
 
                 </div>
-                <div class="ps-copyright-wrapper">
+                <div className="ps-copyright-wrapper">
                     <p>Copyright © All Rights Reserved - Meditek 2024 </p>
                 </div>
             </div>
