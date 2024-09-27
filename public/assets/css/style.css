@@ -420,7 +420,7 @@ span.yellow-bubble{
     border-radius: 30px;
 }
 .ps-banner-content h2{
-    font-size: 46px;
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     color: var(--dark-color);
     margin: 40px 0;
@@ -436,8 +436,8 @@ span.yellow-bubble{
 }
 .swiper-button-prev, .swiper-button-next {
     color: var(--white-color) !important;
-    height: 70px !important;
-    width: 70px !important;
+    height: min(70px, 8vw) !important;
+    width: min(70px, 8vw) !important;
     background: var(--theme-color) !important;
     border-radius: 50%;
     display: flex;
