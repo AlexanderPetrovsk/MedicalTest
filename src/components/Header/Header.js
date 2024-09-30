@@ -156,9 +156,9 @@ function Header() {
     }
 
     useEffect(() => {
-        if (searchParams.get('lang') === 'null' || !searchParams.get('lang')) {        
+        if (searchParams.get('lang') === 'null' || !searchParams.get('lang')) {
             const params = new URLSearchParams();
-            
+        
             params.set('lang', 'mk');
             setSearchParams(params);
 
@@ -166,7 +166,7 @@ function Header() {
 
             return;
         }
-        
+
         setChosenLang(searchParams.get('lang'));
         i18n.changeLanguage(searchParams.get('lang'));
     }, [searchParams, i18n, setSearchParams]);
@@ -227,12 +227,7 @@ function Header() {
                                             </NavLink>
                                             {
                                                 link.subMenus.length
-                                                    ? <i className='icon-1 fa fa-caret-down' onClick={(e) => {
-                                                        const subMenuClasslist = document.querySelector('.ps-submenu').classList
-
-                                                        subMenuClasslist.contains('active') ? e.target.classList.remove('fa-caret-up') : e.target.classList.add('fa-caret-up');
-                                                        subMenuClasslist.contains('active') ? subMenuClasslist.remove('active') : subMenuClasslist.add('active');
-                                                    }}></i>
+                                                    ? <i className='icon-1 fa fa-caret-down'></i>
                                                     : ''
                                             } 
                                             { link.subMenus.length ?
@@ -268,24 +263,7 @@ function Header() {
                                                                 >
                                                                     {subMenu.title}
                                                                 </NavLink>
-                                                                <i className='icon-2 fa fa-caret-down dropdown-icon' onClick={(e) => {
-                                                                    if (document.querySelectorAll('.ps-submenu1')[index].classList.contains('active')) {
-                                                                        document.querySelectorAll('.ps-submenu1')[index].classList.remove('active');
-                                                                        e.target.classList.remove('fa-caret-up');
-                                                                        return;
-                                                                    }
-
-                                                                    document.querySelectorAll('.ps-submenu1').forEach(submenu => {
-                                                                        submenu.classList.remove('active');
-                                                                    });
-
-                                                                    document.querySelectorAll('i.dropdown-icon').forEach(icon => {
-                                                                        icon.classList.remove('fa-caret-up');
-                                                                    })
-
-                                                                    e.target.classList.add('fa-caret-up');
-                                                                    document.querySelectorAll('.ps-submenu1')[index].classList.add('active')
-                                                                }}></i>
+                                                                <i className='icon-2 fa fa-caret-down dropdown-icon'></i>
                                                                 <ul
                                                                     className="ps-submenu1"
                                                                     onMouseLeave={() => {

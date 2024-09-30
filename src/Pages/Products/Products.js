@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";
 import { NavLink, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -12,7 +12,7 @@ function Products(props) {
     const [chosenBrand, setChosenBrand] = useState("");
     const [chosenCategory, setChosenCategory] = useState("");
 
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
 
     useEffect(() => {
         const category = searchParams.get('category');
@@ -26,11 +26,13 @@ function Products(props) {
             setChosenBrand(brand);
         }
 
-        searchParams.delete('category');
-        searchParams.delete('brand');
-        setSearchParams(searchParams);
+        const url = new URL(window.location);
+        url.searchParams.delete('brand');
+        url.searchParams.delete('category');
+        window.history.pushState({}, "", url.href);
+        return; 
 
-    }, [searchParams, setSearchParams]);
+    }, [setChosenCategory, setChosenBrand, searchParams]);
 
     const filterByBrand = (product) => {
         if (chosenBrand === "") {
@@ -69,6 +71,12 @@ function Products(props) {
         ); 
     });
 
+    function camelCase(str) {
+        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+            return index === 0 ? word.toLowerCase() : word.toUpperCase();
+        }).replace(/\s+/g, '');
+    }
+
     const [currentPage, setCurrentPage] = useState(1);
 
     const handleChange = (currentPage) => {
@@ -79,8 +87,6 @@ function Products(props) {
 
     const productsFrom = (currentPage - 1) * perPage;
     const productsTo = currentPage * perPage;
-
-    const listRef = useRef(null)
 
     const productCategories = [...new Set(props.data.map((product) => product.category))];
     const productBrands = [...new Set(props.data.map((product) => product.brand))];
@@ -96,7 +102,7 @@ function Products(props) {
                     </div>
                     <div className='col-lg-7'>
                         <div className='shop-box mb-5'>
-                            <div className='shop-title' ref={listRef}>
+                            <div className='shop-title'>
                                 <h2 className='shop-sidebar-title'>{t('products.showingResults')}</h2>
                                 <p><span>{t('products.total')} : </span>{ props.data.length }</p>
                             </div>
@@ -154,7 +160,7 @@ function Products(props) {
                                         )
                                     })}
                                     <li className="shop-brand" onClick={() => { setChosenBrand(""); setCurrentPage(1); }}>
-                                        <span className="px-2">Clear</span>
+                                        <span className="px-2">{ t('products.clear') }</span>
                                     </li>
                                 </ul>
                             </div>
@@ -185,16 +191,18 @@ function Products(props) {
                             <h2 className="shop-sidebar-title mb-3">{t('products.categories')}</h2>
                             <ul>
                                 { productCategories.map((category, index) => {
-                                    return <li
+                                    return (
+                                        <li
                                             className={`${chosenCategory === category ? 'active-category' : ''}`}
                                             key={index}
                                             onClick={() => { setChosenCategory(category); setCurrentPage(1);}}
                                         >
-                                            {category}
+                                            { t(`products.${camelCase(category)}`)}
                                         </li>
+                                    )
                                 })}
                                 <li className="shop-brand" onClick={() => { setChosenCategory(""); setCurrentPage(1);}}>
-                                    <span className="px-2">Clear</span>
+                                    <span className="px-2">{ t('products.clear') }</span>
                                 </li>
                             </ul>
                         </div>

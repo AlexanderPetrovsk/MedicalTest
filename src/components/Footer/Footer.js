@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
 import logo from '../../assets/logo.svg';
 import { useTranslation } from "react-i18next";
@@ -45,14 +45,7 @@ function Footer() {
     ];
 
    
-    const [searchParams, setSearchParams] = useSearchParams();
-
-    useEffect(() => {
-        const lang = searchParams.get('lang');
-
-        searchParams.set('lang', lang)
-        setSearchParams(searchParams);
-    }, [searchParams, setSearchParams]);
+    const [searchParams] = useSearchParams();
 
     return (
         <React.Fragment>

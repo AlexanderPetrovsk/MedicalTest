@@ -64,7 +64,11 @@ const resources = {
                 productSearch: 'Product Search',
                 brandFilter: 'Brand Filter',
                 filterByPrice: 'Filter By Price',
-                categories: 'categories'
+                categories: 'categories',
+                rehabilitation: 'Rehabilitation',
+                neurology: 'Neurology',
+                internalMedicine: 'Internal Medicine',
+                clear: 'clear'
             },
             service: {
                 service: 'Service',
@@ -147,7 +151,11 @@ const resources = {
                 productSearch: 'Пребарај продукт',
                 brandFilter: 'Филтрирај по брендови',
                 filterByPrice: 'Филтрирај по цена',
-                categories: 'Категории'
+                categories: 'Категории',
+                rehabilitation: 'Рехабилитација',
+                neurology: 'Неврологија',
+                internalMedicine: 'Интерна Медицина',
+                clear: 'Тргни Филтри'
             },
             service: {
                 service: 'Сервис',

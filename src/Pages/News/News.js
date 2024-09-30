@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Pagination from '../../components/Pagination/Pagination';
 import { NavLink, useSearchParams } from 'react-router-dom';
 import parse from 'html-react-parser';
@@ -44,14 +44,7 @@ function News(props) {
         return new Date(date).toLocaleString('en-US', { month: 'long', day: '2-digit', year: 'numeric'});
     }
 
-    const [searchParams, setSearchParams] = useSearchParams();
-
-    useEffect(() => {
-        const lang = searchParams.get('lang');
-
-        searchParams.set('lang', lang)
-        setSearchParams(searchParams);
-    }, [searchParams, setSearchParams]);
+    const [searchParams] = useSearchParams();
 
     return (
         <div className="ps-news-main-wrapper">
@@ -85,7 +78,7 @@ function News(props) {
                                                 </div>
                                                 <div className="ps-news-content">
                                                     <h4>{ getNewsTitle(news) }</h4>
-                                                    <div>{parse(getNewsDescription(getNewsContent(news)))}</div>
+                                                    <div>{ parse(getNewsDescription(getNewsContent(news))) }</div>
                                                 </div>
                                             </div>
                                         </div>

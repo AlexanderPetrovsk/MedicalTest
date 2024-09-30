@@ -266,6 +266,8 @@ ul.ps-submenu1.active {
 ul.ps-submenu2 > li {
     margin-bottom: 0;
     margin-left: 1rem;
+    font-size: 1.15rem;
+
 }
 
 ul.ps-submenu1 > li {
@@ -273,7 +275,7 @@ ul.ps-submenu1 > li {
 }
 
 ul.ps-submenu1 > li > span {
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: 700;
 }
 

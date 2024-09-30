@@ -8,7 +8,7 @@ import contec from '../../assets/contec.png';
 import lungs from '../../assets/lungs.svg';
 import spa from '../../assets/spa.svg';
 import brain from '../../assets/brain.svg';
-import React, { useEffect } from 'react';
+import React from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation'
 import { NavLink, useSearchParams } from 'react-router-dom';
@@ -56,14 +56,7 @@ function Home(props) {
         },
     ];
 
-    const [searchParams, setSearchParams] = useSearchParams();
-
-    useEffect(() => {
-        const lang = searchParams.get('lang');
-
-        searchParams.set('lang', lang)
-        setSearchParams(searchParams);
-    }, [searchParams, setSearchParams]);
+    const [searchParams] = useSearchParams();
 
 
     const getProductsLayout = (products) => {

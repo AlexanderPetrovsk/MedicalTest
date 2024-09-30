@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
 function Service() {
-
     const { t } = useTranslation();
 
     const [name, setName] = useState('');
@@ -14,7 +13,7 @@ function Service() {
     const [errors, setErrors] = useState([]);
 
     const submitForm = async () => {
-        const response = await fetch('http://localhost:8000/service_request', {
+        const response = await fetch('https://meditek-api.mk.meditek.com.mk/index.php/service_request', {
             method: 'POST',
             headers: { 'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -39,14 +38,7 @@ function Service() {
         setSubject('');
     }
 
-    const [searchParams, setSearchParams] = useSearchParams();
-
-    useEffect(() => {
-        const lang = searchParams.get('lang');
-
-        searchParams.set('lang', lang)
-        setSearchParams(searchParams);
-    }, [searchParams, setSearchParams]);
+    useSearchParams();
 
     return (
         <div className="service-main-wrapper">
