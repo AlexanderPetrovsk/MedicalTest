@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";
 import { NavLink, useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { getProductTitle } from "../../utils/common";
 
 function Products(props) {
+    const { t } = useTranslation();
+
     const [priceRange, setPriceRange] = useState(1000);
     const [searchText, setSearchText] = useState("");
     const [chosenBrand, setChosenBrand] = useState("");
@@ -24,7 +28,6 @@ function Products(props) {
 
         searchParams.delete('category');
         searchParams.delete('brand');
-
         setSearchParams(searchParams);
 
     }, [searchParams, setSearchParams]);
@@ -79,7 +82,8 @@ function Products(props) {
 
     const listRef = useRef(null)
 
-    const executeScroll = () => listRef.current.scrollIntoView()   
+    const productCategories = [...new Set(props.data.map((product) => product.category))];
+    const productBrands = [...new Set(props.data.map((product) => product.brand))];
 
     return (
         <React.Fragment>
@@ -87,25 +91,25 @@ function Products(props) {
                 <div className='row'>
                     <div className="col-lg-12">
                         <div className="header-title">
-                            <h2>Shop Products</h2>
+                            <h2>{t('products.shopProducts')}</h2>
                         </div>
                     </div>
                     <div className='col-lg-7'>
                         <div className='shop-box mb-5'>
                             <div className='shop-title' ref={listRef}>
-                                <h2 className='shop-sidebar-title'>Showing results</h2>
-                                <p><span>Total : </span>{ props.data.length }</p>
+                                <h2 className='shop-sidebar-title'>{t('products.showingResults')}</h2>
+                                <p><span>{t('products.total')} : </span>{ props.data.length }</p>
                             </div>
                             <div className='shop-products'>
                                 { filteredData.slice(productsFrom, productsTo).map((product, index) => {
                                     return (
-                                        <NavLink to={`/products/${product.id}`} key={index}>
+                                        <NavLink to={`/products/${product.id}?lang=${searchParams.get('lang')}`} key={index}>
                                             <div className='shop-product-box' >
                                                 <div className='shop-product-image'>
                                                     <img src={product.image} alt=''/>
                                                 </div>
                                                 <div className='shop-product-data'>
-                                                    <h3>{product.title}</h3>
+                                                    <h3>{getProductTitle(product)}</h3>
                                                     <h5>${product.price}</h5>
                                                 </div>
                                             </div>
@@ -115,24 +119,29 @@ function Products(props) {
                             </div>
                         </div>
                         <div className="shop-pagination">
-                            <Pagination perPage={perPage} items={filteredData} onChange={(currentPage) => { handleChange(currentPage); executeScroll(); }} key={filteredData.length}/>
+                            <Pagination 
+                                perPage={perPage}
+                                items={filteredData}
+                                onChange={(currentPage) => { handleChange(currentPage); window.scrollTo(0, 0); }}
+                                key={filteredData.length}
+                            />
                         </div>
                     </div>
                     <div className='col-lg-1'>
                     </div>
                     <div className='col-lg-4 col-8 mx-auto'>
                         <div className='shop-product-search'>
-                            <h2 className='shop-sidebar-title mb-3'>Product Search</h2>
+                            <h2 className='shop-sidebar-title mb-3'>{t('products.productSearch')}</h2>
                             <form>
-                                <input type="text" placeholder="Product Search" onChange={(e) => {setSearchText(e.target.value); setCurrentPage(1); }}/>
-                                <button>search</button>
+                                <input type="text" placeholder={t('products.productSearch')} onChange={(e) => {setSearchText(e.target.value); setCurrentPage(1); }}/>
+                                <button></button>
                             </form>
                         </div>
                         <div className='shop-product-brand-filter mb-5'>
-                            <h2 className='shop-sidebar-title mb-3'>Brand Filter</h2>
+                            <h2 className='shop-sidebar-title mb-3'>{t('products.brandFilter')}</h2>
                             <div className='shop-brand-filters'>
                                 <ul className='shop-brands'>
-                                    { [...new Set(props.data.map((product) => product.brand))].map((brand, index) => {
+                                    { productBrands.map((brand, index) => {
                                         return (
                                             <li
                                                 className={`shop-brand ${chosenBrand.toLowerCase() === brand.toLowerCase() ? 'active-category' : ''}`}
@@ -151,7 +160,7 @@ function Products(props) {
                             </div>
                         </div>
                         <div className='shop-product-range-filter'>
-                            <h2 className='shop-sidebar-title mb-3'>Filter By Price</h2>
+                            <h2 className='shop-sidebar-title mb-3'>{t('products.filterByPrice')}</h2>
                             <input
                                 type="range"
                                 className="shop-form-range form-range"
@@ -173,9 +182,9 @@ function Products(props) {
                             <output id='price-bubble'>${priceRange}</output>
                         </div>
                         <div className="shop-product-category-filter">
-                            <h2 className="shop-sidebar-title mb-3">Categories</h2>
+                            <h2 className="shop-sidebar-title mb-3">{t('products.categories')}</h2>
                             <ul>
-                                { [...new Set(props.data.map((product) => product.category))].map((category, index) => {
+                                { productCategories.map((category, index) => {
                                     return <li
                                             className={`${chosenCategory === category ? 'active-category' : ''}`}
                                             key={index}

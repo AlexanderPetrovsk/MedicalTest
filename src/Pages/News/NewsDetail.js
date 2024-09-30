@@ -1,8 +1,14 @@
+import parse from 'html-react-parser';
 import { useParams } from "react-router-dom";
+import { getNewsContent, getNewsTitle } from "../../utils/common";
 
 function NewsDetail(props) {
     const { id } = useParams();
     const product = props.data.find(item => parseInt(item.id) === parseInt(id));
+
+    const getDate = (date) => {
+        return new Date(date).toLocaleString('en-US', { month: 'long', day: '2-digit', year: 'numeric'});
+    }
 
     return (
         <div className="news-detail-main-wrapper">
@@ -15,13 +21,13 @@ function NewsDetail(props) {
                                     <img src={product.image} alt="" />
                                 </div>
                                 <div className="news-details-content mb-5">
-                                    <h4>{ product.title }</h4>
-                                    <p>{ product.description }</p>
+                                    <h4>{ getNewsTitle(product) }</h4>
+                                    { parse(getNewsContent(product)) }
                                 </div>
 
                             </div>
                             <div className="news-detail-date">
-                                <div>JULY 29, 2021</div>
+                                <div>{ getDate(product.createdOn) }</div>
                             </div>
                         </div>
                     </div>

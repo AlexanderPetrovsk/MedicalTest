@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from '../../assets/logo.svg';
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Header() {
+    const { t, i18n } = useTranslation();
+
     const headerLinks = [
         {
-            title: 'Home',
+            link:'home',
+            title: t('header.home'),
             subMenus: []
         },
         {
-            title: 'Products',
+            link: 'products',
+            title: t('header.products'),
             subMenus: [
                 {
-                    title: 'Rehabilitation',
+                    link: 'Rehabilitation',
+                    title: t('header.categories.rehabilitation'),
                     subMenus: [
                         {
-                            title: 'Neurological',
+                            title: t('header.categories.neurological'),
                             subMenus: [
                                 {
                                     title: 'Neofect'
@@ -29,7 +35,7 @@ function Header() {
                             ]
                         },
                         {
-                            title: 'Physical',
+                            title: t('header.categories.physical'),
                             subMenus: [
                                 {
                                     title: 'Meden Inmed'
@@ -48,10 +54,11 @@ function Header() {
                     ]
                 },
                 {
-                    title: 'Neurology',
+                    link: 'Neurology',
+                    title: t('header.categories.neurology'),
                     subMenus: [
                         {
-                            title: 'EEG/EMG',
+                            title: t('header.categories.eeg'),
                             subMenus: [
                                 {
                                     title: 'EB Neuro'
@@ -59,7 +66,7 @@ function Header() {
                             ]
                         },
                         {
-                            title: 'Expendable',
+                            title: t('header.categories.expendable'),
                             subMenus: [
                                 {
                                     title: 'Spes Medica'
@@ -67,7 +74,7 @@ function Header() {
                             ]
                         },
                         {
-                            title: 'Neuro/Bio feedback',
+                            title: t('header.categories.neuroBioFeedback'),
                             subMenus: [
                                 {
                                     title: 'Elmiko'
@@ -80,10 +87,11 @@ function Header() {
                     ]
                 },
                 {
-                    title: 'Internal medicine',
+                    link: 'Internal Medicine',
+                    title: t('header.categories.internalMedicine'),
                     subMenus: [
                         {
-                            title: 'EKG',
+                            title: t('header.categories.ekg'),
                             subMenus: [
                                 {
                                     title: 'Contec',
@@ -94,7 +102,7 @@ function Header() {
                             ]
                         },
                         {
-                            title: 'Spirometry',
+                            title: t('header.categories.spirometry'),
                             subMenus: [
                                 {
                                     title: 'MIR'
@@ -102,7 +110,7 @@ function Header() {
                             ]
                         },
                         {
-                            title: 'Sleep apnea',
+                            title: t('header.categories.sleepApnea'),
                             subMenus: [
                                 {
                                     title: 'BMC'
@@ -114,30 +122,66 @@ function Header() {
             ]
         },
         {
-            title: 'Service',
+            link: 'service',
+            title: t('header.service'),
             subMenus: []
         },
         {
-            title: 'News',
+            link: 'news',
+            title: t('header.news'),
             subMenus: []
         },
         {
-            title: 'Contact',
+            link: 'contact',
+            title: t('header.contact'),
             subMenus: []
         },
     ];
 
     const [menuToggle, setMenuToggle] = useState(false);
+    const [chosenLang, setChosenLang] = useState('mk');
+    
+	const [searchParams, setSearchParams] = useSearchParams();
+
+    const changeLanguage = (lang) => {
+        setChosenLang(lang);
+
+        const params = new URLSearchParams();
+
+        params.set('lang', lang);
+        setSearchParams(params);
+
+        i18n.changeLanguage(lang);
+    }
+
+    useEffect(() => {
+        if (searchParams.get('lang') === 'null' || !searchParams.get('lang')) {
+            setChosenLang(chosenLang);
+            
+            i18n.changeLanguage(chosenLang);
+            
+            const params = new URLSearchParams();
+            
+            params.set('lang', 'mk');
+            setSearchParams(params);
+            
+            return;
+        }
+        
+        setChosenLang(searchParams.get('lang'));
+        i18n.changeLanguage(searchParams.get('lang'));
+    }, [searchParams, i18n, chosenLang, setSearchParams]);
+
 
     return (
         <div className={`ps-navigation-wrapper bg-light fixed-top ${ menuToggle ? 'menu_open' : ''}`}>
             <div className="row align-items-center">
-                <div className="col-xl-7 col-lg-7 col-md-12 col-9">
+                <div className="col-xl-6 col-lg-7 col-md-12 col-9">
                     <div className="ps-main-logo">
                         <img src={logo} alt='' />
                     </div>
                 </div>
-                <div className="col-xl-5 col-lg-4 col-md-12 ps-toggle-responsive">
+                <div className="col-xl-6 col-lg-4 col-md-12 ps-toggle-responsive">
                     <div className="row">
                         <span onClick={() => { setMenuToggle(false) } } className="close-button"> X </span>
                     </div>
@@ -148,16 +192,33 @@ function Header() {
                                     <React.Fragment key={index}>
                                         <li
                                             className='ps-menu-children dropdown'
+                                            onMouseEnter={() => {
+                                                const subMenuClasslist = document.querySelector('.ps-submenu').classList
+
+                                                const icon  = document.querySelector('.icon-1').classList;
+                                                icon.add('fa-caret-up');
+                                                subMenuClasslist.add('active');
+                                            }}
+                                            onMouseLeave={() => {
+                                                const subMenuClasslist = document.querySelector('.ps-submenu').classList
+                                                const icon  = document.querySelector('.icon-1').classList;
+
+                                                icon.remove('fa-caret-up');
+                                                subMenuClasslist.remove('active');
+                                            }}
                                         >
-                                            <NavLink to={link.title.toLowerCase()} className='ps-title'>
+                                            <NavLink
+                                                to={link.link + `?lang=${chosenLang}`}
+                                                className='ps-title'
+                                                onClick={() => window.scrollTo(0, 0)}
+                                            >
                                                 <span>
                                                     {link.title}
-    
                                                 </span>
                                             </NavLink>
                                             {
                                                 link.subMenus.length
-                                                    ? <i className='fa fa-caret-down' onClick={(e) => {
+                                                    ? <i className='icon-1 fa fa-caret-down' onClick={(e) => {
                                                         const subMenuClasslist = document.querySelector('.ps-submenu').classList
 
                                                         subMenuClasslist.contains('active') ? e.target.classList.remove('fa-caret-up') : e.target.classList.add('fa-caret-up');
@@ -174,11 +235,31 @@ function Header() {
                                                                 className="dropdown1"
                                                             >
                                                                 <NavLink
-                                                                    to={`/products?category=${subMenu.title}`}
-                                                                    key={index}>
-                                                                        {subMenu.title}
+                                                                    to={`/products?lang=${chosenLang}&category=${subMenu.link}`}
+                                                                    key={index}
+                                                                    onClick={() => window.scrollTo(0, 0)}
+                                                                    onMouseEnter={() => {
+                                                                        document.querySelectorAll('.ps-submenu1').forEach((submenu, arrayIndex) => {
+                                                                            if (arrayIndex !== index) {
+                                                                                submenu.classList.remove('active');
+                                                                            }
+                                                                        });
+
+                                                                        document.querySelectorAll('i.dropdown-icon').forEach(icon => {
+                                                                            icon.classList.remove('fa-caret-up');
+                                                                        });
+
+                                                                        document.querySelector('.ps-submenu').classList.add('active');
+                                                                        const subMenuClasslist = document.querySelectorAll('.ps-submenu1')[index].classList
+                        
+                                                                        const icon  = document.querySelectorAll('.icon-2')[index].classList;
+                                                                        icon.add('fa-caret-up');
+                                                                        subMenuClasslist.add('active');
+                                                                    }}
+                                                                >
+                                                                    {subMenu.title}
                                                                 </NavLink>
-                                                                <i className='fa fa-caret-down dropdown-icon' onClick={(e) => {
+                                                                <i className='icon-2 fa fa-caret-down dropdown-icon' onClick={(e) => {
                                                                     if (document.querySelectorAll('.ps-submenu1')[index].classList.contains('active')) {
                                                                         document.querySelectorAll('.ps-submenu1')[index].classList.remove('active');
                                                                         e.target.classList.remove('fa-caret-up');
@@ -188,6 +269,7 @@ function Header() {
                                                                     document.querySelectorAll('.ps-submenu1').forEach(submenu => {
                                                                         submenu.classList.remove('active');
                                                                     });
+
                                                                     document.querySelectorAll('i.dropdown-icon').forEach(icon => {
                                                                         icon.classList.remove('fa-caret-up');
                                                                     })
@@ -195,7 +277,13 @@ function Header() {
                                                                     e.target.classList.add('fa-caret-up');
                                                                     document.querySelectorAll('.ps-submenu1')[index].classList.add('active')
                                                                 }}></i>
-                                                                <ul className="ps-submenu1">
+                                                                <ul
+                                                                    className="ps-submenu1"
+                                                                    onMouseLeave={() => {
+                                                                        const subMenuClasslist = document.querySelectorAll('.ps-submenu1')[index].classList
+                                                                        subMenuClasslist.remove('active');
+                                                                    }}
+                                                                >
                                                                     { subMenu.subMenus.map((menu, index) => {
                                                                         return (
                                                                             <li
@@ -207,7 +295,12 @@ function Header() {
                                                                                     { menu.subMenus.map((final, index) => {
                                                                                         return (
                                                                                             <li key={index}>
-                                                                                                <NavLink to={`/products?category=${subMenu.title}&brand=${final.title}`} key={index}>{final.title}</NavLink>
+                                                                                                <NavLink
+                                                                                                    to={`/products?lang=${chosenLang}&category=${subMenu.link}&brand=${final.title}`} key={index}
+                                                                                                    onClick={() => window.scrollTo(0, 0)}
+                                                                                                >
+                                                                                                    {final.title}
+                                                                                                </NavLink>
                                                                                             </li>
                                                                                         )
                                                                                     })}
@@ -225,6 +318,12 @@ function Header() {
                                     </React.Fragment>
                                 )
                             })}
+                            <li className="lanugage-select">
+                                <select value={chosenLang} onChange={(e) => { changeLanguage(e.target.value) }}>
+                                    <option>mk</option>
+                                    <option>en</option>
+                                </select>
+                            </li>
                         </ul>
                     </div>			
                 </div>

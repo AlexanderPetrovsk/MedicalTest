@@ -1,17 +1,32 @@
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
+
 function Contact() {
+    const { t } = useTranslation();
+   
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        const lang = searchParams.get('lang');
+
+        searchParams.set('lang', lang)
+        setSearchParams(searchParams);
+    }, [searchParams, setSearchParams]);
+
     return (
         <div className="contact-detail-wrapper container-sm">
             <div className="row align-items-center mb-5 mt-5">
                 <div className="contact-detail col-12 mb-5">
-                    <h2 className="contact-sidebar-title">Contact Info</h2>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                    <h2 className="contact-sidebar-title">{t('contact.contactInfo')}</h2>
+                    <p>{t('contact.contactDescription')}</p>
                     <ul>
                         <li>
                             <div className="contact-icon">
                                 <i className="fa-solid fa-phone"></i>
                             </div>  
                             <div className="contact-text">
-                                <h3>Contact</h3>
+                                <h3>{t('contact.contact')}</h3>
                                 <p>+389 2 61330251</p>
                             </div>
                         </li>
@@ -20,7 +35,7 @@ function Contact() {
                                 <i className="fa-solid fa-envelope"></i>
                             </div>  
                             <div className="contact-text">
-                                <h3>Email</h3>
+                                <h3>{t('contact.email')}</h3>
                                 <p>info@meditek.com.mk</p>
                             </div>
                         </li>
@@ -29,7 +44,7 @@ function Contact() {
                                 <i className="fas fa-location-dot"></i>
                             </div>  
                             <div className="contact-text">
-                                <h3>Location</h3>
+                                <h3>{t('contact.location')}</h3>
                                 <p>Londonska nm.10/3/4, Skopje, Macedonia</p>
                             </div>
                         </li>

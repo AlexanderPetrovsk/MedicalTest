@@ -9,38 +9,42 @@ import lungs from '../../assets/lungs.svg';
 import spa from '../../assets/spa.svg';
 import brain from '../../assets/brain.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
+import parse from 'html-react-parser';
+import { useTranslation } from 'react-i18next';
+import { getProductTitle } from '../../utils/common';
 
 function Home(props) {
+    const { t } = useTranslation();
 
     const productAds = [
         {
             image: product1,
-            title: 'Smart Glove',
-            description: 'Lorem ipsum dolor sit amet.'
+            title: t('home.ads.first.title'),
+            description: t('home.ads.first.description')
         },
         {
             image: product2,
-            title: 'Smart Kids',
-            description: 'Lorem ipsum dolor sit amet.'
+            title: t('home.ads.second.title'),
+            description: t('home.ads.second.description')
         },
         {
             image: product3,
-            title: 'Smart Board',
-            description: 'Lorem ipsum dolor sit amet.'
+            title: t('home.ads.third.title'),
+            description: t('home.ads.third.description')
         },
     ]
 
     const slides = [
         {
-            description: 'Lorem Ipsum Header Text Conesctetur Dolor Sit Amet Adipisicing elit Ut Labore Et Dolore Magna Aliqua',
+            description: t('home.banner')
         },
         {
-            description: 'Sed Do Eius Tempor Incididunt Ut Labore Et Dolore Magna Aliqua, Lorem Ipsum Dolor Sit Amet',
+            description: t('home.secondBanner'),
         }
     ]
 
@@ -63,17 +67,27 @@ function Home(props) {
         },
     ];
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        const lang = searchParams.get('lang');
+
+        searchParams.set('lang', lang)
+        setSearchParams(searchParams);
+    }, [searchParams, setSearchParams]);
+
+
     const getProductsLayout = (products) => {
         return products.map((product, index) => {
             return (
                 <div className="col-lg-3 col-md-6 col-12" key={index}>
-                    <NavLink to={`/products/${product.id}`} onClick={() => window.scrollTo(0, 0)}>
+                    <NavLink to={`/products/${product.id}?lang=${searchParams.get('lang')}`} onClick={() => window.scrollTo(0, 0)}>
                         <div className="ps-product-box">
                             <div className="ps-product-img">
                                 <img src={product.image} alt="" />
                             </div>
                             <div className="ps-product-info">
-                                <h4>{product.title}</h4>
+                                <h4>{getProductTitle(product)}</h4>
                                 <p>${product.price}</p>
                             </div>
                         </div>
@@ -81,6 +95,18 @@ function Home(props) {
                 </div>
             )
         });
+    }
+
+    const getNewsDescription = (description) => {
+        if (description.length > 150) {
+            return description.slice(0, 150) + '...';
+        }
+
+        return description.replace(/(<([^>]+)>)/gi, "");
+    }
+
+    const getDate = (date) => {
+        return new Date(date).toLocaleString('en-US', { month: 'long', day: '2-digit', year: 'numeric'});
     }
 
     return (
@@ -135,8 +161,8 @@ function Home(props) {
                     <div className="row">
                         <div className="col-lg-12 col-md-12 col-12">
                             <div className="ps-best-seller-heading">
-                                <h4>Latest Products</h4>
-                                <NavLink to='/products' onClick={() => window.scrollTo(0, 0)}>View All</NavLink>
+                                <h4>{t('home.latestProducts')}</h4>
+                                <NavLink to={`/products?lang=${searchParams.get('lang')}`} onClick={() => window.scrollTo(0, 0)}>View All</NavLink>
                             </div>
                         </div>
                         { getProductsLayout(props.latestProducts) }
@@ -148,12 +174,12 @@ function Home(props) {
                     <div className="row">
                         <div className="col-lg-12 col-md-12 col-12">
                             <div className="ps-best-seller-heading">
-                                <h4>Shop by brands</h4>
+                                <h4>{t('home.shopByBrands')}</h4>
                             </div>
                             <div className="ps-brand-logo align-items-center">
                                 {brands.map((brand, index) => {
                                     return (
-                                        <NavLink to={`/products?brand=${brand.title}`} onClick={() => window.scrollTo(0, 0)}>
+                                        <NavLink to={`/products?lang=${searchParams.get('lang')}&brand=${brand.title}`} onClick={() => window.scrollTo(0, 0)} key={index}>
                                             <img src={brand.image} key={index} alt=""/>
                                         </NavLink>
                                     )
@@ -168,29 +194,28 @@ function Home(props) {
                     <div className="row align-items-center">
                         <div className="col-lg-5 col-md-12">
                             <div className="ps-shop-categry-left">
-                                <h4>Shop by categories</h4>
-                                <p>consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua
-                                    enim ad minim veniam nostrud exercit.</p>
+                                <h4>{t('home.shopByCategories')}</h4>
+                                <p>{t('home.shopByCategoryDescription')}</p>
                             </div>
                         </div>
                         <div className="col-lg-7 col-md-12">
                             <div className="ps-shop-categry-right">
-                                <NavLink to='/products?category=Rehabilitation' onClick={() => window.scrollTo(0, 0)}>
+                                <NavLink to={`/products?lang=${searchParams.get('lang')}&category=Rehabilitation`} onClick={() => window.scrollTo(0, 0)}>
                                     <div className="ps-shop-categry-inner">
                                         <img src={spa} alt=""/>
-                                        <p>Rehab</p>
+                                        <p>{t('home.rehabilitation')}</p>
                                     </div>
                                 </NavLink>
-                                <NavLink to='/products?category=Neurology' onClick={() => window.scrollTo(0, 0)}>
+                                <NavLink to={`/products?lang=${searchParams.get('lang')}&category=Neurology`} onClick={() => window.scrollTo(0, 0)}>
                                     <div className="ps-shop-categry-inner">
                                         <img src={brain} alt=""/>
-                                        <p>Neurology</p>
+                                        <p>{t('home.neurology')}</p>
                                     </div>
                                 </NavLink>
-                                <NavLink to="/products?category=Internal Medicine" onClick={() => window.scrollTo(0, 0)}>
+                                <NavLink to={`/products?lang=${searchParams.get('lang')}&category=Internal Medicine`} onClick={() => window.scrollTo(0, 0)}>
                                     <div className="ps-shop-categry-inner">
                                         <img src={lungs} alt=""/>
-                                        <p>Internal Medicine</p>
+                                        <p>{t('home.internalMedicine')}</p>
                                     </div>
                                 </NavLink>
                             </div>
@@ -203,27 +228,25 @@ function Home(props) {
                     <div className="row ps-news-row-parent">
                         <div className="col-lg-12 col-md-12">
                             <div className="ps-testml-slider-heading">
-                                <h4>Latest News</h4>
+                                <h4>{t('home.latestNews')}</h4>
                             </div>
                         </div>
                         { props.latestNews.map((news, index) => {
                             return (
                                 <div className="col-lg-4 col-md-6" key={index}>
-                                    <NavLink to={`/news/${news.id}`} onClick={() => window.scrollTo(0, 0)}>
+                                    <NavLink to={`/news/${news.id}?lang=${searchParams.get('lang')}`} onClick={() => window.scrollTo(0, 0)}>
                                         <div className="ps-news-box">
                                             <div className="ps-news-inner">
                                                 <div className="ps-news-img">
                                                     <img src={news.image} alt=""/>
                                                     <div className="ps-news-overlay"></div>
                                                     <div className="ps-news-date-btn">
-                                                        <div>JULY 29, 2021</div>
+                                                        <div>{getDate(news.createdOn)}</div>
                                                     </div>
                                                 </div>
                                                 <div className="ps-news-content">
-                                                    <h4>Contrary to popular beliefpsum is not
-                                                        simply random and text.</h4>
-                                                    <p>consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna
-                                                        aliqua enim ad minim veniam nostrud exercit.</p>
+                                                    <h4>{news.Title}</h4>
+                                                    <div>{ parse(getNewsDescription(news.Content)) }</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -236,6 +259,7 @@ function Home(props) {
             </div>
         </React.Fragment>
     )
+
 }
 
 export default Home;

@@ -1,8 +1,12 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Pagination from '../../components/Pagination/Pagination';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
+import parse from 'html-react-parser';
+import { useTranslation } from 'react-i18next';
+import { getNewsContent, getNewsTitle } from '../../utils/common';
 
 function News(props) { 
+    const { t } = useTranslation();
 
     const [searchText, setSearchText] = useState('');
 
@@ -33,8 +37,21 @@ function News(props) {
             return description.slice(0, 150) + '...';
         }
 
-        return description;
+        return description.replace(/(<([^>]+)>)/gi, "");
     }
+
+    const getDate = (date) => {
+        return new Date(date).toLocaleString('en-US', { month: 'long', day: '2-digit', year: 'numeric'});
+    }
+
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        const lang = searchParams.get('lang');
+
+        searchParams.set('lang', lang)
+        setSearchParams(searchParams);
+    }, [searchParams, setSearchParams]);
 
     return (
         <div className="ps-news-main-wrapper">
@@ -42,14 +59,14 @@ function News(props) {
                 <div className="ps-news-row-parent">
                     <div className="col-lg-12">
                         <div className="header-title">
-                            <h2>Latest News</h2>
+                            <h2>{t('news.latestNews')}</h2>
                         </div>
                     </div>
                     <div className='col-lg-12 shop-product-search' ref={listRef}>
-                        <h2 className='shop-sidebar-title mb-3'>Search</h2>
+                        <h2 className='shop-sidebar-title mb-3'>{t('news.search')}</h2>
                         <form>
                             <input type="text" placeholder="Search" onChange={(e) => { setSearchText(e.target.value); setCurrentPage(1) }}/>
-                            <button>search</button>
+                            <button></button>
                         </form>
                     </div>
                     <div className='row'>
@@ -63,12 +80,12 @@ function News(props) {
                                                     <img src={news.image} alt=""/>
                                                     <div className="ps-news-overlay"></div>
                                                     <div className="ps-news-date-btn">
-                                                        <div href="/home">JULY 29, 2021</div>
+                                                        <div>{ getDate(news.createdOn)}</div>
                                                     </div>
                                                 </div>
                                                 <div className="ps-news-content">
-                                                    <h4>{ news.title }</h4>
-                                                    <p>{ getNewsDescription(news.description) }</p>
+                                                    <h4>{ getNewsTitle(news) }</h4>
+                                                    <div>{parse(getNewsDescription(getNewsContent(news)))}</div>
                                                 </div>
                                             </div>
                                         </div>

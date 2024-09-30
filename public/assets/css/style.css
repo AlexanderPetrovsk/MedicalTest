@@ -40,7 +40,6 @@ a, a:hover, a:focus{
     transition: all 0.3s;
 }
 h1, h2, h3, h4, h5, h6{
-	font-family: Red Hat Display;
 	-webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
@@ -184,6 +183,16 @@ p {
     transform: rotate(87deg);    
     z-index: -1;
 }
+
+.lanugage-select {
+    margin-left: 1rem;
+}
+
+.lanugage-select > select {
+    border: 0;
+    background-color: transparent;
+}
+
 /* navigaion bar css end */
 /* submenu css start */
 .close-button {
@@ -227,7 +236,7 @@ ul.ps-submenu {
     top: 75px;
     background-color: var(--white-color);
     box-shadow: 0 10px 20px rgb(99 149 189 / 30%);
-    max-width: 250px;
+    max-width: 300px;
     width: 100%;
     z-index: 9;
     padding: 20px 0 15px 20px;
@@ -246,6 +255,11 @@ ul.ps-submenu1 {
 
 ul.ps-submenu1.active {
     display: block;
+    position: absolute;
+    background-color: #fff;
+    left: 180px;
+    width: 300px;
+    padding: 20px;
 }
 ul.ps-submenu2 > li {
     margin-bottom: 0;
@@ -851,16 +865,15 @@ span.yellow-bubble{
     padding: 0 10px;
 }
 .ps-news-date-btn div {
-    max-width: 140px;
-    width: 100%;
+    width: fit-content;
     background-color: var(--theme-color);
     display: block;
-    padding: 12px 0;
+    padding: 12px 5px;
     color: var(--white-color);
     border-radius: 40px;    
     box-shadow: 0px 0px 20px rgba(55,199,235,70%);
     position: absolute;
-    right: 20px;
+    right: 10px;
     bottom: -22px;
 }
 .ps-news-content h4{
@@ -870,7 +883,7 @@ span.yellow-bubble{
     text-align: left;
     margin: 40px 0 17px 0;
 }
-.ps-news-content p {
+.ps-news-content div {
     font-size: 15px;
     color: var(--grey-color);
     font-weight: 400;
@@ -1006,7 +1019,7 @@ span.yellow-bubble{
     transition: all 0.5s;
 }
 .ps-footer-link ul li a:hover{
-    color: var(--white-color);
+    color: var(--grey-color);
 }
 .ps-footer-addres{
     display: flex;
@@ -1169,6 +1182,7 @@ span.yellow-bubble{
 .shop-product-data > h3 {
     color: var(--dark-color);
     font-size: 1.5rem;
+    word-break: keep-all;
 }
 
 .shop-product-data > h5 {
@@ -1195,7 +1209,7 @@ span.yellow-bubble{
 .shop-product-search > form > button {
     border-radius: 0px 30px 30px 0px;
     display: inline-block;
-    min-width: 120px;
+    min-width: 40px;
     height: 50px;
     line-height: 50px;
     background: var(--theme-color);
@@ -1323,7 +1337,6 @@ span.yellow-bubble{
     background: #fff;
     border-radius: 10px;
     padding: 34px 40px 40px;
-    max-height: 600px;
 }
 
 .service-form-title {
@@ -1371,6 +1384,11 @@ span.yellow-bubble{
     border-radius: 30px;
     transition: 0.3s;
     margin-top: 25px;
+}
+.service-form-error {
+    margin-top: 1rem;
+    color: #ff2140;
+    font-size: 1.25rem;
 }
 /*Service css end*/
 
@@ -1490,7 +1508,6 @@ span.yellow-bubble{
 .news-detail-container {
     background-color: var(--white-color);
     border-radius: 10px;
-    cursor: pointer;
 }
 
 .news-details-img > img {
@@ -1509,8 +1526,7 @@ span.yellow-bubble{
     margin-block: 40px;
     text-align: center;
 }
-
-.news-detail-container p {
+.news-details-content > div {
     font-size: clamp(1.25rem, 2vw, 2rem);
     color: var(--grey-color);
     font-weight: 400;
@@ -1518,15 +1534,14 @@ span.yellow-bubble{
     max-width: 80%;
     width: 100%;
     margin: auto
-}
+} 
 
 .news-detail-date { 
     position: relative;
 }
 
 .news-detail-date > div {
-    max-width: 140px;
-    width: 100%;
+    width: fit-content;
     background-color: var(--theme-color);
     display: block;
     padding: 15px;
@@ -1568,7 +1583,7 @@ span.yellow-bubble{
     max-width: 80%;
 }
 
-.product-detail-data p {
+.product-detail-data div {
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     color: var(--dark-color);
     font-weight: 400;
@@ -1581,14 +1596,19 @@ span.yellow-bubble{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: var(--white-color);
-    padding-block: 3rem;
+    padding-top: 3rem;
 }
 
 .product-details-container {
     border-bottom: 2px solid #f6f7fa;
     border-radius: 10px;
     padding-inline: 12px;
+    margin-top: 95px;
+    margin-bottom: 95px;
 }
 
+.related-products-filler {
+    margin-bottom: 15rem;
+}
 /* product details css*/
 

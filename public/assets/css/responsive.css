@@ -171,6 +171,7 @@
 
     ul.ps-submenu1.active {
         display: block;
+        left: 100px;
     }
 
     .ps-overlay h2{
