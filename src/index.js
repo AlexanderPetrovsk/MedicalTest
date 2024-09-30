@@ -1,6 +1,6 @@
 import './i18n';
 import './index.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Home from './Pages/Home/Home';
 import News from './Pages/News/News';
 import ReactDOM from 'react-dom/client';
