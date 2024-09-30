@@ -254,8 +254,8 @@
     }
 }
 @media(max-width:767px){    
-    .ps-banner-swiper-main-wrapper .swiper-slide {
-        padding: 200px 85px 250px 130px;
+    .ps-banner-swiper-main-wrapper {
+        padding: 200px 85px 50px 50px;
     }
     .ps-service-responsive, .ps-ad-responsive, .ps-news-box-last{
         margin-top: 0;
@@ -367,8 +367,8 @@
         position: relative;
         text-align: center;
     }
-    .ps-banner-swiper-main-wrapper .swiper-slide {
-        padding: 80px 30px 80px 70px;
+    .ps-banner-swiper-main-wrapper {
+        padding: 90px 30px 50px 50px;
     }
     .ps-signin-popup-wrapper{
         padding: 15px;

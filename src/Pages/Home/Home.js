@@ -8,11 +8,9 @@ import contec from '../../assets/contec.png';
 import lungs from '../../assets/lungs.svg';
 import spa from '../../assets/spa.svg';
 import brain from '../../assets/brain.svg';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation'
-import { Navigation } from 'swiper/modules';
 import { NavLink, useSearchParams } from 'react-router-dom';
 import parse from 'html-react-parser';
 import { useTranslation } from 'react-i18next';
@@ -37,15 +35,6 @@ function Home(props) {
             title: t('home.ads.third.title'),
             description: t('home.ads.third.description')
         },
-    ]
-
-    const slides = [
-        {
-            description: t('home.banner')
-        },
-        {
-            description: t('home.secondBanner'),
-        }
     ]
 
     const brands = [
@@ -112,26 +101,13 @@ function Home(props) {
     return (
         <React.Fragment>
             <div className="ps-banner-swiper-main-wrapper">
-                <Swiper
-                    modules={[Navigation]}
-                    slidesPerView={1}
-                    navigation
-                    loop
-                >
-                    { slides.map((slide, index) => {
-                        return (
-                            <SwiperSlide key={index}>
-                                <div className="row">
-                                    <div className="col-lg-9 col-md-12">
-                                        <div className="ps-banner-content">
-                                            <h2>{ slide.description }</h2>									
-                                        </div>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                        )
-                    }) }
-                </Swiper>
+                <div className="row">
+                    <div className="col-lg-9 col-md-12">
+                        <div className="ps-banner-content">
+                            <h2>{ t('home.banner') }</h2>									
+                        </div>
+                    </div>
+                </div>
             </div>
             <div className="ps-ad-section-main-wrapper">
                 <div className="container-fluid">

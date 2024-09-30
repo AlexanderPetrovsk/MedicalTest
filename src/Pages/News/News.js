@@ -73,7 +73,7 @@ function News(props) {
                         { filteredNews.slice(newsFrom, newsTo).map((news, index) => {
                             return (
                                 <div className="col-lg-4 col-md-6 mb-4" key={index}>
-                                    <NavLink to={`/news/${news.id}`}>
+                                    <NavLink to={`/news/${news.id}?lang=${searchParams.get('lang')}`}>
                                         <div className="ps-news-box">
                                             <div className="ps-news-inner">
                                                 <div className="ps-news-img">

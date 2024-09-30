@@ -257,10 +257,12 @@ ul.ps-submenu1.active {
     display: block;
     position: absolute;
     background-color: #fff;
-    left: 180px;
+    transform: translateY(-50px);
+    left: 170px;
     width: 300px;
     padding: 20px;
 }
+
 ul.ps-submenu2 > li {
     margin-bottom: 0;
     margin-left: 1rem;
@@ -434,19 +436,19 @@ span.yellow-bubble{
     border-radius: 30px;
 }
 .ps-banner-content h2{
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 5vw, 4rem);
     font-weight: 700;
     color: var(--dark-color);
     margin: 40px 0;
     line-height: 1.5;
 }
-.ps-banner-swiper-main-wrapper .swiper-slide {
+.ps-banner-swiper-main-wrapper {
     background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('../images/product.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    padding: 200px 135px 250px 250px;
+    padding: 300px 135px 250px 200px;
 }
 .swiper-button-prev, .swiper-button-next {
     color: var(--white-color) !important;

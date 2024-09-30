@@ -143,6 +143,7 @@ function Header() {
     
 	const [searchParams, setSearchParams] = useSearchParams();
 
+
     const changeLanguage = (lang) => {
         setChosenLang(lang);
 
@@ -155,22 +156,20 @@ function Header() {
     }
 
     useEffect(() => {
-        if (searchParams.get('lang') === 'null' || !searchParams.get('lang')) {
-            setChosenLang(chosenLang);
-            
-            i18n.changeLanguage(chosenLang);
-            
+        if (searchParams.get('lang') === 'null' || !searchParams.get('lang')) {        
             const params = new URLSearchParams();
             
             params.set('lang', 'mk');
             setSearchParams(params);
-            
+
+            i18n.changeLanguage('mk');
+
             return;
         }
         
         setChosenLang(searchParams.get('lang'));
         i18n.changeLanguage(searchParams.get('lang'));
-    }, [searchParams, i18n, chosenLang, setSearchParams]);
+    }, [searchParams, i18n, setSearchParams]);
 
 
     return (
@@ -193,6 +192,10 @@ function Header() {
                                         <li
                                             className='ps-menu-children dropdown'
                                             onMouseEnter={() => {
+                                                if (!link.subMenus?.length) {
+                                                    return;
+                                                }
+
                                                 const subMenuClasslist = document.querySelector('.ps-submenu').classList
 
                                                 const icon  = document.querySelector('.icon-1').classList;
@@ -201,9 +204,15 @@ function Header() {
                                             }}
                                             onMouseLeave={() => {
                                                 const subMenuClasslist = document.querySelector('.ps-submenu').classList
-                                                const icon  = document.querySelector('.icon-1').classList;
 
-                                                icon.remove('fa-caret-up');
+                                                document.querySelectorAll('.ps-submenu1').forEach(submenu => {
+                                                    submenu.classList.remove('active');
+                                                });
+
+                                                document.querySelectorAll('i').forEach(icon => {
+                                                    icon.classList.remove('fa-caret-up');
+                                                });
+
                                                 subMenuClasslist.remove('active');
                                             }}
                                         >
@@ -281,6 +290,9 @@ function Header() {
                                                                     className="ps-submenu1"
                                                                     onMouseLeave={() => {
                                                                         const subMenuClasslist = document.querySelectorAll('.ps-submenu1')[index].classList
+                                                                        const icon  = document.querySelectorAll('.icon-2')[index].classList;
+
+                                                                        icon.remove('fa-caret-up');
                                                                         subMenuClasslist.remove('active');
                                                                     }}
                                                                 >

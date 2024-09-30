@@ -4,7 +4,7 @@ import { getNewsContent, getNewsTitle } from "../../utils/common";
 
 function NewsDetail(props) {
     const { id } = useParams();
-    const product = props.data.find(item => parseInt(item.id) === parseInt(id));
+    const newsArticle = props.data.find(item => parseInt(item.id) === parseInt(id));
 
     const getDate = (date) => {
         return new Date(date).toLocaleString('en-US', { month: 'long', day: '2-digit', year: 'numeric'});
@@ -18,16 +18,16 @@ function NewsDetail(props) {
                         <div className="news-details-box">
                             <div className="news-details-inner">
                                 <div className="news-details-img">
-                                    <img src={product.image} alt="" />
+                                    <img src={newsArticle.image} alt="" />
                                 </div>
                                 <div className="news-details-content mb-5">
-                                    <h4>{ getNewsTitle(product) }</h4>
-                                    { parse(getNewsContent(product)) }
+                                    <h4>{ getNewsTitle(newsArticle) }</h4>
+                                    { parse(getNewsContent(newsArticle)) }
                                 </div>
 
                             </div>
                             <div className="news-detail-date">
-                                <div>{ getDate(product.createdOn) }</div>
+                                <div>{ getDate(newsArticle.createdOn) }</div>
                             </div>
                         </div>
                     </div>
