@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { getProductTitle } from "../../utils/common";
 
 function Products(props) {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const [priceRange, setPriceRange] = useState(1000);
     const [searchText, setSearchText] = useState("");
@@ -30,9 +30,10 @@ function Products(props) {
         url.searchParams.delete('brand');
         url.searchParams.delete('category');
         window.history.pushState({}, "", url.href);
-        return; 
 
-    }, [setChosenCategory, setChosenBrand, searchParams]);
+        i18n.changeLanguage(searchParams.get('lang'));
+
+    }, [setChosenCategory, setChosenBrand, searchParams, i18n]);
 
     const filterByBrand = (product) => {
         if (chosenBrand === "") {

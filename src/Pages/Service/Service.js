@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
 function Service() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -38,7 +38,11 @@ function Service() {
         setSubject('');
     }
 
-    useSearchParams();
+    const [searchParams] = useSearchParams();
+
+    useEffect(() => {
+        i18n.changeLanguage(searchParams.get('lang'));
+    }, [i18n, searchParams]);
 
     return (
         <div className="service-main-wrapper">

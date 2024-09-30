@@ -3,16 +3,13 @@ import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
 function Contact() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
    
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
 
     useEffect(() => {
-        const lang = searchParams.get('lang');
-
-        searchParams.set('lang', lang)
-        setSearchParams(searchParams);
-    }, [searchParams, setSearchParams]);
+        i18n.changeLanguage(searchParams.get('lang'));
+    }, [i18n, searchParams]);
 
     return (
         <div className="contact-detail-wrapper container-sm">

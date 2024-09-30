@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Pagination from '../../components/Pagination/Pagination';
 import { NavLink, useSearchParams } from 'react-router-dom';
 import parse from 'html-react-parser';
@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { getNewsContent, getNewsTitle } from '../../utils/common';
 
 function News(props) { 
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const [searchText, setSearchText] = useState('');
 
@@ -45,6 +45,10 @@ function News(props) {
     }
 
     const [searchParams] = useSearchParams();
+
+    useEffect(() => {
+        i18n.changeLanguage(searchParams.get('lang'));
+    }, [i18n, searchParams]);
 
     return (
         <div className="ps-news-main-wrapper">

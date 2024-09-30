@@ -156,14 +156,13 @@ function Header() {
     }
 
     useEffect(() => {
-        if (searchParams.get('lang') === 'null' || !searchParams.get('lang')) {
-            const params = new URLSearchParams();
-        
-            params.set('lang', 'mk');
-            setSearchParams(params);
+        if (!searchParams.get('lang')) {
+            const url = new URL(window.location);
+            url.searchParams.set('lang', 'mk');
+            window.history.pushState({}, "", url.href);
 
             i18n.changeLanguage('mk');
-
+            
             return;
         }
 

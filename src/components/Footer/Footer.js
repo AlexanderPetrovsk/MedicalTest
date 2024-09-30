@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
 import logo from '../../assets/logo.svg';
 import { useTranslation } from "react-i18next";
 
 function Footer() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const footerLinks = [
        {
@@ -46,6 +46,10 @@ function Footer() {
 
    
     const [searchParams] = useSearchParams();
+
+    useEffect(() => {
+        i18n.changeLanguage(searchParams.get('lang'));
+    }, [i18n, searchParams]);
 
     return (
         <React.Fragment>

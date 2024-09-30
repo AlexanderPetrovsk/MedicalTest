@@ -8,7 +8,7 @@ import contec from '../../assets/contec.png';
 import lungs from '../../assets/lungs.svg';
 import spa from '../../assets/spa.svg';
 import brain from '../../assets/brain.svg';
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation'
 import { NavLink, useSearchParams } from 'react-router-dom';
@@ -17,7 +17,7 @@ import { useTranslation } from 'react-i18next';
 import { getProductTitle } from '../../utils/common';
 
 function Home(props) {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const productAds = [
         {
@@ -56,9 +56,6 @@ function Home(props) {
         },
     ];
 
-    const [searchParams] = useSearchParams();
-
-
     const getProductsLayout = (products) => {
         return products.map((product, index) => {
             return (
@@ -90,6 +87,12 @@ function Home(props) {
     const getDate = (date) => {
         return new Date(date).toLocaleString('en-US', { month: 'long', day: '2-digit', year: 'numeric'});
     }
+
+    const [searchParams] = useSearchParams();
+
+    useEffect(() => {
+        i18n.changeLanguage(searchParams.get('lang'));
+    }, [i18n, searchParams]);
 
     return (
         <React.Fragment>
