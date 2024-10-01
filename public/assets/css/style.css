@@ -493,7 +493,8 @@ span.yellow-bubble{
     position: relative;
     text-align: center;
     min-height: 320px;
-    min-width: 330px;
+    min-width: 350px;
+    max-width: 750px;
 }
 .ps-ad-box > a > img {
     height: 100%;

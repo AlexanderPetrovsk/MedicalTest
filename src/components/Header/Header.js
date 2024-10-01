@@ -5,8 +5,9 @@ import { useTranslation } from "react-i18next";
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
 function Header() {
-    const { t, i18n } = useTranslation();
     polyfillCountryFlagEmojis();
+    const { t, i18n } = useTranslation();
+
     const headerLinks = [
         {
             link:'home',
