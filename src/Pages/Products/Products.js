@@ -141,7 +141,7 @@ function Products(props) {
                             <h2 className='shop-sidebar-title mb-3'>{t('products.productSearch')}</h2>
                             <form>
                                 <input type="text" placeholder={t('products.productSearch')} onChange={(e) => {setSearchText(e.target.value); setCurrentPage(1); }}/>
-                                <button></button>
+                                <button onClick={(e) => e.preventDefault()}></button>
                             </form>
                         </div>
                         <div className='shop-product-brand-filter mb-5'>

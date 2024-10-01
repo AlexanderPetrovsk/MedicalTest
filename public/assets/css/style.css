@@ -1394,6 +1394,27 @@ span.yellow-bubble{
     color: #ff2140;
     font-size: 1.25rem;
 }
+
+.success-popup {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    width: 400px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #87cb87;
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10000;
+    padding: 1rem;
+}
+
 /*Service css end*/
 
 /*contact css end*/

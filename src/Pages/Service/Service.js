@@ -25,9 +25,10 @@ function Service() {
         });
 
         const data = await response.json();
-        
+
         if (!data.success) {
             setErrors(data.errors);
+
             return;
         }
 
@@ -36,14 +37,24 @@ function Service() {
         setEmail('');
         setMessage('');
         setSubject('');
+        setPopupStatus(true);
     }
 
     const [searchParams] = useSearchParams();
+    const [popupStatus, setPopupStatus] = useState(false);
 
     useEffect(() => {
         i18n.changeLanguage(searchParams.get('lang'));
     }, [i18n, searchParams]);
 
+    useEffect(() => {
+        if (popupStatus) {
+            setTimeout(() => {
+                setPopupStatus(false);
+            }, 1500)
+        }
+    }, [popupStatus]);
+   
     return (
         <div className="service-main-wrapper">
             <div className="service-container mt-5 mb-5">
@@ -55,12 +66,36 @@ function Service() {
                     <div className="service-form container col-lg-6 col-md-12">
                         <h2 className="service-form-title">{t('service.serviceContact')}</h2>
                         <form>
-                            <input type="text" placeholder="Enater your name" name="full_name" id="full_name" onChange={(e) => setName(e.target.value)}/>
-                            <input type="text" placeholder="Enter your email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}/>
-                            <input type="text" placeholder="Enter your subject" name="subject" id="subject" onChange={(e) => setSubject(e.target.value)}/>
-                            <textarea placeholder="Message here" name="message" id="message" onChange={(e) => setMessage(e.target.value)}></textarea>
+                            <input  
+                                placeholder={ t('service.enterName') }
+                                name="full_name"
+                                id="full_name"
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <input
+                                placeholder={ t('service.enterЕmail') }
+                                name="email"
+                                id="email"
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <input
+                                placeholder={ t('service.enterSubject') }
+                                name="subject"
+                                id="subject"
+                                onChange={(e) => setSubject(e.target.value)}
+                            />
+                            <textarea
+                                placeholder={ t('service.enterMessage') }
+                                name="message"
+                                id="message"
+                                onChange={(e) => setMessage(e.target.value)}
+                            ></textarea>
                             <button type="button" className="cv-btn submitForm" onClick={submitForm}>submit</button>
-                            <div className="response"></div>
+                            { popupStatus ?
+                                <div className='success-popup'>
+                                    { t('service.successPopup') }
+                                </div>  : ''
+                            }
                         </form>
                         { errors.map((error, index) => {
                             return (

@@ -63,7 +63,7 @@ function News(props) {
                         <h2 className='shop-sidebar-title mb-3'>{t('news.search')}</h2>
                         <form>
                             <input type="text" placeholder="Search" onChange={(e) => { setSearchText(e.target.value); setCurrentPage(1) }}/>
-                            <button></button>
+                            <button onClick={(e) => e.preventDefault()}></button>
                         </form>
                     </div>
                     <div className='row'>

@@ -73,7 +73,12 @@ const resources = {
             service: {
                 service: 'Service',
                 serviceDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a mauris mi. Cras efficitur mi arcu, id volutpat nunc eleifend eget. Quisque quis nibh a leo bibendum facilisis vel tristique justo. Nulla lobortis felis tortor, quis fringilla turpis laoreet vitae. Aenean ornare mi lacus, quis hendrerit ipsum consectetur aliquet. Suspendisse dictum, elit eu porta bibendum, nisi est ornare mi, et tempus nisl purus non sapien. Vestibulum sit amet ultrices nisi. Aenean ac odio aliquam, hendrerit felis ut, eleifend odio.',
-                serviceContact: 'Service Contact'
+                serviceContact: 'Service Contact',
+                enterName: 'Enter Name/Last Name',
+                enterЕmail: 'Enter Email',
+                enterSubject: 'Enter Subject',
+                enterMessage: 'Enter Message',
+                successPopup: 'Your message has been sent and will be reviewed shortly'
             },
             news: {
                 latestNews: 'Latest News',
@@ -160,7 +165,12 @@ const resources = {
             service: {
                 service: 'Сервис',
                 serviceDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a mauris mi. Cras efficitur mi arcu, id volutpat nunc eleifend eget. Quisque quis nibh a leo bibendum facilisis vel tristique justo. Nulla lobortis felis tortor, quis fringilla turpis laoreet vitae. Aenean ornare mi lacus, quis hendrerit ipsum consectetur aliquet. Suspendisse dictum, elit eu porta bibendum, nisi est ornare mi, et tempus nisl purus non sapien. Vestibulum sit amet ultrices nisi. Aenean ac odio aliquam, hendrerit felis ut, eleifend odio.',
-                serviceContact: 'Сервис контакт'
+                serviceContact: 'Сервис контакт',
+                enterName: 'Внесете Име/Презиме',
+                enterЕmail: 'Внесете Е-Пошта',
+                enterSubject: 'Внесете Субјект На Пораката',
+                enterMessage: 'Внесете Детална порака',
+                successPopup: 'Вашата порака е испратена !'
             },
             news: {
                 latestNews: 'Најнови Вести',
