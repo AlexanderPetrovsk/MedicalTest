@@ -23,16 +23,19 @@ function Home(props) {
         {
             image: product1,
             title: t('home.ads.first.title'),
+            subtitle: t('home.ads.first.subtitle'),
             description: t('home.ads.first.description')
         },
         {
             image: product2,
             title: t('home.ads.second.title'),
+            subtitle: t('home.ads.second.subtitle'),
             description: t('home.ads.second.description')
         },
         {
             image: product3,
             title: t('home.ads.third.title'),
+            subtitle: t('home.ads.third.subtitle'),
             description: t('home.ads.third.description')
         },
     ]
@@ -111,13 +114,14 @@ function Home(props) {
                         <div className="row ps-ad-resp-wrp align-items-stretch">
                             { productAds.map((product, index) => {
                                 return (
-                                    <div className="col-lg-4 col-md-6 col-12" key={index}>
+                                    <div className="col-lg-4 col-md-8 col-12" key={index}>
                                         <div className="ps-ad-box">
                                             <a href={product.image}>
                                                 <img src={product.image} alt="" />
                                             </a>
                                             <div className='ps-overlay'>
                                                 <h2>{product.title}</h2>
+                                                <h3>{product.subtitle}</h3>
                                                 <h5>{product.description}</h5>
                                             </div>
                                         </div>
@@ -134,7 +138,9 @@ function Home(props) {
                         <div className="col-lg-12 col-md-12 col-12">
                             <div className="ps-best-seller-heading">
                                 <h4>{t('home.latestProducts')}</h4>
-                                <NavLink to={`/products?lang=${searchParams.get('lang')}`} onClick={() => window.scrollTo(0, 0)}>View All</NavLink>
+                                <NavLink to={`/products?lang=${searchParams.get('lang')}`} onClick={() => window.scrollTo(0, 0)}>
+                                    { t('home.viewAll') }
+                                </NavLink>
                             </div>
                         </div>
                         { getProductsLayout(props.latestProducts) }
@@ -163,14 +169,13 @@ function Home(props) {
             </div>
             <div className="ps-shop-categry-main-wrapper">
                 <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-lg-5 col-md-12">
-                            <div className="ps-shop-categry-left">
-                                <h4>{t('home.shopByCategories')}</h4>
-                                <p>{t('home.shopByCategoryDescription')}</p>
-                            </div>
+                    <div className="col-lg-12 mb-5">
+                        <div className="ps-shop-categry-left">
+                            <h4>{t('home.shopByCategories')}</h4>
                         </div>
-                        <div className="col-lg-7 col-md-12">
+                    </div>
+                    <div className="row align-items-center">
+                        <div className="col-lg-12 col-md-12">
                             <div className="ps-shop-categry-right">
                                 <NavLink to={`/products?lang=${searchParams.get('lang')}&category=Rehabilitation`} onClick={() => window.scrollTo(0, 0)}>
                                     <div className="ps-shop-categry-inner">

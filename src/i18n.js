@@ -33,22 +33,26 @@ const resources = {
                 internalMedicine: 'Internal Medicine',
             },
             home: {
-                banner: 'Lorem Ipsum Header Text Conesctetur Dolor Sit Amet Adipisicing elit Ut Labore Et Dolore Magna Aliqua',
+                banner: 'Quality Care Starts Here: Your Trusted Source for Medical Equipment',
                 ads: {
                     first: {
                         title: 'Smart Glove',
-                        description: 'Lorem Ipsum Dolor Sit Amet'
+                        subtitle: 'Elbow/Wrist/Finger Rehabilitation',
+                        description: 'The smart glove is a device for active digital rehabilitation in which, with the help of repetitive movements, the process of neuroplasticity is encouraged in patients with neurological and musculoskeletal disorders.'
                     },
                     second: {
                         title: 'Smart Kids',
-                        description: 'Lorem Ipsum Dolor Sit Amet'
+                        subtitle: 'Elbow/Wrist/Finger Rehabilitation',
+                        description: "The children's smart glove is a device for active digital rehabilitation, in which, with the help of repetitive movements, the process of neuroplasticity is encouraged in patients with neurological and musculoskeletal disorders"
                     },
                     third: {
                         title: 'Smart Board',
-                        description: 'Lorem Ipsum Dolor Sit Amet'
+                        subtitle: 'Shoulder and elbow rehabilitation',
+                        description: 'Unlike conventional methods, the smart board offers a different, modern and interactive approach, where patients focus on performing the given task through fun games and thus improve cognitive/motor functions.'
                     }
                 },
                 latestProducts: 'Latest Products',
+                viewAll: 'View All',
                 shopByBrands: 'Shop By Brands',
                 shopByCategories: 'Shop By Categories',
                 shopByCategoryDescription: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.',
@@ -60,7 +64,7 @@ const resources = {
             products: {
                 shopProducts: 'Shop Products',
                 showingResults: 'Showing results',
-                total: 'total',
+                total: 'Total',
                 productSearch: 'Product Search',
                 brandFilter: 'Brand Filter',
                 filterByPrice: 'Filter By Price',
@@ -72,7 +76,7 @@ const resources = {
             },
             service: {
                 service: 'Service',
-                serviceDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a mauris mi. Cras efficitur mi arcu, id volutpat nunc eleifend eget. Quisque quis nibh a leo bibendum facilisis vel tristique justo. Nulla lobortis felis tortor, quis fringilla turpis laoreet vitae. Aenean ornare mi lacus, quis hendrerit ipsum consectetur aliquet. Suspendisse dictum, elit eu porta bibendum, nisi est ornare mi, et tempus nisl purus non sapien. Vestibulum sit amet ultrices nisi. Aenean ac odio aliquam, hendrerit felis ut, eleifend odio.',
+                serviceDescription: 'At Meditek, we are dedicated to providing high-quality medical equipment and exceptional service to our customers. Our extensive range of products and expert support ensures that you have everything you need to enhance patient care and improve outcomes.',
                 serviceContact: 'Service Contact',
                 enterName: 'Enter Name/Last Name',
                 enterЕmail: 'Enter Email',
@@ -124,23 +128,27 @@ const resources = {
                 internalMedicine: 'Интерна Медицина',
             },
             home: {
-                banner: 'Lorem Ipsum Header Text Conesctetur Dolor Sit Amet Adipisicing elit Ut Labore Et Dolore Magna Aliqua',
+                banner: 'Квалитетната грижа започнува овде: Вашиот доверлив извор за медицинска опрема',
                 ads: {
                     first: {
-                        title: 'Smart Glove',
-                        description: 'Lorem Ipsum Dolor Sit Amet'
+                        title: 'Паметна ракавица',
+                        subtitle: 'Рехабилитација на лакт/зглоб/прсти',
+                        description: 'Паметната ракавица е уред за активна дигитална рехабилитација при што со помош на повторувачки движења се поттикнува процес на невропластичност кај пациентите со невролошки и мускулоскелетни нарушувања '
                     },
                     second: {
-                        title: 'Smart Kids',
-                        description: 'Lorem Ipsum Dolor Sit Amet'
+                        title: 'Детска паметна ракавица',
+                        subtitle: 'Рехабилитација на лакт/зглоб/прсти',
+                        description: 'Детска паметната ракавица е уред за активна дигитална рехабилитација при што со помош на повторувачки движења се поттикнува процес на невропластичност кај пациентите со невролошки и мускулоскелетни нарушувања '
                     },
                     third: {
-                        title: 'Smart Board',
-                        description: 'Lorem Ipsum Dolor Sit Amet'
+                        title: 'Паметна табла',
+                        subtitle: 'Рехабилитација на рамо и лакт',
+                        description: 'За разлика од конвенционалните методи, паметната табла нуди еден поинаков, модерен и интерактивен пристап, при што пациентите преку забавни игри се фокусираат на извршување на зададената задача и на тој начин ги подобруваат когнитивните/моторните функции.'
                     }
                 },
                 secondBanner: 'Sed Do Eius Tempor Incididunt Ut Labore Et Dolore Magna Aliqua, Lorem Ipsum Dolor Sit Amet',
                 latestProducts: 'Најнови Продукти',
+                viewAll: 'Прегледај',
                 shopByBrands: 'Купувај по бренд',
                 shopByCategories: 'Купувај по категорија',
                 shopByCategoryDescription: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.',
@@ -164,7 +172,7 @@ const resources = {
             },
             service: {
                 service: 'Сервис',
-                serviceDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a mauris mi. Cras efficitur mi arcu, id volutpat nunc eleifend eget. Quisque quis nibh a leo bibendum facilisis vel tristique justo. Nulla lobortis felis tortor, quis fringilla turpis laoreet vitae. Aenean ornare mi lacus, quis hendrerit ipsum consectetur aliquet. Suspendisse dictum, elit eu porta bibendum, nisi est ornare mi, et tempus nisl purus non sapien. Vestibulum sit amet ultrices nisi. Aenean ac odio aliquam, hendrerit felis ut, eleifend odio.',
+                serviceDescription: 'Во Медитек, ние сме посветени на обезбедување висококвалитетна медицинска опрема и исклучителни услуги за нашите клиенти. Нашиот широк асортиман на производи и стручна поддршка гарантира дека имате се што ви треба за да ја подобрите грижата за пациентите и да ги подобрите резултатите.',
                 serviceContact: 'Сервис контакт',
                 enterName: 'Внесете Име/Презиме',
                 enterЕmail: 'Внесете Е-Пошта',

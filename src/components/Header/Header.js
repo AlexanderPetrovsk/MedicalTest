@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import logo from '../../assets/logo.svg';
 import { NavLink, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
 function Header() {
     const { t, i18n } = useTranslation();
-
+    polyfillCountryFlagEmojis();
     const headerLinks = [
         {
             link:'home',
@@ -176,7 +177,9 @@ function Header() {
             <div className="row align-items-center">
                 <div className="col-xl-6 col-lg-7 col-md-12 col-9">
                     <div className="ps-main-logo">
-                        <img src={logo} alt='' />
+                        <NavLink to={`/home?lang=${chosenLang}`} onClick={() => window.scrollTo(0, 0)}>
+                            <img src={logo} alt='' />
+                        </NavLink>
                     </div>
                 </div>
                 <div className="col-xl-6 col-lg-4 col-md-12 ps-toggle-responsive">
@@ -309,8 +312,12 @@ function Header() {
                             })}
                             <li className="lanugage-select">
                                 <select value={chosenLang} onChange={(e) => { changeLanguage(e.target.value) }}>
-                                    <option>mk</option>
-                                    <option>en</option>
+                                    <option value="mk">
+                                        🇲🇰
+                                    </option>
+                                    <option value="en">
+                                        🇬🇧
+                                    </option>
                                 </select>
                             </li>
                         </ul>

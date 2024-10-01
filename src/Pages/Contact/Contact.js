@@ -16,7 +16,6 @@ function Contact() {
             <div className="row align-items-center mb-5 mt-5">
                 <div className="contact-detail col-12 mb-5">
                     <h2 className="contact-sidebar-title">{t('contact.contactInfo')}</h2>
-                    <p>{t('contact.contactDescription')}</p>
                     <ul>
                         <li>
                             <div className="contact-icon">
