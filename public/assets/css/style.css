@@ -536,12 +536,10 @@ span.yellow-bubble{
 }
 
 .ps-overlay h3{
-    color: var(--dark-color);
+    color: var(--white-color);
     font-size: clamp(1.3rem, 1.4vw, 1.75rem);
     text-transform: none;
-    background-color: #fff;
     padding: 10px 20px;
-    border-radius: 30px;
 }
 
 .ps-overlay h2{
