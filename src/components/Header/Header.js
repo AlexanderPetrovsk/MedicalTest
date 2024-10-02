@@ -341,7 +341,7 @@ function Header() {
                                                                                             <li key={index}>
                                                                                                 <NavLink
                                                                                                     to={`/products?lang=${chosenLang}&category=${subMenu.link}&brand=${final.title}`} key={index}
-                                                                                                    onClick={() => window.scrollTo(0, 0)}
+                                                                                                    onClick={() => { window.scrollTo(0, 0); setMenuToggle(false);}}
                                                                                                 >
                                                                                                     {final.title}
                                                                                                 </NavLink>
