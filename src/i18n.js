@@ -72,7 +72,8 @@ const resources = {
                 rehabilitation: 'Rehabilitation',
                 neurology: 'Neurology',
                 internalMedicine: 'Internal Medicine',
-                clear: 'clear'
+                clear: 'clear',
+                relatedProducts: 'Related Products'
             },
             service: {
                 service: 'About Us',
@@ -168,7 +169,8 @@ const resources = {
                 rehabilitation: 'Рехабилитација',
                 neurology: 'Неврологија',
                 internalMedicine: 'Интерна Медицина',
-                clear: 'Тргни Филтри'
+                clear: 'Тргни Филтри',
+                relatedProducts: 'Поврзани производи'
             },
             service: {
                 service: 'За Нас',

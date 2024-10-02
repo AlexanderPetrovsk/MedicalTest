@@ -1,8 +1,23 @@
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useSearchParams } from "react-router-dom";
 import parse from 'html-react-parser';
 import { getProductDescription, getProductTitle } from "../../utils/common";
+import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
 
 function ProductDetail(props) {
+    const { t, i18n } = useTranslation();
+ 
+    const [searchParams] = useSearchParams();
+    const [chosenLang, setChosenLang] = useState('mk');
+ 
+    useEffect(() => {
+        if (searchParams.get('lang')) {
+            setChosenLang(searchParams.get('lang'));
+        }
+
+        i18n.changeLanguage(chosenLang);
+    }, [i18n, searchParams, chosenLang]);
+
     const { id } = useParams();
     const product = props.data.find(item => parseInt(item.id) === parseInt(id));
 
@@ -30,7 +45,7 @@ function ProductDetail(props) {
             <div className="row mt-5">
                 <div className="col-lg-12">
                     <div className="header-title">
-                        { relatedProducts.length ? <h2>Related Products</h2> : <div className="related-products-filler"></div> }
+                        { relatedProducts.length ? <h2>{t('products.relatedProducts')}</h2> : <div className="related-products-filler"></div> }
                     </div>
                 </div>
                 { relatedProducts.slice(0, 3).map((relatedProduct, index) => {
