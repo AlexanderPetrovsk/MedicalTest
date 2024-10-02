@@ -317,6 +317,10 @@ function Header() {
                                                                 <ul
                                                                     className="ps-submenu1"
                                                                     onMouseLeave={() => {
+                                                                        if (window.innerWidth < 1200) {
+                                                                            return;
+                                                                        }
+
                                                                         const subMenuClasslist = document.querySelectorAll('.ps-submenu1')[index].classList
                                                                         const icon  = document.querySelectorAll('.icon-2')[index].classList;
 
