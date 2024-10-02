@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
 import logo from '../../assets/logo.svg';
 import { useTranslation } from "react-i18next";
@@ -46,8 +46,13 @@ function Footer() {
 
    
     const [searchParams] = useSearchParams();
+    const [chosenLang, setChosenLang] = useState('mk');
 
     useEffect(() => {
+        if (searchParams.get('lang')) {
+            setChosenLang(searchParams.get('lang'));
+        }
+
         i18n.changeLanguage(searchParams.get('lang'));
     }, [i18n, searchParams]);
 
@@ -68,7 +73,7 @@ function Footer() {
                                     { footerLinks.map((link, index) => {
                                         return (
                                             <li key={index} onClick={() => window.scrollTo(0, 0)}>
-                                                <NavLink to={`/${link.link}?lang=${searchParams.get('lang')}`}>
+                                                <NavLink to={`/${link.link}?lang=${chosenLang}`}>
                                                     {link.title}
                                                 </NavLink>
                                             </li>
@@ -84,7 +89,7 @@ function Footer() {
                                     { productsSubmenu.map((link, index) => {
                                         return (
                                             <li key={index}>
-                                                <NavLink to={`/products?lang=${searchParams.get('lang')}&category=${link.link}`} onClick={() => window.scrollTo(0, 0)}>
+                                                <NavLink to={`/products?lang=${chosenLang}&category=${link.link}`} onClick={() => window.scrollTo(0, 0)}>
                                                     {link.title}
                                                 </NavLink>
                                             </li>

@@ -53,8 +53,8 @@ const resources = {
                 },
                 latestProducts: 'Latest Products',
                 viewAll: 'View All',
-                shopByBrands: 'Shop By Brands',
-                shopByCategories: 'Shop By Categories',
+                shopByBrands: 'Our partners',
+                shopByCategories: 'Products',
                 shopByCategoryDescription: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.',
                 rehabilitation: 'Rehabilitation',
                 neurology: 'Neurology',
@@ -77,7 +77,7 @@ const resources = {
             service: {
                 service: 'Service',
                 serviceDescription: 'At Meditek, we are dedicated to providing high-quality medical equipment and exceptional service to our customers. Our extensive range of products and expert support ensures that you have everything you need to enhance patient care and improve outcomes.',
-                serviceContact: 'Service Contact',
+                serviceContact: 'Get in touch',
                 enterName: 'Enter Name/Last Name',
                 enterЕmail: 'Enter Email',
                 enterSubject: 'Enter Subject',
@@ -101,7 +101,7 @@ const resources = {
         translation: {
             header: {
                 home: 'Почетна',
-                products: 'Продукти',
+                products: 'Производи',
                 service: 'Сервис',
                 news: 'Новости',
                 contact: 'Контакт',
@@ -121,7 +121,7 @@ const resources = {
             },
             footer: {
                 links: 'Линкови',
-                products: 'Продукти',
+                products: 'Производи',
                 storeLocation: 'Локација',
                 rehabilitation: 'Рехабилитација',
                 neurology: 'Неврологија',
@@ -147,10 +147,10 @@ const resources = {
                     }
                 },
                 secondBanner: 'Sed Do Eius Tempor Incididunt Ut Labore Et Dolore Magna Aliqua, Lorem Ipsum Dolor Sit Amet',
-                latestProducts: 'Најнови Продукти',
+                latestProducts: 'Најнови Производи',
                 viewAll: 'Прегледај',
-                shopByBrands: 'Купувај по бренд',
-                shopByCategories: 'Купувај по категорија',
+                shopByBrands: 'Нашите партнери',
+                shopByCategories: 'Производи',
                 shopByCategoryDescription: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.',
                 rehabilitation: 'Рехабилитација',
                 neurology: 'Неврологија',
@@ -158,10 +158,10 @@ const resources = {
                 latestNews: 'Најнови Вести',
             },
             products: {
-                shopProducts: 'Продукти',
+                shopProducts: 'Производи',
                 showingResults: 'Резултати',
                 total: 'Вкупно',
-                productSearch: 'Пребарај продукт',
+                productSearch: 'Пребарај',
                 brandFilter: 'Филтрирај по брендови',
                 filterByPrice: 'Филтрирај по цена',
                 categories: 'Категории',
@@ -173,7 +173,7 @@ const resources = {
             service: {
                 service: 'Сервис',
                 serviceDescription: 'Во Медитек, ние сме посветени на обезбедување висококвалитетна медицинска опрема и исклучителни услуги за нашите клиенти. Нашиот широк асортиман на производи и стручна поддршка гарантира дека имате се што ви треба за да ја подобрите грижата за пациентите и да ги подобрите резултатите.',
-                serviceContact: 'Сервис контакт',
+                serviceContact: 'Контактирајте нè',
                 enterName: 'Внесете Име/Презиме',
                 enterЕmail: 'Внесете Е-Пошта',
                 enterSubject: 'Внесете Субјект На Пораката',

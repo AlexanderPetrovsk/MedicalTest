@@ -8,7 +8,7 @@ import contec from '../../assets/contec.png';
 import lungs from '../../assets/lungs.svg';
 import spa from '../../assets/spa.svg';
 import brain from '../../assets/brain.svg';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation'
 import { NavLink, useSearchParams } from 'react-router-dom';
@@ -63,14 +63,13 @@ function Home(props) {
         return products.map((product, index) => {
             return (
                 <div className="col-lg-3 col-md-6 col-12" key={index}>
-                    <NavLink to={`/products/${product.id}?lang=${searchParams.get('lang')}`} onClick={() => window.scrollTo(0, 0)}>
+                    <NavLink to={`/products/${product.id}?lang=${chosenLang}`} onClick={() => window.scrollTo(0, 0)}>
                         <div className="ps-product-box">
                             <div className="ps-product-img">
                                 <img src={product.image} alt="" />
                             </div>
                             <div className="ps-product-info">
                                 <h4>{getProductTitle(product)}</h4>
-                                <p>${product.price}</p>
                             </div>
                         </div>
                     </NavLink>
@@ -92,10 +91,15 @@ function Home(props) {
     }
 
     const [searchParams] = useSearchParams();
-
+    const [chosenLang, setChosenLang] = useState('mk');
+ 
     useEffect(() => {
-        i18n.changeLanguage(searchParams.get('lang'));
-    }, [i18n, searchParams]);
+        if (searchParams.get('lang')) {
+            setChosenLang(searchParams.get('lang'));
+        }
+
+        i18n.changeLanguage(chosenLang);
+    }, [i18n, searchParams, chosenLang]);
 
     return (
         <React.Fragment>
@@ -138,7 +142,7 @@ function Home(props) {
                         <div className="col-lg-12 col-md-12 col-12">
                             <div className="ps-best-seller-heading">
                                 <h4>{t('home.latestProducts')}</h4>
-                                <NavLink to={`/products?lang=${searchParams.get('lang')}`} onClick={() => window.scrollTo(0, 0)}>
+                                <NavLink to={`/products?lang=${chosenLang}`} onClick={() => window.scrollTo(0, 0)}>
                                     { t('home.viewAll') }
                                 </NavLink>
                             </div>
@@ -157,7 +161,7 @@ function Home(props) {
                             <div className="ps-brand-logo align-items-center">
                                 {brands.map((brand, index) => {
                                     return (
-                                        <NavLink to={`/products?lang=${searchParams.get('lang')}&brand=${brand.title}`} onClick={() => window.scrollTo(0, 0)} key={index}>
+                                        <NavLink to={`/products?lang=${chosenLang}&brand=${brand.title}`} onClick={() => window.scrollTo(0, 0)} key={index}>
                                             <img src={brand.image} key={index} alt=""/>
                                         </NavLink>
                                     )
@@ -177,19 +181,19 @@ function Home(props) {
                     <div className="row align-items-center">
                         <div className="col-lg-12 col-md-12">
                             <div className="ps-shop-categry-right">
-                                <NavLink to={`/products?lang=${searchParams.get('lang')}&category=Rehabilitation`} onClick={() => window.scrollTo(0, 0)}>
+                                <NavLink to={`/products?lang=${chosenLang}&category=Rehabilitation`} onClick={() => window.scrollTo(0, 0)}>
                                     <div className="ps-shop-categry-inner">
                                         <img src={spa} alt=""/>
                                         <p>{t('home.rehabilitation')}</p>
                                     </div>
                                 </NavLink>
-                                <NavLink to={`/products?lang=${searchParams.get('lang')}&category=Neurology`} onClick={() => window.scrollTo(0, 0)}>
+                                <NavLink to={`/products?lang=${chosenLang}&category=Neurology`} onClick={() => window.scrollTo(0, 0)}>
                                     <div className="ps-shop-categry-inner">
                                         <img src={brain} alt=""/>
                                         <p>{t('home.neurology')}</p>
                                     </div>
                                 </NavLink>
-                                <NavLink to={`/products?lang=${searchParams.get('lang')}&category=Internal Medicine`} onClick={() => window.scrollTo(0, 0)}>
+                                <NavLink to={`/products?lang=${chosenLang}&category=Internal Medicine`} onClick={() => window.scrollTo(0, 0)}>
                                     <div className="ps-shop-categry-inner">
                                         <img src={lungs} alt=""/>
                                         <p>{t('home.internalMedicine')}</p>
@@ -211,7 +215,7 @@ function Home(props) {
                         { props.latestNews.map((news, index) => {
                             return (
                                 <div className="col-lg-4 col-md-6" key={index}>
-                                    <NavLink to={`/news/${news.id}?lang=${searchParams.get('lang')}`} onClick={() => window.scrollTo(0, 0)}>
+                                    <NavLink to={`/news/${news.id}?lang=${chosenLang}`} onClick={() => window.scrollTo(0, 0)}>
                                         <div className="ps-news-box">
                                             <div className="ps-news-inner">
                                                 <div className="ps-news-img">

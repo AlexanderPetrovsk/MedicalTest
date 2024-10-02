@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
@@ -6,15 +6,65 @@ function Contact() {
     const { t, i18n } = useTranslation();
    
     const [searchParams] = useSearchParams();
+    const [chosenLang, setChosenLang] = useState('mk');
 
     useEffect(() => {
-        i18n.changeLanguage(searchParams.get('lang'));
-    }, [i18n, searchParams]);
+        if (searchParams.get('lang')) {
+            setChosenLang(searchParams.get('lang'));
+        }
+
+        i18n.changeLanguage(chosenLang);
+    }, [i18n, searchParams, chosenLang]);
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
+
+    const [errors, setErrors] = useState([]);
+
+    const submitForm = async () => {
+        const response = await fetch('https://meditek-api.mk.meditek.com.mk/service_request', {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json'},
+            body: JSON.stringify({
+                name,
+                email,
+                subject,
+                message
+            })
+        });
+
+        const data = await response.json();
+
+        if (!data.success) {
+            setErrors(data.errors);
+
+            return;
+        }
+
+        setErrors([]);
+        setName('');
+        setEmail('');
+        setMessage('');
+        setSubject('');
+        setPopupStatus(true);
+    }
+
+    const [popupStatus, setPopupStatus] = useState(false);
+
+    useEffect(() => {
+        if (popupStatus) {
+            setTimeout(() => {
+                setPopupStatus(false);
+            }, 1500)
+        }
+    }, [popupStatus]);
 
     return (
         <div className="contact-detail-wrapper container-sm">
             <div className="row align-items-center mb-5 mt-5">
-                <div className="contact-detail col-12 mb-5">
+                <div className="contact-detail col-xl-5 col-12 mb-5">
                     <h2 className="contact-sidebar-title">{t('contact.contactInfo')}</h2>
                     <ul>
                         <li>
@@ -45,6 +95,46 @@ function Contact() {
                             </div>
                         </li>
                     </ul>
+                </div>
+                <div className="service-form container col-xl-6 col-12 mb-5">
+                    <h2 className="service-form-title">{t('service.serviceContact')}</h2>
+                    <form>
+                        <input  
+                            placeholder={ t('service.enterName') }
+                            name="full_name"
+                            id="full_name"
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <input
+                            placeholder={ t('service.enterЕmail') }
+                            name="email"
+                            id="email"
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <input
+                            placeholder={ t('service.enterSubject') }
+                            name="subject"
+                            id="subject"
+                            onChange={(e) => setSubject(e.target.value)}
+                        />
+                        <textarea
+                            placeholder={ t('service.enterMessage') }
+                            name="message"
+                            id="message"
+                            onChange={(e) => setMessage(e.target.value)}
+                        ></textarea>
+                        <button type="button" className="cv-btn submitForm" onClick={submitForm}>submit</button>
+                        { popupStatus ?
+                            <div className='success-popup'>
+                                { t('service.successPopup') }
+                            </div>  : ''
+                        }
+                    </form>
+                    { errors.map((error, index) => {
+                        return (
+                            <div className='service-form-error'key={index}>{error.propertyPath} : {error.message}</div>
+                        )
+                    })}
                 </div>
                 <div className="col-12">
                     <div className="iframe-container">

@@ -23,7 +23,6 @@ function ProductDetail(props) {
                         <div className='product-detail-data'>
                             <h4>{getProductTitle(product)}</h4>
                             { parse(getProductDescription(product)) }
-                            <h5>${product.price}</h5>
                         </div>
                     </div>
                 </div>
@@ -44,7 +43,6 @@ function ProductDetail(props) {
                                     </div>
                                     <div className='shop-product-data'>
                                         <h3>{getProductTitle(relatedProduct)}</h3>
-                                        <h5>${relatedProduct.price}</h5>
                                     </div>
                                 </div>
                             </NavLink>

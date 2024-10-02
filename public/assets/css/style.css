@@ -10,10 +10,10 @@ Project: Pharma Shop Html
 :root {
     --grey-color: #a9a7c2;
     --bg-color: #fafcff;
-    --theme-color: #228b22;
+    --theme-color: #268728;
     --dark-color: #515151;
     --white-color: #ffffff;
-    --btn-hover-color:#22b822;        
+    --btn-hover-color:#228B22;        
 }
 body {
     margin: 0;
@@ -238,8 +238,9 @@ ul.ps-submenu.active
 ul.ps-submenu {
     justify-content: space-between;
     position: absolute;
-    top: 75px;
-    background-color: var(--white-color);
+    transform: translateY(-20px);
+    background-color: #f1ebeb;
+    /* background-color: var(--white-color); */
     box-shadow: 0 10px 20px rgb(99 149 189 / 30%);
     max-width: 300px;
     width: 100%;
@@ -261,11 +262,12 @@ ul.ps-submenu1 {
 ul.ps-submenu1.active {
     display: block;
     position: absolute;
-    background-color: #fff;
+    background-color: #f1ebeb;
     transform: translateY(-50px);
     left: 170px;
     width: 300px;
     padding: 20px;
+    box-shadow: 0 10px 20px rgb(99 149 189 / 30%);
 }
 
 ul.ps-submenu2 > li {
@@ -580,7 +582,6 @@ span.yellow-bubble{
     cursor: pointer;
     border: 1px solid #e8eef6;
     border-radius: 10px;
-    height: 90%;
     background-color: var(--theme-color);
 }
 .ps-product-img {
@@ -837,7 +838,7 @@ span.yellow-bubble{
 }
 .ps-shop-categry-right {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     grid-column-gap: 30px;
 }
 /* shop category section css end */
@@ -1178,7 +1179,7 @@ span.yellow-bubble{
 
 .shop-products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10px;
 }
 
@@ -1186,6 +1187,7 @@ span.yellow-bubble{
     border: 1px solid #d4f0ff;
     border-radius: 8px;
     background-color: var(--theme-color);
+    max-width: 420px;
 }
 
 .shop-product-image {
@@ -1194,7 +1196,7 @@ span.yellow-bubble{
     text-align: center;
     border-radius: 6px;
     position: relative;
-    min-height: 250px;
+    min-height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1348,13 +1350,15 @@ span.yellow-bubble{
 
 .service-title {
     color: var(--theme-color);
-    font-size: 3.5rem
+    font-size: 3.5rem;
+    text-align: center;
 }
 
 .service-description {
     color: var(--dark-color);
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(1rem, 4vw, 2rem);
     max-width: 90%;
+    margin: 0 auto;
 }
 
 .service-form {

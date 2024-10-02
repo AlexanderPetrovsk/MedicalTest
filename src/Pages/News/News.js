@@ -45,10 +45,15 @@ function News(props) {
     }
 
     const [searchParams] = useSearchParams();
+    const [chosenLang, setChosenLang] = useState('mk');
 
     useEffect(() => {
-        i18n.changeLanguage(searchParams.get('lang'));
-    }, [i18n, searchParams]);
+        if (searchParams.get('lang')) {
+            setChosenLang(searchParams.get('lang'));
+        }
+
+        i18n.changeLanguage(chosenLang);
+    }, [i18n, searchParams, chosenLang]);
 
     return (
         <div className="ps-news-main-wrapper">
