@@ -12,9 +12,9 @@ const resources = {
                 contact: 'Contact',
                 categories: {
                     rehabilitation: 'Rehabilitation',
-                    neurological: 'Neurology',
+                    neurological: 'Neurological',
                     physical: 'Physical',
-                    neurology: 'Neurological',
+                    neurology: 'Neurology',
                     eeg: 'EEG/EMG',
                     expendable: 'Expendable',
                     neuroBioFeedback: 'Neuro/Bio feedback',

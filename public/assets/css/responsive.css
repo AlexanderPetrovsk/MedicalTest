@@ -168,6 +168,7 @@
     ul.ps-submenu2 > li {
         margin-bottom: 0;
         margin-left: 1rem;
+        padding-bottom: 0;
     }
 
     ul.ps-submenu1 {
@@ -195,6 +196,7 @@
         background-color: #fff;
         position: static;
         box-shadow: none;
+        padding: 0;
     }
 
     .ps-overlay h2{

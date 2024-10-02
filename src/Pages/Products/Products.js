@@ -51,6 +51,7 @@ function Products(props) {
     } 
 
     const filteredData = props.data.filter((el) => {
+        console.log(chosenBrand, chosenCategory);
         return (
             filterByBrand(el)
             && filterByCategory(el)

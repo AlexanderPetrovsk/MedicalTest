@@ -7,7 +7,7 @@ function ProductDetail(props) {
     const product = props.data.find(item => parseInt(item.id) === parseInt(id));
 
     const relatedProducts = props.data.filter((related) => {
-        return related.category === product.category && related.id !== product.id;
+        return (related.brand === product.brand || related.category === product.category) && related.id !== product.id;
     });
 
     return (

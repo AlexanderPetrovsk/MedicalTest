@@ -230,7 +230,7 @@ function Header() {
                                             <NavLink
                                                 to={link.link + `?lang=${chosenLang}`}
                                                 className='ps-title'
-                                                onClick={() => window.scrollTo(0, 0)}
+                                                onClick={() => { window.scrollTo(0, 0); setMenuToggle(false); }}
                                             >
                                                 <span>
                                                     {link.title}
@@ -265,7 +265,7 @@ function Header() {
                                                                 <NavLink
                                                                     to={`/products?lang=${chosenLang}&category=${subMenu.link}`}
                                                                     key={index}
-                                                                    onClick={() => window.scrollTo(0, 0)}
+                                                                    onClick={() => { window.scrollTo(0, 0); setMenuToggle(false) }}
                                                                     onMouseEnter={() => {
                                                                         if (window.innerWidth < 1200) {
                                                                             return;
