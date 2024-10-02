@@ -68,12 +68,17 @@
     .ps-navbar ul li {
         display: block;
         padding: 12px 20px 11px 10px;
-        border-bottom: 1px solid #eee;
         width: 100%;
     }
     .ps-navbar ul li i {
-        float: right;
+        padding-left: 30px;
     }
+
+    .dropdown1 i {
+        padding-left: 20px !important;
+        font-size: 1.5rem;
+    }
+
     .close-button {
         display: flex;
         justify-content: end;
@@ -107,6 +112,10 @@
     .ps-navigation-main-wrapper{
         justify-content: center;
     }
+    .ps-menu-children > i {
+        font-size: 1.5rem;
+    }
+
     .ps-toggle-btn{
         display: block;
         position: absolute;
@@ -172,14 +181,20 @@
         display: none !important;
     }
 
-    ul.ps-submenu.active {
+    .ps-submenu.active {
         display: block !important;
         transform: translateY(0) !important;
+        background-color: #fff;
+        position: static;
+        box-shadow: none;
     }
 
     ul.ps-submenu1.active {
         display: block;
         left: 100px;
+        background-color: #fff;
+        position: static;
+        box-shadow: none;
     }
 
     .ps-overlay h2{
@@ -191,10 +206,6 @@
 
     .news-details-content h4{
         margin-inline: 0%;
-    }
-
-    .dropdown-icon {
-        display: block;
     }
 }
 @media(max-width:991px){

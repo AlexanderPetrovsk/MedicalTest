@@ -7,7 +7,7 @@ const resources = {
             header: {
                 home: 'Home',
                 products: 'Products',
-                service: 'Service',
+                service: 'About Us',
                 news: 'News',
                 contact: 'Contact',
                 categories: {
@@ -62,7 +62,7 @@ const resources = {
                 latestNews: 'Latest News',
             },
             products: {
-                shopProducts: 'Shop Products',
+                shopProducts: 'All Products',
                 showingResults: 'Showing results',
                 total: 'Total',
                 productSearch: 'Product Search',
@@ -75,7 +75,7 @@ const resources = {
                 clear: 'clear'
             },
             service: {
-                service: 'Service',
+                service: 'About Us',
                 serviceDescription: 'At Meditek, we are dedicated to providing high-quality medical equipment and exceptional service to our customers. Our extensive range of products and expert support ensures that you have everything you need to enhance patient care and improve outcomes.',
                 serviceContact: 'Get in touch',
                 enterName: 'Enter Name/Last Name',
@@ -102,7 +102,7 @@ const resources = {
             header: {
                 home: 'Почетна',
                 products: 'Производи',
-                service: 'Сервис',
+                service: 'За Нас',
                 news: 'Новости',
                 contact: 'Контакт',
                 categories: {
@@ -171,7 +171,7 @@ const resources = {
                 clear: 'Тргни Филтри'
             },
             service: {
-                service: 'Сервис',
+                service: 'За Нас',
                 serviceDescription: 'Во Медитек, ние сме посветени на обезбедување висококвалитетна медицинска опрема и исклучителни услуги за нашите клиенти. Нашиот широк асортиман на производи и стручна поддршка гарантира дека имате се што ви треба за да ја подобрите грижата за пациентите и да ги подобрите резултатите.',
                 serviceContact: 'Контактирајте нè',
                 enterName: 'Внесете Име/Презиме',

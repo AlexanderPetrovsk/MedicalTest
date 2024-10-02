@@ -68,21 +68,42 @@ function Products(props) {
     const productsFrom = (currentPage - 1) * perPage;
     const productsTo = currentPage * perPage;
 
+    const titles = [
+        {
+            id: 'Neurology',
+            title: t('products.neurology')
+        },
+        {
+            id: 'Internal Medicine',
+            title: t('products.internalMedicine')
+        },
+        {
+            id: 'Rehabilitation',
+            title: t('products.rehabilitation')
+        },
+    ];
+
+    const getTitle = () => {
+        if (chosenCategory) {
+            const title = titles.find(title => title.id === chosenCategory);
+
+            return t(`${title.title}`);
+        }
+
+        return t('products.shopProducts');
+    }
+
     return (
         <React.Fragment>
             <div className='shop-products-main-wrapper container mt-5 mb-5'>
                 <div className='row'>
                     <div className="col-lg-12">
                         <div className="header-title">
-                            <h2>{t('products.shopProducts')}</h2>
+                            <h2>{getTitle()}</h2>
                         </div>
                     </div>
                     <div className='col-lg-12'>
                         <div className='shop-box mb-5'>
-                            <div className='shop-title'>
-                                <h2 className='shop-sidebar-title'>{t('products.showingResults')}</h2>
-                                <p><span>{t('products.total')} : </span>{ props.data.length }</p>
-                            </div>
                             <div className='shop-products'>
                                 { filteredData.slice(productsFrom, productsTo).map((product, index) => {
                                     return (

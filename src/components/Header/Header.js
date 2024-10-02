@@ -195,7 +195,11 @@ function Header() {
                                         <li
                                             className='ps-menu-children dropdown'
                                             onMouseEnter={() => {
-                                                if (!link.subMenus?.length) {
+                                                if (window.innerWidth < 1200) {
+                                                    return;
+                                                }
+
+                                                if (!link.subMenus?.length || window.innerWidth < 768) {
                                                     return;
                                                 }
 
@@ -206,6 +210,10 @@ function Header() {
                                                 subMenuClasslist.add('active');
                                             }}
                                             onMouseLeave={() => {
+                                                if (window.innerWidth < 1200) {
+                                                    return;
+                                                }
+
                                                 const subMenuClasslist = document.querySelector('.ps-submenu').classList
 
                                                 document.querySelectorAll('.ps-submenu1').forEach(submenu => {
@@ -230,7 +238,20 @@ function Header() {
                                             </NavLink>
                                             {
                                                 link.subMenus.length
-                                                    ? <i className='icon-1 fa fa-caret-down'></i>
+                                                    ? <i className='icon-1 fa fa-caret-down' onClick={() => {
+                                                        const subMenuClasslist = document.querySelector('.ps-submenu').classList
+                                                        const icon  = document.querySelector('.icon-1').classList;
+
+                                                        if (subMenuClasslist.contains('active')) {
+                                                            subMenuClasslist.remove('active');
+                                                            icon.remove('fa-caret-up');
+
+                                                            return; 
+                                                        }
+
+                                                        icon.add('fa-caret-up');
+                                                        subMenuClasslist.add('active');
+                                                    }}></i>
                                                     : ''
                                             } 
                                             { link.subMenus.length ?
@@ -246,6 +267,10 @@ function Header() {
                                                                     key={index}
                                                                     onClick={() => window.scrollTo(0, 0)}
                                                                     onMouseEnter={() => {
+                                                                        if (window.innerWidth < 1200) {
+                                                                            return;
+                                                                        }
+
                                                                         document.querySelectorAll('.ps-submenu1').forEach((submenu, arrayIndex) => {
                                                                             if (arrayIndex !== index) {
                                                                                 submenu.classList.remove('active');
@@ -266,7 +291,29 @@ function Header() {
                                                                 >
                                                                     {subMenu.title}
                                                                 </NavLink>
-                                                                <i className='icon-2 fa fa-caret-down dropdown-icon'></i>
+                                                                <i className='icon-2 fa fa-caret-down dropdown-icon' onClick={() => {
+                                                                    if (document.querySelectorAll('.ps-submenu1')[index].classList.contains('active')) {
+                                                                        document.querySelectorAll('.ps-submenu1')[index].classList.remove('active');
+                                                                        document.querySelectorAll('i.dropdown-icon')[index].classList.remove('fa-caret-up');
+
+                                                                        return;
+                                                                    }
+
+                                                                    document.querySelectorAll('.ps-submenu1').forEach((submenu) => {
+                                                                        submenu.classList.remove('active');
+                                                                    });
+
+                                                                    document.querySelectorAll('i.dropdown-icon').forEach(icon => {
+                                                                        icon.classList.remove('fa-caret-up');
+                                                                    });
+
+                                                                    document.querySelector('.ps-submenu').classList.add('active');
+                                                                    const subMenuClasslist = document.querySelectorAll('.ps-submenu1')[index].classList
+                    
+                                                                    const icon  = document.querySelectorAll('.icon-2')[index].classList;
+                                                                    icon.add('fa-caret-up');
+                                                                    subMenuClasslist.add('active');
+                                                                }}></i>
                                                                 <ul
                                                                     className="ps-submenu1"
                                                                     onMouseLeave={() => {
