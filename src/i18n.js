@@ -33,7 +33,7 @@ const resources = {
                 internalMedicine: 'Internal Medicine',
             },
             home: {
-                banner: 'Quality Care Starts Here: Your Trusted Source for Medical Equipment',
+                banner: 'Quality Care Starts Here: <br/> Your Trusted Source for Medical Equipment',
                 ads: {
                     first: {
                         title: 'Smart Glove',
@@ -129,7 +129,7 @@ const resources = {
                 internalMedicine: 'Интерна Медицина',
             },
             home: {
-                banner: 'Квалитетната грижа започнува овде: Вашиот доверлив извор за медицинска опрема',
+                banner: 'Квалитетната грижа започнува овде:<br/> Вашиот доверлив извор за медицинска опрема',
                 ads: {
                     first: {
                         title: 'Паметна ракавица',

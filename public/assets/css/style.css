@@ -433,6 +433,9 @@ span.yellow-bubble{
     position: relative;
     z-index: 0;
 }
+.ps-banner-content {
+    text-align: center;
+}
 .ps-banner-content h5 {
     font-size: 16px;
     font-weight: 700;
@@ -457,7 +460,8 @@ span.yellow-bubble{
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    padding: 300px 135px 250px 200px;
+    padding: 300px 0 300px 0;
+    margin-top: 110px;
 }
 .swiper-button-prev, .swiper-button-next {
     color: var(--white-color) !important;

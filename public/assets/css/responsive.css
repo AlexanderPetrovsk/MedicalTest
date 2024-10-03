@@ -279,7 +279,7 @@
 }
 @media(max-width:767px){    
     .ps-banner-swiper-main-wrapper {
-        padding: 200px 85px 50px 50px;
+        padding: 100px 50px 100px 50px;
     }
     .ps-service-responsive, .ps-ad-responsive, .ps-news-box-last{
         margin-top: 0;
@@ -392,7 +392,8 @@
         text-align: center;
     }
     .ps-banner-swiper-main-wrapper {
-        padding: 90px 30px 50px 50px;
+        padding: 60px 10px 85px 10px;
+        margin-top: 110px;
     }
     .ps-signin-popup-wrapper{
         padding: 15px;

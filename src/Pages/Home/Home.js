@@ -105,9 +105,9 @@ function Home(props) {
         <React.Fragment>
             <div className="ps-banner-swiper-main-wrapper">
                 <div className="row">
-                    <div className="col-lg-9 col-md-12">
+                    <div className="col-lg-9 col-md-12 mx-auto">
                         <div className="ps-banner-content">
-                            <h2>{ t('home.banner') }</h2>									
+                            <h2>{ parse(t('home.banner')) }</h2>									
                         </div>
                     </div>
                 </div>
