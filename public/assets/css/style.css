@@ -80,6 +80,11 @@ p {
 ::-webkit-scrollbar-thumb {
     background: var(--theme-color);
 }
+
+.btn-primary { 
+    background-color: #228B22;
+    border: none;
+}
 .container {
     max-width: 1170px;
 }
@@ -239,7 +244,7 @@ ul.ps-submenu {
     justify-content: space-between;
     position: absolute;
     transform: translateY(-20px);
-    background-color: #fef9f9;
+    background-color: #edf3f6;
     /* background-color: var(--white-color); */
     box-shadow: 0 10px 20px rgb(99 149 189 / 30%);
     max-width: 225px;
@@ -262,7 +267,7 @@ ul.ps-submenu1 {
 ul.ps-submenu1.active {
     display: block;
     position: absolute;
-    background-color: #fef9f9;
+    background-color: #edf3f6;
     box-shadow: 10px 10px 20px rgb(99 149 189 / 30%);
     top: 0;
     left: 222px;
@@ -1472,11 +1477,14 @@ span.yellow-bubble{
 }
 
 .contact-detail {
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.07);
     background: #fff;
     border-radius: 10px;
     padding: 34px 40px 40px;
-
 }
 
 .contact-sidebar-title {

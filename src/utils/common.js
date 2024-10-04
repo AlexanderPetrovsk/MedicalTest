@@ -2,6 +2,8 @@ export const getProducts = async () => {
     let productsData = [];
 
     try {
+        // const res = await fetch('http://localhost:8000/products');
+
         const res = await fetch('https://meditek-api.mk.meditek.com.mk/products');
         productsData = await res.json();
     } catch (e) {}
@@ -10,14 +12,27 @@ export const getProducts = async () => {
 }
 
 export const getNews = async () => {
-    let newsData = [];
+    let data = [];
 
     try {
-        const newsRes = await fetch('https://meditek-api.mk.meditek.com.mk/news');
-        newsData = await newsRes.json();
+        const res = await fetch('https://meditek-api.mk.meditek.com.mk/news');
+        // const res = await fetch('http://localhost:8000/news');
+        data = await res.json();
     } catch (e) {}
 
-    return newsData.reverse();
+    return data.reverse();
+}
+
+export const getBrands = async () => {
+    let data = [];
+
+    try {
+        const res = await fetch('https://meditek-api.mk.meditek.com.mk/brands');
+        // const res = await fetch('http://localhost:8000/brands');
+        data = await res.json();
+    } catch (e) {}
+
+    return data.reverse();
 }
 
 

@@ -15,7 +15,7 @@ const resources = {
                     neurological: 'Neurological',
                     physical: 'Physical',
                     neurology: 'Neurology',
-                    eeg: 'EEG/EMG',
+                    eegEmg: 'EEG/EMG',
                     expendable: 'Expendable',
                     neuroBioFeedback: 'Neuro/Bio feedback',
                     internalMedicine: 'Internal Medicine',
@@ -111,7 +111,7 @@ const resources = {
                     neurological: 'Невролошка',
                     physical: 'Физикална',
                     neurology: 'Неврологија',
-                    eeg: 'ЕЕГ/ЕМГ',
+                    eegEmg: 'ЕЕГ/ЕМГ',
                     expendable: 'Потрошна',
                     neuroBioFeedback: 'Неуро/Био Фидбек',
                     internalMedicine: 'Интерна Медицина',
@@ -148,10 +148,10 @@ const resources = {
                     }
                 },
                 secondBanner: 'Sed Do Eius Tempor Incididunt Ut Labore Et Dolore Magna Aliqua, Lorem Ipsum Dolor Sit Amet',
-                latestProducts: 'Најнови Производи',
+                latestProducts: 'Производи',
                 viewAll: 'Прегледај',
-                shopByBrands: 'Нашите партнери',
-                shopByCategories: 'Производи',
+                shopByBrands: 'Наши партнери',
+                shopByCategories: 'Категории',
                 shopByCategoryDescription: 'consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam nostrud exercit.',
                 rehabilitation: 'Рехабилитација',
                 neurology: 'Неврологија',
@@ -170,7 +170,7 @@ const resources = {
                 neurology: 'Неврологија',
                 internalMedicine: 'Интерна Медицина',
                 clear: 'Тргни Филтри',
-                relatedProducts: 'Поврзани производи'
+                relatedProducts: 'Слични производи'
             },
             service: {
                 service: 'За Нас',

@@ -11,7 +11,7 @@ import Footer from './components/Footer/Footer';
 import reportWebVitals from './reportWebVitals';
 import Products from './Pages/Products/Products';
 import NewsDetail from './Pages/News/NewsDetail';
-import { getNews, getProducts } from './utils/common';
+import { getBrands, getNews, getProducts } from './utils/common';
 import ProductDetail from './Pages/Products/ProductDetail';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Redirect } from './components/Redirect/Redirect';
@@ -20,11 +20,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const productsData = await getProducts();
 const newsData = await getNews();
+const brandsData = await getBrands();
 
 root.render(
   <React.StrictMode>
     <Router>
-      <Header />
+      <Header data={brandsData} />
       <Routes>
         <Route path='/' element={<Redirect />} />
         <Route path='/home' element={<Home latestProducts={productsData.slice(0, 8)} latestNews={newsData.slice(0, 3)} />} />

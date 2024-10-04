@@ -4,141 +4,10 @@ import { NavLink, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
-function Header() {
+function Header(props) {
     polyfillCountryFlagEmojis();
     const { t, i18n } = useTranslation();
-
-    const headerLinks = [
-        {
-            link:'home',
-            title: t('header.home'),
-            subMenus: []
-        },
-        {
-            link: 'products',
-            title: t('header.products'),
-            subMenus: [
-                {
-                    link: 'Rehabilitation',
-                    title: t('header.categories.rehabilitation'),
-                    subMenus: [
-                        {
-                            title: t('header.categories.neurological'),
-                            subMenus: [
-                                {
-                                    title: 'Neofect'
-                                },
-                                {
-                                    title: 'Thera Trainer'
-                                },
-                                {
-                                    title: 'Tyromotion'
-                                },
-                            ]
-                        },
-                        {
-                            title: t('header.categories.physical'),
-                            subMenus: [
-                                {
-                                    title: 'Meden Inmed'
-                                },
-                                {
-                                    title: 'Winback'
-                                },
-                                {
-                                    title: 'ASA Laser'
-                                },
-                                {
-                                    title: 'Zimmer/Enraf Nonous'
-                                },
-                            ]
-                        }
-                    ]
-                },
-                {
-                    link: 'Neurology',
-                    title: t('header.categories.neurology'),
-                    subMenus: [
-                        {
-                            title: t('header.categories.eeg'),
-                            subMenus: [
-                                {
-                                    title: 'EB Neuro'
-                                }
-                            ]
-                        },
-                        {
-                            title: t('header.categories.expendable'),
-                            subMenus: [
-                                {
-                                    title: 'Spes Medica'
-                                }
-                            ]
-                        },
-                        {
-                            title: t('header.categories.neuroBioFeedback'),
-                            subMenus: [
-                                {
-                                    title: 'Elmiko'
-                                },
-                                {
-                                    title: 'Thought Technology'
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    link: 'Internal Medicine',
-                    title: t('header.categories.internalMedicine'),
-                    subMenus: [
-                        {
-                            title: t('header.categories.ekg'),
-                            subMenus: [
-                                {
-                                    title: 'Contec',
-                                },
-                                {
-                                    title: 'Labtech'
-                                }
-                            ]
-                        },
-                        {
-                            title: t('header.categories.spirometry'),
-                            subMenus: [
-                                {
-                                    title: 'MIR'
-                                }
-                            ]
-                        },
-                        {
-                            title: t('header.categories.sleepApnea'),
-                            subMenus: [
-                                {
-                                    title: 'BMC'
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            link: 'service',
-            title: t('header.service'),
-            subMenus: []
-        },
-        {
-            link: 'news',
-            title: t('header.news'),
-            subMenus: []
-        },
-        {
-            link: 'contact',
-            title: t('header.contact'),
-            subMenus: []
-        },
-    ];
+    
 
     const [menuToggle, setMenuToggle] = useState(false);
     const [chosenLang, setChosenLang] = useState('mk');
@@ -172,6 +41,70 @@ function Header() {
         i18n.changeLanguage(searchParams.get('lang'));
     }, [searchParams, i18n, setSearchParams]);
 
+    const categories = props.data.reduce((acc, data) => {
+        const category = chosenLang === 'mk' ? data.categoryMk : data.category;
+        const subCategory = chosenLang === 'mk' ? data.subCategoryMk : data.subCategory;
+
+        if(!acc[category]) {
+            acc[category] = []
+        }
+
+        if (!acc[category][subCategory]) {
+            acc[category][subCategory] = []
+        }
+
+        acc[category][subCategory].push({
+            title: data.name
+        });
+
+        return acc;
+    }, []);
+
+
+    const formattedCategories = [];
+    Object.entries(categories).forEach(category => {
+        const subMenus = Object.entries(category[1])
+            .map((value) => {
+                return {
+                    title: value[0],
+                    subMenus: value[1]
+                }
+            }).reverse();
+
+        formattedCategories.push({
+            link: category[0],
+            title: category[0],
+            subMenus
+        })
+    });
+
+    const headerLinks = [
+        {
+            link:'home',
+            title: t('header.home'),
+            subMenus: []
+        },
+        {
+            link: 'service',
+            title: t('header.service'),
+            subMenus: []
+        },
+        {
+            link: 'products',
+            title: t('header.products'),
+            subMenus: formattedCategories.reverse()
+        },
+        {
+            link: 'news',
+            title: t('header.news'),
+            subMenus: []
+        },
+        {
+            link: 'contact',
+            title: t('header.contact'),
+            subMenus: []
+        },
+    ];
 
     return (
         <div className={`ps-navigation-wrapper fixed-top ${ menuToggle ? 'menu_open' : ''}`}>

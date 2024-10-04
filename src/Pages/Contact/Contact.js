@@ -25,6 +25,7 @@ function Contact() {
 
     const submitForm = async () => {
         const response = await fetch('https://meditek-api.mk.meditek.com.mk/service_request', {
+        // const response = await fetch('http://localhost:8000/service_request', {
             method: 'POST',
             headers: { 'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -63,7 +64,7 @@ function Contact() {
 
     return (
         <div className="contact-detail-wrapper container-sm">
-            <div className="row align-items-center mb-5 mt-5">
+            <div className="row mb-5 mt-5">
                 <div className="contact-detail col-xl-5 col-12 mb-5">
                     <h2 className="contact-sidebar-title">{t('contact.contactInfo')}</h2>
                     <ul>

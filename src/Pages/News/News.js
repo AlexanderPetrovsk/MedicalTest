@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import Pagination from '../../components/Pagination/Pagination';
+import { useEffect, useState } from 'react';
 import { NavLink, useSearchParams } from 'react-router-dom';
 import parse from 'html-react-parser';
 import { useTranslation } from 'react-i18next';
@@ -10,27 +9,18 @@ function News(props) {
 
     const [searchText, setSearchText] = useState('');
 
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const perPage = 8;
+    
     const filteredNews = props.data.filter((product) => {
         if (searchText === '') {
             return product;
         }
 
         return product.title.toLowerCase().includes(searchText.toLowerCase());
-    });
+    }).slice(0, currentPage * perPage);
 
-    const [currentPage, setCurrentPage] = useState(1);
-
-    const handleChange = (currentPage) => {
-        setCurrentPage(currentPage);
-    }
-
-    const perPage = 12;
-
-    const newsFrom = (currentPage - 1) * perPage;
-    const newsTo = currentPage * perPage;
-    
-    const listRef = useRef(null);
-    const executeScroll = () => listRef.current.scrollIntoView();
 
     const getNewsDescription = (description) => {
         if (description.length > 150) {
@@ -64,7 +54,7 @@ function News(props) {
                             <h2>{t('news.latestNews')}</h2>
                         </div>
                     </div>
-                    <div className='col-lg-12 shop-product-search' ref={listRef}>
+                    <div className='col-lg-12 shop-product-search'>
                         <h2 className='shop-sidebar-title mb-3'>{t('news.search')}</h2>
                         <form>
                             <input type="text" placeholder="Search" onChange={(e) => { setSearchText(e.target.value); setCurrentPage(1) }}/>
@@ -72,7 +62,7 @@ function News(props) {
                         </form>
                     </div>
                     <div className='row'>
-                        { filteredNews.slice(newsFrom, newsTo).map((news, index) => {
+                        { filteredNews.map((news, index) => {
                             return (
                                 <div className="col-lg-4 col-md-6 mb-4" key={index}>
                                     <NavLink to={`/news/${news.id}?lang=${searchParams.get('lang')}`}>
@@ -96,8 +86,15 @@ function News(props) {
                             )
                         })}
                     </div>
-                    <div className="news-pagination">
-                        <Pagination perPage={perPage} items={filteredNews} onChange={(currentPage) => { handleChange(currentPage); executeScroll(); }} key={filteredNews}/>
+                    <div className="news-pagination text-center">
+                        { filteredNews.length < props.data.length ?
+                            <button
+                                className="btn btn-primary text-white"
+                                onClick={() => { setCurrentPage(currentPage + 1) }}
+                            >
+                                Load More
+                            </button>
+                        : ''}
                     </div>
                 </div>
             </div>

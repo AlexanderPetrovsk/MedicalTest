@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Pagination from "../../components/Pagination/Pagination";
 import { NavLink, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { getProductTitle } from "../../utils/common";
@@ -34,6 +33,21 @@ function Products(props) {
 
     }, [setChosenCategory, setChosenBrand, searchParams, i18n]);
 
+    const titles = [
+        {
+            id: 'Neurology',
+            title: t('products.neurology')
+        },
+        {
+            id: 'Internal Medicine',
+            title: t('products.internalMedicine')
+        },
+        {
+            id: 'Rehabilitation',
+            title: t('products.rehabilitation')
+        },
+    ];
+
     const filterByBrand = (product) => {
         if (chosenBrand === "") {
             return product;
@@ -50,39 +64,18 @@ function Products(props) {
         return product.category.toLowerCase() === chosenCategory.toLowerCase();
     } 
 
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const perPage = 8;
+
     const filteredData = props.data.filter((el) => {
-        console.log(chosenBrand, chosenCategory);
         return (
             filterByBrand(el)
             && filterByCategory(el)
         ); 
     });
 
-    const [currentPage, setCurrentPage] = useState(1);
-
-    const handleChange = (currentPage) => {
-        setCurrentPage(currentPage);
-    }
-
-    const perPage = 8;
-
-    const productsFrom = (currentPage - 1) * perPage;
-    const productsTo = currentPage * perPage;
-
-    const titles = [
-        {
-            id: 'Neurology',
-            title: t('products.neurology')
-        },
-        {
-            id: 'Internal Medicine',
-            title: t('products.internalMedicine')
-        },
-        {
-            id: 'Rehabilitation',
-            title: t('products.rehabilitation')
-        },
-    ];
+    const paginatedFilteredData = filteredData.slice(0, currentPage * perPage);
 
     const getTitle = () => {
         if (chosenCategory) {
@@ -106,7 +99,7 @@ function Products(props) {
                     <div className='col-lg-12'>
                         <div className='shop-box mb-5'>
                             <div className='shop-products'>
-                                { filteredData.slice(productsFrom, productsTo).map((product, index) => {
+                                { paginatedFilteredData.map((product, index) => {
                                     return (
                                         <NavLink to={`/products/${product.id}?lang=${chosenLang}`} key={index}>
                                             <div className='shop-product-box' >
@@ -122,13 +115,15 @@ function Products(props) {
                                 })}
                             </div>
                         </div>
-                        <div className="shop-pagination">
-                            <Pagination 
-                                perPage={perPage}
-                                items={filteredData}
-                                onChange={(currentPage) => { handleChange(currentPage); window.scrollTo(0, 0); }}
-                                key={filteredData.length}
-                            />
+                        <div className="shop-pagination text-center">
+                            { paginatedFilteredData.length < filteredData.length ?
+                                <button
+                                    className="btn btn-primary text-white"
+                                    onClick={() => { setCurrentPage(currentPage + 1) }}
+                                >
+                                    Load More
+                                </button>
+                            : '' }
                         </div>
                     </div>
                 </div>
