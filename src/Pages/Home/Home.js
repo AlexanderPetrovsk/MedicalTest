@@ -215,23 +215,23 @@ function Home(props) {
                         { props.latestNews.map((news, index) => {
                             return (
                                 <div className="col-lg-4 col-md-6" key={index}>
-                                    <NavLink to={`/news/${news.id}?lang=${chosenLang}`} onClick={() => window.scrollTo(0, 0)}>
                                         <div className="ps-news-box">
                                             <div className="ps-news-inner">
-                                                <div className="ps-news-img">
-                                                    <img src={news.image} alt=""/>
-                                                    <div className="ps-news-overlay"></div>
-                                                    <div className="ps-news-date-btn">
-                                                        <div>{getDate(news.createdOn)}</div>
+                                                <NavLink to={`/news/${news.id}?lang=${chosenLang}`} onClick={() => window.scrollTo(0, 0)}>
+                                                    <div className="ps-news-img">
+                                                        <img src={news.image} alt=""/>
+                                                        <div className="ps-news-overlay"></div>
+                                                        <div className="ps-news-date-btn">
+                                                            <div>{getDate(news.createdOn)}</div>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </NavLink>
                                                 <div className="ps-news-content">
                                                     <h4>{news.Title}</h4>
                                                     <div>{ parse(getNewsDescription(news.Content)) }</div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </NavLink>
                                 </div>
                             )
                         })}

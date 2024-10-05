@@ -884,6 +884,7 @@ span.yellow-bubble{
 .ps-news-img > img {
     height: 100%;
     object-fit: cover;
+    width: 100%;
 }
 .ps-news-overlay{
     position: absolute;

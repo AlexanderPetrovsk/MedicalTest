@@ -72,7 +72,6 @@ function Header(props) {
 
         const subMenus = Object.entries(category[1][categoryTitle])
         .map((value) => {
-            // console.log(value);
                 return {
                     title: value[0],
                     subMenus: value[1]
