@@ -8,6 +8,7 @@ function Products(props) {
 
     const [chosenBrand, setChosenBrand] = useState("");
     const [chosenCategory, setChosenCategory] = useState("");
+    const [subCategory, setSubCategory] = useState("");
 
     const [searchParams] = useSearchParams();
 
@@ -16,9 +17,11 @@ function Products(props) {
     useEffect(() => {
         const category = searchParams.get('category') || '';
         const brand = searchParams.get('brand') || '';
+        const subCategory = searchParams.get('subCategory') || '';
 
         setChosenCategory(category);
         setChosenBrand(brand);
+        setSubCategory(subCategory);
 
         const url = new URL(window.location);
         url.searchParams.delete('brand');
@@ -78,10 +81,15 @@ function Products(props) {
     const paginatedFilteredData = filteredData.slice(0, currentPage * perPage);
 
     const getTitle = () => {
+
+        if (subCategory && chosenBrand) {
+            return `${subCategory} - ${chosenBrand}`;
+        }
+
         if (chosenCategory) {
             const title = titles.find(title => title.id === chosenCategory);
 
-            return t(`${title.title}`);
+            return title.title;
         }
 
         return t('products.shopProducts');

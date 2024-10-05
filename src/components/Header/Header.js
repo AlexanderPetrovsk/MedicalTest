@@ -280,7 +280,7 @@ function Header(props) {
                                                                                         return (
                                                                                             <li key={index}>
                                                                                                 <NavLink
-                                                                                                    to={`/products?lang=${chosenLang}&brand=${final.title}`} key={index}
+                                                                                                    to={`/products?lang=${chosenLang}&subCategory=${menu.title}&brand=${final.title}`} key={index}
                                                                                                     onClick={() => { window.scrollTo(0, 0); setMenuToggle(false);}}
                                                                                                 >
                                                                                                     {final.title}
