@@ -45,15 +45,19 @@ function Header(props) {
         const category = chosenLang === 'mk' ? data.categoryMk : data.category;
         const subCategory = chosenLang === 'mk' ? data.subCategoryMk : data.subCategory;
 
-        if(!acc[category]) {
-            acc[category] = []
+        if(!acc[data.category]) {
+            acc[data.category] = []
         }
 
-        if (!acc[category][subCategory]) {
-            acc[category][subCategory] = []
+        if(!acc[data.category][category]) {
+            acc[data.category][category] = []
         }
 
-        acc[category][subCategory].push({
+        if (!acc[data.category][category][subCategory]) {
+            acc[data.category][category][subCategory] = []
+        }
+
+        acc[data.category][category][subCategory].push({
             title: data.name
         });
 
@@ -63,8 +67,12 @@ function Header(props) {
 
     const formattedCategories = [];
     Object.entries(categories).forEach(category => {
-        const subMenus = Object.entries(category[1])
-            .map((value) => {
+        const categoryLink = category[0];
+        const categoryTitle = Object.keys(category[1])[0];
+
+        const subMenus = Object.entries(category[1][categoryTitle])
+        .map((value) => {
+            // console.log(value);
                 return {
                     title: value[0],
                     subMenus: value[1]
@@ -72,8 +80,8 @@ function Header(props) {
             }).reverse();
 
         formattedCategories.push({
-            link: category[0],
-            title: category[0],
+            link: categoryLink,
+            title: categoryTitle,
             subMenus
         })
     });
