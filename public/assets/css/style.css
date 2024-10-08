@@ -590,13 +590,15 @@ span.yellow-bubble{
 .ps-product-box{
     margin-top: 50px;
     cursor: pointer;
-    border: 1px solid #e8eef6;
     border-radius: 10px;
     background-color: var(--theme-color);
+    max-width: 300px;
+    margin-inline: auto;
 }
 .ps-product-img {
     background-color: #f4f9fd;
     width: 100%;
+    border: 1px solid #e8eef6;
     text-align: center;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
