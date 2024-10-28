@@ -279,6 +279,10 @@
     .swiper-slide > img {
         object-position: 25% 0%;
     }
+
+    .spes-banner-res {
+        object-position: 80% 0% !important;
+    }
 }
 @media(max-width:767px){    
     .ps-banner-swiper-main-wrapper {

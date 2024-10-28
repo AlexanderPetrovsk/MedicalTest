@@ -122,7 +122,7 @@ function Home(props) {
                                     <img src={winbackBanner} alt=''/>
                                 </SwiperSlide>
                                 <SwiperSlide>
-                                    <img src={spesMedicaBanner} alt=''/>
+                                    <img src={spesMedicaBanner} alt='' className='spes-banner-res'/>
                                 </SwiperSlide>
                                 <SwiperSlide>
                                     <img src={theraTrainerBanner} alt=''/>
