@@ -445,7 +445,6 @@
 }
 @media(max-width:425px){
     .ps-brand-logo{
-        display: block;
         text-align: center;
     }
     .ps-footer-newsltr-input input {
