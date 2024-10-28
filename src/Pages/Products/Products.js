@@ -143,7 +143,7 @@ function Products(props) {
                             <div className='shop-products container '>
                                 { paginatedFilteredData.map((product, index) => {
                                     return (
-                                        <NavLink to={`/products/${product.id}?lang=${chosenLang}`} key={index}>
+                                        <NavLink to={`/products/${product.id}?lang=${chosenLang}`} key={index} onClick={() => { window.scrollTo(0, 0)}}>
                                             <div className='shop-product-box' >
                                                 <div className='shop-product-image'>
                                                     <img src={product.image} alt=''/>

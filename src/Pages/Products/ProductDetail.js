@@ -28,7 +28,7 @@ function ProductDetail(props) {
     return (
         <div className="mb-5 mt-5">
             <div className="product-details-container">
-                <div className="mx-5 row mb-5">
+                <div className="row mb-5">
                     <div className="col-lg-6">
                         <div className='product-details-image'>
                             <img src={product.image} alt=''/>
@@ -51,7 +51,11 @@ function ProductDetail(props) {
                 { relatedProducts.slice(0, 3).map((relatedProduct, index) => {
                     return (
                         <div className="col-lg-4" key={index}>
-                            <NavLink to={`/products/${relatedProduct.id}?lang=${chosenLang}`} key={index}>
+                            <NavLink
+                                to={`/products/${relatedProduct.id}?lang=${chosenLang}`}
+                                key={index}
+                                onClick={() => window.scrollTo(0, 0)}
+                            >
                                 <div className='shop-product-box' >
                                     <div className='shop-product-image'>
                                         <img src={relatedProduct.image} alt=''/>

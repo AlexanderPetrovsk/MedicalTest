@@ -317,6 +317,13 @@
         text-align: center;
         margin-bottom: 5rem;
     }
+
+    .product-detail-data > h4{
+        text-align:  center;
+    }
+    .product-detail-data div {
+        max-width: 100%;
+    }
 }
 @media(max-width:575px){
     .ps-english:after{
@@ -415,6 +422,7 @@
     .ps-service-rectangle{
         padding: 47px 0 30px 0;
     }
+
 }
 @media(max-width:480px){    
     .ps-banner-content h2{
