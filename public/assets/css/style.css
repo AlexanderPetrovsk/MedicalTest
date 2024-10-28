@@ -1176,7 +1176,7 @@ span.yellow-bubble{
     padding-top: 10rem;
 }
 .header-banner-title h2 {
-    font-size: clamp(3rem, 3vw, 4rem);
+    font-size: clamp(2.25rem, 3vw, 4rem);
     color: var(--dark-color);
     font-weight: 700;
 }
