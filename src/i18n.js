@@ -33,7 +33,6 @@ const resources = {
                 internalMedicine: 'Internal Medicine',
             },
             home: {
-                banner: 'Quality Care Starts Here: <br/> Your Trusted Source for Medical Equipment',
                 ads: {
                     first: {
                         title: 'Smart Glove',
@@ -77,7 +76,7 @@ const resources = {
             },
             service: {
                 service: 'About Us',
-                serviceDescription: 'At Meditek, we are dedicated to providing high-quality medical equipment and exceptional service to our customers. Our extensive range of products and expert support ensures that you have everything you need to enhance patient care and improve outcomes.',
+                serviceDescription: 'MEDITEK is a young and dynamic company, whose philosophy is based on following the latest technological trends and innovative solutions in the field of medicine, with a constant focus on the needs of our customers.\n\nOur goal is to provide speed and efficiency in responding to your requirements, as well as to dedicate ourselves to the maintenance, upgrade, and servicing of the equipment you have implemented. We offer a wide range of products from world-famous and reputable brands. With the continued growth of our company, we are constantly enriching and expanding our product range. We work with integrity, dedication and responsibility, in order to justify your trust and loyalty',
                 serviceContact: 'Get in touch',
                 enterName: 'Enter Name/Last Name',
                 enterЕmail: 'Enter Email',
@@ -129,7 +128,6 @@ const resources = {
                 internalMedicine: 'Интерна Медицина',
             },
             home: {
-                banner: 'Квалитетната грижа започнува овде:<br/> Вашиот доверлив извор за медицинска опрема',
                 ads: {
                     first: {
                         title: 'Паметна ракавица',
@@ -174,7 +172,7 @@ const resources = {
             },
             service: {
                 service: 'За Нас',
-                serviceDescription: 'Во Медитек, ние сме посветени на обезбедување висококвалитетна медицинска опрема и исклучителни услуги за нашите клиенти. Нашиот широк асортиман на производи и стручна поддршка гарантира дека имате се што ви треба за да ја подобрите грижата за пациентите и да ги подобрите резултатите.',
+                serviceDescription: 'МЕДИТЕК е млада и динамична компанија, чија филозофија е втемелена на следење на најсовремените технолошки трендови и иновативни решенија во областа на медицината, со постојан фокус на потребите на нашите клиенти.\n\nНашата цел е да обезбедиме брзина и ефикасност во одговорите на вашите барања, како и да се посветиме на оддржувањето, надградбата и сервисирањето на имплементираната опрема. Нудиме широка палета на производи од светски познати и реномирани брендови. Со континуираниот раст на нашата компанија, постојано го збогатуваме и прошируваме нашиот асортиман на производи. Работиме со интегритет, посветеност и одговорност, со цел да ја оправдаме вашата доверба и лојалност',
                 serviceContact: 'Контактирајте нè',
                 enterName: 'Внесете Име/Презиме',
                 enterЕmail: 'Внесете Е-Пошта',

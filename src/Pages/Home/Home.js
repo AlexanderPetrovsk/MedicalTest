@@ -1,20 +1,23 @@
 import product1 from '../../assets/product1.png';
 import product2 from '../../assets/product2.jpg';
 import product3 from '../../assets/product3.jpg';
-import neofect from '../../assets/neofect.svg';
-import meden from '../../assets/meden.svg';
-import spes from '../../assets/spes.svg';
-import contec from '../../assets/contec.png';
 import lungs from '../../assets/lungs.svg';
 import spa from '../../assets/spa.svg';
 import brain from '../../assets/brain.svg';
+import ebNeuroBanner from '../../assets/ebNeuroBanner.jpg';
+import zimmerBanner from '../../assets/zimmerBanner.jpg';
+import winbackBanner from '../../assets/winbackBanner.jpg';
+import theraTrainerBanner from '../../assets/theraTrainerBanner.jpg';
+import spesMedicaBanner from '../../assets/spesMedicaBanner.jpg';
 import React, { useEffect, useState } from 'react';
-import 'swiper/css';
-import 'swiper/css/navigation'
 import { NavLink, useSearchParams } from 'react-router-dom';
 import parse from 'html-react-parser';
 import { useTranslation } from 'react-i18next';
 import { getProductTitle } from '../../utils/common';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+
+import 'swiper/css';
 
 function Home(props) {
     const { t, i18n } = useTranslation();
@@ -40,24 +43,16 @@ function Home(props) {
         },
     ]
 
-    const brands = [
-        {
-            image: neofect,
-            title: 'Neofect'
-        },
-        {
-            image: meden,
-            title: 'Meden Inmed'
-        },
-        {
-            image: spes,
-            title: 'Spes Medica'
-        },
-        {
-            image: contec,
-            title: 'Contec'
-        },
-    ];
+    const doesImageExist = (url) => {
+
+        if (url === 'https://meditek-api.mk.meditek.com.mk/uploads/brand_logos/') {
+            return false;
+        }
+    
+        return true;
+    }
+
+    const brands = props.brands.filter(brand => doesImageExist(brand.logo));
 
     const getProductsLayout = (products) => {
         return products.map((product, index) => {
@@ -105,9 +100,34 @@ function Home(props) {
         <React.Fragment>
             <div className="ps-banner-swiper-main-wrapper">
                 <div className="row">
-                    <div className="col-lg-9 col-md-12 mx-auto">
+                    <div className="col-lg-12">
                         <div className="ps-banner-content">
-                            <h2>{ parse(t('home.banner')) }</h2>									
+                            <Swiper
+                                spaceBetween={10}
+                                slidesPerView={1}
+                                loop={true}
+                                autoplay={{
+                                    delay: 2000,
+                                    disableOnInteraction: false
+                                }}
+                                modules={[Autoplay]}
+                            >
+                                <SwiperSlide>
+                                    <img src={ebNeuroBanner} alt=''/>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <img src={zimmerBanner} alt=''/>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <img src={winbackBanner} alt=''/>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <img src={spesMedicaBanner} alt=''/>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <img src={theraTrainerBanner} alt=''/>
+                                </SwiperSlide>
+                            </Swiper>
                         </div>
                     </div>
                 </div>
@@ -152,24 +172,22 @@ function Home(props) {
                 </div>
             </div>
             <div className="ps-brand-main-wrapper">
-                <div className="container">
                     <div className="row">
-                        <div className="col-lg-12 col-md-12 col-12">
-                            <div className="ps-best-seller-heading">
+                        <div className="col-lg-12">
+                            <div className="ps-best-seller-heading container">
                                 <h4>{t('home.shopByBrands')}</h4>
                             </div>
                             <div className="ps-brand-logo align-items-center">
                                 {brands.map((brand, index) => {
                                     return (
-                                        <NavLink to={`/products?lang=${chosenLang}&brand=${brand.title}`} onClick={() => window.scrollTo(0, 0)} key={index}>
-                                            <img src={brand.image} key={index} alt=""/>
+                                        <NavLink to={`/products?lang=${chosenLang}&brand=${brand.name}`} onClick={() => window.scrollTo(0, 0)} key={index}>
+                                            <img src={brand.logo} key={index} alt=""/>
                                         </NavLink>
                                     )
                                 })}
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
             <div className="ps-shop-categry-main-wrapper">
                 <div className="container">

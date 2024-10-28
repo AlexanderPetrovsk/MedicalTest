@@ -22,13 +22,13 @@ function ProductDetail(props) {
     const product = props.data.find(item => parseInt(item.id) === parseInt(id));
 
     const relatedProducts = props.data.filter((related) => {
-        return (related.brand === product.brand || related.category === product.category) && related.id !== product.id;
+        return related.brand === product.brand && related.id !== product.id;
     });
 
     return (
-        <div className="container-sm mb-5 mt-5">
+        <div className="mb-5 mt-5">
             <div className="product-details-container">
-                <div className="row mb-5">
+                <div className="mx-5 row mb-5">
                     <div className="col-lg-6">
                         <div className='product-details-image'>
                             <img src={product.image} alt=''/>
@@ -51,7 +51,7 @@ function ProductDetail(props) {
                 { relatedProducts.slice(0, 3).map((relatedProduct, index) => {
                     return (
                         <div className="col-lg-4" key={index}>
-                            <NavLink to={`/products/${relatedProduct.id}`} key={index}>
+                            <NavLink to={`/products/${relatedProduct.id}?lang=${chosenLang}`} key={index}>
                                 <div className='shop-product-box' >
                                     <div className='shop-product-image'>
                                         <img src={relatedProduct.image} alt=''/>

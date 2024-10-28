@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { getProductTitle } from "../../utils/common";
+import neurology from '../../assets/neurologyStart.jpg';
+import rehab from '../../assets/rehabStart.jpg';
+import internalMedicine from '../../assets/internalMedicineStart.jpg';
 
 function Products(props) {
     const { t, i18n } = useTranslation();
@@ -39,15 +42,18 @@ function Products(props) {
     const titles = [
         {
             id: 'Neurology',
-            title: t('products.neurology')
+            title: t('products.neurology'),
+            image: neurology,
         },
         {
             id: 'Internal Medicine',
-            title: t('products.internalMedicine')
+            title: t('products.internalMedicine'),
+            image: internalMedicine
         },
         {
             id: 'Rehabilitation',
-            title: t('products.rehabilitation')
+            title: t('products.rehabilitation'),
+            image: rehab
         },
     ];
 
@@ -81,7 +87,6 @@ function Products(props) {
     const paginatedFilteredData = filteredData.slice(0, currentPage * perPage);
 
     const getTitle = () => {
-
         if (subCategory && chosenBrand) {
             return `${subCategory} - ${chosenBrand}`;
         }
@@ -94,19 +99,48 @@ function Products(props) {
 
         return t('products.shopProducts');
     }
+    
+    const getImage = () => {
+        const title = titles.find(title => title.id === chosenCategory);
 
+        return title.image;
+    }
+
+    const getCategoryBanner = () => {
+        if (chosenCategory) {
+            return (
+                <div
+                    className="header-banner pb-2 mb-5"
+                    style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(${getImage()})`}}
+                >
+                    <div className="row align-items-center justify-content-center mx-auto mb-5 container">
+                        <div className="col-12 col-md-6 header-banner-title">
+                            <h2>{ getTitle() }</h2>
+                        </div>
+                        <div className="col-12 col-md-6">
+                            <img className="header-banner-img" src={getImage()} alt="" />
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+
+        return (
+            <div className="header-title">
+                <h2>{getTitle()}</h2>
+            </div>
+        )
+    }
     return (
         <React.Fragment>
-            <div className='shop-products-main-wrapper container mt-5 mb-5'>
+            <div className='shop-products-main-wrapper mb-5'>
                 <div className='row'>
                     <div className="col-lg-12">
-                        <div className="header-title">
-                            <h2>{getTitle()}</h2>
-                        </div>
+                        { getCategoryBanner() }
                     </div>
                     <div className='col-lg-12'>
                         <div className='shop-box mb-5'>
-                            <div className='shop-products'>
+                            <div className='shop-products container '>
                                 { paginatedFilteredData.map((product, index) => {
                                     return (
                                         <NavLink to={`/products/${product.id}?lang=${chosenLang}`} key={index}>

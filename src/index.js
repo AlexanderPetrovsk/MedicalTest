@@ -28,7 +28,7 @@ root.render(
       <Header data={brandsData} />
       <Routes>
         <Route path='/' element={<Redirect />} />
-        <Route path='/home' element={<Home latestProducts={productsData.slice(0, 8)} latestNews={newsData.slice(0, 3)} />} />
+        <Route path='/home' element={<Home latestProducts={productsData.slice(0, 8)} latestNews={newsData.slice(0, 3)} brands={brandsData} />} />
         <Route path='/products' element={<Products data={productsData}/>} />
         <Route path='/service' element={<Service />} />
         <Route path='/contact' element={<Contact />} />

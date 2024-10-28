@@ -31,7 +31,7 @@
         padding:10px 15px;
     }
     .ps-banner-swiper-main-wrapper .swiper-slide{
-        padding: 200px 135px 250px 135px;
+        padding: 0 !important
     }
     .ps-banner-slider-btn .swiper-button-prev{
         left: 15px;
@@ -276,10 +276,14 @@
         display: flex;
         justify-content: center;
     }
+    .swiper-slide > img {
+        object-position: 25% 0%;
+    }
 }
 @media(max-width:767px){    
     .ps-banner-swiper-main-wrapper {
-        padding: 100px 50px 100px 50px;
+        margin-top: 6rem;
+        padding: 0 !important
     }
     .ps-service-responsive, .ps-ad-responsive, .ps-news-box-last{
         margin-top: 0;
@@ -304,6 +308,10 @@
     }
     .ps-deal-main-wrapper .container-fluid{
         padding: 0 15px;
+    }
+    .header-banner-title h2 {
+        text-align: center;
+        margin-bottom: 5rem;
     }
 }
 @media(max-width:575px){
@@ -392,8 +400,7 @@
         text-align: center;
     }
     .ps-banner-swiper-main-wrapper {
-        padding: 60px 10px 85px 10px;
-        margin-top: 110px;
+        padding: 0 !important
     }
     .ps-signin-popup-wrapper{
         padding: 15px;
@@ -465,7 +472,7 @@
 }
 @media(max-width:320px){
     .ps-banner-swiper-main-wrapper .swiper-slide {
-        padding: 80px 0 250px 30px;
+        padding: 0 !important
     }
     .ps-navigation-wrapper {
         padding: 25px 10px;
