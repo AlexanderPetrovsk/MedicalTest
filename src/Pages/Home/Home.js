@@ -108,8 +108,9 @@ function Home(props) {
                                 slidesPerView={1}
                                 loop={true}
                                 autoplay={{
-                                    delay: 2000,
+                                    delay: 1500,
                                 }}
+                                speed={1000}
                                 modules={[Autoplay]}
                             >
                                 <SwiperSlide>
