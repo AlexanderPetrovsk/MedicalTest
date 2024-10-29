@@ -56,8 +56,11 @@ function Home(props) {
     const getProductsLayout = (products) => {
         return products.map((product, index) => {
             return (
-                <div className="col-lg-3 col-md-6 col-12" key={index}>
-                    <NavLink to={`/products/${product.id}?lang=${chosenLang}`} onClick={() => window.scrollTo(0, 0)}>
+                <div className="col-lg-3 col-md-6 col-12 mb-3" key={index}>
+                    <NavLink
+                        to={`/products/${product.id}?lang=${chosenLang}`}
+                        onClick={() => window.scrollTo(0, 0)}
+                    >
                         <div className="ps-product-box">
                             <div className="ps-product-img">
                                 <img src={product.image} alt="" />
@@ -160,7 +163,10 @@ function Home(props) {
                         <div className="col-lg-12 col-md-12 col-12">
                             <div className="ps-best-seller-heading">
                                 <h4>{t('home.latestProducts')}</h4>
-                                <NavLink to={`/products?lang=${chosenLang}`} onClick={() => window.scrollTo(0, 0)}>
+                                <NavLink
+                                    to={`/products?lang=${chosenLang}`}
+                                    onClick={() => window.scrollTo(0, 0)}
+                                >
                                     { t('home.viewAll') }
                                 </NavLink>
                             </div>
