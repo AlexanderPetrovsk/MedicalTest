@@ -1,14 +1,14 @@
+import spa from '../../assets/spa.svg';
+import lungs from '../../assets/lungs.svg';
+import brain from '../../assets/brain.svg';
 import product1 from '../../assets/product1.png';
 import product2 from '../../assets/product2.jpg';
 import product3 from '../../assets/product3.jpg';
-import lungs from '../../assets/lungs.svg';
-import spa from '../../assets/spa.svg';
-import brain from '../../assets/brain.svg';
-import ebNeuroBanner from '../../assets/bannerPictures/ebNeuroBanner.jpg';
 import zimmerBanner from '../../assets/bannerPictures/zimmerBanner.jpg';
+import ebNeuroBanner from '../../assets/bannerPictures/ebNeuroBanner.jpg';
 import winbackBanner from '../../assets/bannerPictures/winbackBanner.jpg';
-import theraTrainerBanner from '../../assets/bannerPictures/theraTrainerBanner.jpg';
 import spesMedicaBanner from '../../assets/bannerPictures/spesMedicaBanner.jpg';
+import theraTrainerBanner from '../../assets/bannerPictures/theraTrainerBanner.jpg';
 import React, { useEffect, useState } from 'react';
 import { NavLink, useSearchParams } from 'react-router-dom';
 import parse from 'html-react-parser';
@@ -43,7 +43,6 @@ function Home(props) {
     ]
 
     const doesImageExist = (url) => {
-
         if (url === 'https://meditek-api.mk.meditek.com.mk/uploads/brand_logos/') {
             return false;
         }
@@ -182,13 +181,37 @@ function Home(props) {
                                 <h4>{t('home.shopByBrands')}</h4>
                             </div>
                             <div className="ps-brand-logo align-items-center">
-                                {brands.map((brand, index) => {
-                                    return (
-                                        <NavLink to={`/products?lang=${chosenLang}&brand=${brand.name}`} onClick={() => window.scrollTo(0, 0)} key={index}>
-                                            <img src={brand.logo} key={index} alt=""/>
-                                        </NavLink>
-                                    )
-                                })}
+                                <Swiper
+                                    spaceBetween={0}
+                                    loop={true}
+                                    autoplay={{
+                                        delay: 500,
+                                        pauseOnMouseEnter: true
+                                    }}
+                                    breakpoints={{
+                                        576: {
+                                          slidesPerView: 1,
+                                        },
+                                        768: {
+                                          slidesPerView: 3,
+                                        },
+                                      }}
+                                    modules={[Autoplay]}
+                                >
+                                    {brands.map((brand, index) => {
+                                        return (
+                                            <SwiperSlide>
+                                                <NavLink
+                                                    to={`/products?lang=${chosenLang}&brand=${brand.name}`}
+                                                    onClick={() => window.scrollTo(0, 0)}
+                                                    key={index}
+                                                >
+                                                    <img className='brand-logo-img' src={brand.logo} key={index} alt=""/>
+                                                </NavLink>
+                                            </SwiperSlide>
+                                        )
+                                    })}
+                                </Swiper>
                             </div>
                         </div>
                     </div>

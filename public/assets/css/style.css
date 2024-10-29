@@ -695,15 +695,20 @@ span.yellow-bubble{
     overflow-x: scroll;
     gap: 1rem;
 }
-.ps-brand-logo img{
+.brand-logo-img{
     margin: 0 auto;
     margin-bottom: 20px;
     transition: all 0.3s;
     min-width: 250px;
     margin-right: 1rem;
+    width: 100%;
 }
-.ps-brand-logo img:hover{
+.brand-logo-img:hover{
     transform: translateX(-5px);
+}
+.ps-brand-logo .swiper-wrapper {
+    align-items: center;
+    gap: 2rem;
 }
 /* brand section css end */
 /* deal of the week section start */
