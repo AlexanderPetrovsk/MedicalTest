@@ -18,7 +18,7 @@ function News(props) {
             return product;
         }
 
-        return product.title.toLowerCase().includes(searchText.toLowerCase());
+        return product.Title.toLowerCase().includes(searchText.toLowerCase());
     }).slice(0, currentPage * perPage);
 
 
