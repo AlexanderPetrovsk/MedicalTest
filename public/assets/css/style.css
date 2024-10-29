@@ -1178,6 +1178,15 @@ span.yellow-bubble{
     margin-bottom: 5rem;
 }
 
+.news-header-title {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 42px;
+    color: var(--dark-color);
+    font-weight: 700;
+    margin-bottom: 5rem;
+}
+
 .header-banner {
     background-size: cover;
     background-repeat: no-repeat;

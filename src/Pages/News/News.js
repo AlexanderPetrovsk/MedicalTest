@@ -50,7 +50,7 @@ function News(props) {
             <div className="container">
                 <div className="ps-news-row-parent">
                     <div className="col-lg-12">
-                        <div className="header-title">
+                        <div className="news-header-title">
                             <h2>{t('news.latestNews')}</h2>
                         </div>
                     </div>
