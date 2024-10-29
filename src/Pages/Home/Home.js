@@ -51,8 +51,7 @@ function Home(props) {
         return true;
     }
 
-    let brands = props.brands.filter(brand => doesImageExist(brand.logo));
-    brands = brands.concat(brands);
+    const brands = props.brands.filter(brand => doesImageExist(brand.logo));
 
     const getProductsLayout = (products) => {
         return products.map((product, index) => {
