@@ -14,7 +14,9 @@ Project: Pharma Shop Html
     --dark-color: #515151;
     --white-color: #ffffff;
     --btn-hover-color:#228B22;
-    overflow-x: hidden;    
+}
+#root {
+    overflow-x: hidden;
 }
 body {
     margin: 0;

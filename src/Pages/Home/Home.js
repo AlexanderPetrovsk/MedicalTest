@@ -16,7 +16,6 @@ import { useTranslation } from 'react-i18next';
 import { getProductTitle } from '../../utils/common';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-
 import 'swiper/css';
 
 function Home(props) {
@@ -52,7 +51,8 @@ function Home(props) {
         return true;
     }
 
-    const brands = props.brands.filter(brand => doesImageExist(brand.logo));
+    let brands = props.brands.filter(brand => doesImageExist(brand.logo));
+    brands = brands.concat(brands);
 
     const getProductsLayout = (products) => {
         return products.map((product, index) => {
@@ -108,24 +108,23 @@ function Home(props) {
                                 loop={true}
                                 autoplay={{
                                     delay: 2000,
-                                    disableOnInteraction: false
                                 }}
                                 modules={[Autoplay]}
                             >
                                 <SwiperSlide>
-                                    <img src={ebNeuroBanner} alt=''/>
+                                    <img src={ebNeuroBanner} alt=''className='eb-banner-res' />
                                 </SwiperSlide>
                                 <SwiperSlide>
-                                    <img src={zimmerBanner} alt=''/>
+                                    <img src={zimmerBanner} alt='' className='zimmer-banner-res' />
                                 </SwiperSlide>
                                 <SwiperSlide>
-                                    <img src={winbackBanner} alt=''/>
+                                    <img src={winbackBanner} alt='' className='winback-banner-res'/>
                                 </SwiperSlide>
                                 <SwiperSlide>
-                                    <img src={spesMedicaBanner} alt='' className='spes-banner-res'/>
+                                    <img src={spesMedicaBanner} alt='' className='spes-banner-res' />
                                 </SwiperSlide>
                                 <SwiperSlide>
-                                    <img src={theraTrainerBanner} alt=''/>
+                                    <img src={theraTrainerBanner} alt='' className='thera-banner-res'/>
                                 </SwiperSlide>
                             </Swiper>
                         </div>
