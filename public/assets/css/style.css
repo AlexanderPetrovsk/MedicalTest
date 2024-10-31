@@ -91,6 +91,10 @@ p {
 .container {
     max-width: 1170px;
 }
+
+.loading-state {
+    padding-block: 35vh;
+}
 /* button css */
 .ps-btn{
     border: 1px solid var(--theme-color);

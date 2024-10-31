@@ -17,7 +17,18 @@ function Products(props) {
 
     const [chosenLang, setChosenLang] = useState('mk');
 
+    const [isLoading, setIsLoading] = useState(true);
+
+
     useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1500);
+    }, [isLoading]);
+
+    useEffect(() => {
+        setIsLoading(true);
+
         const category = searchParams.get('category') || '';
         const brand = searchParams.get('brand') || '';
         const subCategory = searchParams.get('subCategory') || '';
@@ -118,7 +129,7 @@ function Products(props) {
                             <h2>{ getTitle() }</h2>
                         </div>
                         <div className="col-12 col-md-6">
-                            <img className="header-banner-img" src={getImage()} alt="" />
+                            <img className="header-banner-img" src={getImage()} alt=""/>
                         </div>
                     </div>
                 </div>
@@ -129,6 +140,19 @@ function Products(props) {
             <div className="header-title">
                 <h2>{getTitle()}</h2>
             </div>
+        )
+    }
+
+
+    if (isLoading) {
+        return (
+            <div class="d-flex justify-content-center">
+                <div className="loading-state">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>            
         )
     }
     return (
