@@ -125,11 +125,8 @@ function Products(props) {
                     style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(${getImage()})`}}
                 >
                     <div className="row align-items-center justify-content-center mx-auto mb-5 container">
-                        <div className="col-12 col-md-6 header-banner-title">
+                        <div className="header-banner-title">
                             <h2>{ getTitle() }</h2>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <img className="header-banner-img" src={getImage()} alt=""/>
                         </div>
                     </div>
                 </div>

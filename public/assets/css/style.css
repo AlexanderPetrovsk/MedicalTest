@@ -1199,13 +1199,13 @@ span.yellow-bubble{
     background-repeat: no-repeat;
 }
 
-.header-banner .row {
-    padding-top: 10rem;
-}
+
 .header-banner-title h2 {
-    font-size: clamp(2.25rem, 3vw, 4rem);
+    font-size: clamp(3rem, 6vw, 4rem);
     color: var(--dark-color);
     font-weight: 700;
+    padding: 20rem 0 20% 0;
+    text-align: center;
 }
 
 .header-banner-img {
