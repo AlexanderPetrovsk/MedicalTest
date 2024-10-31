@@ -702,14 +702,17 @@ span.yellow-bubble{
     min-width: 250px;
     margin-right: 1rem;
     width: 100%;
+    max-width: 400px;
 }
 .brand-logo-img:hover{
     transform: translateX(-5px);
 }
 .ps-brand-logo .swiper-wrapper {
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 }
+
+
 /* brand section css end */
 /* deal of the week section start */
 .ps-deal-main-wrapper .container-fluid {

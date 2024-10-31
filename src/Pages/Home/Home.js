@@ -171,7 +171,7 @@ function Home(props) {
                                 </NavLink>
                             </div>
                         </div>
-                        { getProductsLayout(props.latestProducts) }
+                        { getProductsLayout(props.homepageProducts) }
                     </div>
                 </div>
             </div>
@@ -189,23 +189,26 @@ function Home(props) {
                                         delay: 500,
                                         pauseOnMouseEnter: true
                                     }}
+                                    speed={1000}
                                     breakpoints={{
                                         576: {
-                                          slidesPerView: 1,
+                                            slidesPerView: 1,
                                         },
                                         768: {
-                                          slidesPerView: 3,
+                                            slidesPerView: 3,
                                         },
-                                      }}
+                                        1600: {
+                                            slidesPerView: 5,
+                                        },
+                                    }}
                                     modules={[Autoplay]}
                                 >
                                     {brands.map((brand, index) => {
                                         return (
-                                            <SwiperSlide>
+                                            <SwiperSlide key={index}>
                                                 <NavLink
                                                     to={`/products?lang=${chosenLang}&brand=${brand.name}`}
                                                     onClick={() => window.scrollTo(0, 0)}
-                                                    key={index}
                                                 >
                                                     <img className='brand-logo-img' src={brand.logo} key={index} alt=""/>
                                                 </NavLink>
